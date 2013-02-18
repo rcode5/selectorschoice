@@ -1,7 +1,12 @@
 class Track < ActiveRecord::Base
   validates :title, uniqueness: true, presence: true
   validates :url, url: true, presence: true
-  attr_accessible :description, :display_title, :playlist, :recorded_on, :title, :url
+
+  acts_as_taggable
+  acts_as_taggable_on :styles
+
+  attr_accessible :description, :display_title, :playlist, :recorded_on, :title, :url, :tag_list, :style_list
+
 
   def pretty_title
     display_title.present? ? display_title : title

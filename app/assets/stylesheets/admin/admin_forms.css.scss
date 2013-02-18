@@ -21,6 +21,11 @@
   .input {
     margin-bottom: 20px;
   }
+  .select2-container, .select2-container ul {
+    @include border-radius(4px);
+    padding: 5px;
+  }
+
 
 }
     

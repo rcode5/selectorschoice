@@ -1,7 +1,7 @@
 #notice #{notice}
 
 %p
-  %b Title:
+  %b Title
   = @track.title 
 
 %p 
@@ -10,21 +10,31 @@
 
 %p 
   %b Recorded on
-  = @track.recorded_on.to_date
+  = @track.recorded_on.to_date unless @track.recorded_on.blank?
 
 %p 
-  Playit here
-  %audio{loop: false, src: @track.url}
+  %b URL
+  #{@track.url}
+
+%p
+  %b Tags 
+  #{@track.tag_list.join(",")}
+
+%p 
+  %b Styles 
+  #{@track.style_list.join(",")}
 
 %p
   %b Playlist:
-  %pre
-    = @track.playlist
+  .content.markup
+    = markup @track.playlist
 
 %p
   %b Description:
-  = @track.description 
+  .content.markup
+    = @track.description 
 
 
-= link_to 'Edit', edit_admin_track_path(@track) |
+= link_to 'Edit', edit_admin_track_path(@track) 
+|
 = link_to 'All Tracks', admin_tracks_path

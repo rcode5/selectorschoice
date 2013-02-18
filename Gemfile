@@ -10,6 +10,8 @@ gem 'clearance'
 gem 'quiet_assets'
 gem 'simple_form'
 gem 'rdiscount'
+gem 'acts-as-taggable-on'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

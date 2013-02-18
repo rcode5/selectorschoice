@@ -1,26 +1,30 @@
 %h1 Tracks
 
-%table.tracks
-  %tr
-    %th Date
-    %th Title
-    %th URL
-    %th
-
-  - @tracks.each do |track|
+- if @tracks.empty?
+  .empty Maybe you ought to add some tracks!
+- else
+  %table.tracks
     %tr
-      %td #{track.recorded_on.to_date.strftime("%M/%d/%Y")}
-      %td #{track.pretty_title}
-      %td
-        %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
-        = link_to_icon 'external-url', track.url, target: "_blank" 
+      %th Date
+      %th Title
+      %th Author
+      %th URL
+      %th
 
-      %td
-        = link_to_icon 'show', admin_track_path(track)
-        |
-        = link_to_icon 'edit', edit_admin_track_path(track)
-        |
-        = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+    - @tracks.each do |track|
+      %tr.track
+        %td #{track.recorded_on.to_date.strftime("%M/%d/%Y") if track.recorded_on}
+        %td #{track.pretty_title}
+        %td #{track.author}
+        %td
+          %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
+          = link_to_icon 'external-url', track.url, target: "_blank" 
+
+        %td.edit-controls
+          = link_to_icon 'show', admin_track_path(track)
+          = link_to_icon 'edit', edit_admin_track_path(track)
+          = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
 
 
-= link_to 'New Track', new_admin_track_path
+.controls 
+  = link_to 'Add New Track', new_admin_track_path

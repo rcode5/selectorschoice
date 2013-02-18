@@ -4,21 +4,61 @@
 
 $block-margin: 20px;
 $block-padding: 20px;
+
+ul.tracks {
+  @include clearfix;
+}
+
 li.track {
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
+  @include border-radius(15px);
+  background-color: $dark_gray;
+  @include opacity(0.9);
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  width: $width;
   display:block;
   float: left;
   padding: $block-padding;
   margin: $block-margin;
-  width: $width/2 - 2 * $block-margin - 2 * $block-margin;
-
-  height: 300px;
   border: 1px solid $dark_gray;
+  .hd {
+    .title {
+      text-transform: uppercase;
+    }
+    div {
+      display: inline-block;
+    }
+    .recorded_on {
+      margin-left: 20px;
+    }
+  }
+  .bd, .ft {
+    margin-top: 10px;
+  }
+  .tracklist {
+    margin-top: 10px;
+  }
+  .tags, .styles {
+    line-height: 2.5em;
+  }
+  .tag {
+    @include border-radius(4px);
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid $dark_gray;
+    background-color: $medium_gray;
+  }
+  .load-audio {
+    cursor: pointer;
+  }
+  h5, h6 { display:inline-block}
+  .download, .load-audio {
+    font-size: 18px;
+  }
+  .download {
+    .icon {
+      text-align: bottom;
+    }
+  }
 }
 
 .audiojs {
@@ -38,5 +78,11 @@ li.track {
     em, strong {
       font-family: helvetica, sans-serif;
     }
+  }
+}
+
+.markup {
+  li {
+    line-height: 1.4em;
   }
 }

@@ -12,10 +12,15 @@
     width: 600px;
   }
 
-  table input {
-    width: 300px;
+  table {
+    .icon {
+      vertical-align: middle;
+    }
+    input {
+      width: 300px;
+    }
   }
-  
+
   li.selected {
     a {
       color: white;
@@ -23,24 +28,33 @@
   }
   .main {
     width: $width;
+  }
     
-    table.tracks {
-      max-width: $width;
-      border-top: 1px solid $medium_gray;
-      background: black;
-      @include opacity(0.7);
-      tr.odd {
-        background: $dark_gray;
-      }
-      td {
-        padding: 2px 5px;
-        overflow:hidden;
-        &.url {
-          width: 300px;
-          overflow:hidden;
-        }
-      }
-      
+  table.tracks {
+    max-width: $width;
+    border-top: 1px solid $medium_gray;
+    background: black;
+    @include opacity(0.7);
+    tr.track { 
+      height: 45px;
     }
+    .text-copy {
+      margin-right: 10px;
+    }
+    .edit-controls {
+      padding-left: 30px;
+    }
+    tr.odd {
+      background: $dark_gray;
+    }
+    td {
+      padding: 2px 5px;
+      overflow:hidden;
+      &.url {
+        width: 300px;
+        overflow:hidden;
+      }
+    }
+    
   }
 }

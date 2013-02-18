@@ -11,6 +11,10 @@ class Admin::TracksController < AdminController
     end
   end
 
+#  def tags
+#    render json: Track.all.map(&:tags).flatten.map(&:name).uniq.compact.sort
+#  end
+
   # GET /tracks/1
   # GET /tracks/1.json
   def show
