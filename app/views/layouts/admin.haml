@@ -20,19 +20,4 @@
         = render '/admin/common/flash'
         = yield
         .bottom_spacer
-    %footer
-      %span 
-        [ site by 
-        %a{:href => 'http://rcode5.com'} rcode5
-        ]
-      %span 
-        [
-        hosted by
-        %a{:href => 'http://heroku.com'} heroku
-        ]
-      %span
-        [
-        icons by
-        %a{:href => 'http://purtypixels.com'} purty pixels
-        ]
-    
+    = render '/common/footer'

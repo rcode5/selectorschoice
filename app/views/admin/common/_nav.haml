@@ -4,4 +4,6 @@
       - [['dashboard', admin_index_path], ['tracks', admin_tracks_path], ['main site', root_path]].each do |name, path|
         - selected = (request.path == path) ? 'selected' : nil
         %li{ class: selected }
-          %a{href: path} #{name}
+          = link_to name, path
+      %li
+        = link_to 'sign out', sign_out_path, method: :delete

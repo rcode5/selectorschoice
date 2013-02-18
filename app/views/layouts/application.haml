@@ -17,12 +17,13 @@
           %nav.site_nav
             %ul
               %li            
-                %a{:href => '/admin'} administration
-              %li            
-                %a{:href => '/sign_out'} sign out
+                = link_to 'dashboard', admin_path
+              %li
+                = link_to 'sign out', sign_out_path, method: :delete
+
 
       .main{:id => @current_section}
         =yield
         .bottom_spacer
-    = render 'footer'
+    = render '/common/footer'
     

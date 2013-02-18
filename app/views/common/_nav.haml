@@ -1,0 +1,8 @@
+- if signed_in?
+  %nav.site_nav
+    %ul
+      %li            
+        = link_to 'dashboard', admin_index_path
+      %li
+        = link_to 'sign out', sign_out_path, method: :delete
+

@@ -18,9 +18,9 @@ SelectorsChoice::Application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  match 'sign_in' => 'sessions#new', :as => 'sign_in'
-  match 'sign_out' => 'sessions#destroy', :as => 'sign_out', :via => :delete
-  match 'sign_up' => redirect('/')
+  match '/sign_in' => 'sessions#new', :as => 'sign_in'
+  match '/sign_out' => 'sessions#destroy', :as => 'sign_out', :via => :delete
+  match '/sign_in' => redirect('/')
 
   root :to => 'welcome#index'
 
