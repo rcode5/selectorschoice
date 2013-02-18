@@ -13,14 +13,7 @@
   %body
     .container
       %header
-        - if signed_in?
-          %nav.site_nav
-            %ul
-              %li            
-                = link_to 'dashboard', admin_path
-              %li
-                = link_to 'sign out', sign_out_path, method: :delete
-
+        = render '/common/nav'
 
       .main{:id => @current_section}
         =yield
