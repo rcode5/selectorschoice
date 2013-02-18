@@ -14,18 +14,11 @@
   %body.admin
     .container
       %header
-        %nav
-          %ul
-            %li 
-              %a{:href => '/'} main site
-            %li 
-              %a{:href => '/admin'} administration
-            %li
-              %a{:href => '/admin/tracks'} 
-                tracks
+        = render 'admin/common/nav'
 
       .main{:id => @current_section}
-        =yield
+        = render '/admin/common/flash'
+        = yield
         .bottom_spacer
     %footer
       %span 

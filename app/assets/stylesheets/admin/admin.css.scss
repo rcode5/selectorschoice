@@ -2,22 +2,27 @@
 @import '../imports/mixins';
 @import '../imports/colors';
 @import '../imports/dimensions';
-.admin .main {
-  width: $width;
-
-  table {
-    max-width: $width;
-    border-top: 1px solid $medium_gray;
-    background: black;
-    @include opacity(0.7);
+.admin {
+  li.selected {
+    a {
+      color: white;
+    }
   }
-  tr.odd {
-    background: $dark_gray;
-  }
-  td {
-    padding: 2px 5px;
-    overflow:hidden;
+  .main {
+    width: $width;
+    
+    table {
+      max-width: $width;
+      border-top: 1px solid $medium_gray;
+      background: black;
+      @include opacity(0.7);
+    }
+    tr.odd {
+      background: $dark_gray;
+    }
+    td {
+      padding: 2px 5px;
+      overflow:hidden;
+    }
   }
 }
-
-

@@ -3,7 +3,7 @@
 @import '../imports/colors';
 @import '../imports/dimensions';
 
-.simple_form {
+.simple_form, form {
   @include border-radius(10px);
   padding: 10px;
   margin-bottom: 20px;

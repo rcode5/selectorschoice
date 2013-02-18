@@ -5,6 +5,7 @@
 
 = simple_form_for([:admin,@track]) do |f|
   - if @track.errors.any?
+    
     #error_explanation
       %h2
         = pluralize(@track.errors.count, "error")  

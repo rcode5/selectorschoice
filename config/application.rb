@@ -58,5 +58,10 @@ module SelectorsChoice
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.default_color_theme = 'gold'
+    
+    config.museum_time_zone = 'Pacific Time (US & Canada)'
+
   end
 end

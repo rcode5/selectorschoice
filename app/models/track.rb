@@ -1,6 +1,6 @@
 class Track < ActiveRecord::Base
   validates :title, uniqueness: true, presence: true
-  validates url: true, presence: true
+  validates :url, url: true, presence: true
   attr_accessible :description, :display_title, :playlist, :recorded_on, :title, :url
 
   class << self

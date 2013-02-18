@@ -1,0 +1,3 @@
+- if flash
+  - [:notice, :warning, :error].map{|k| Hash[k,flash[k]] if flash[k]}.compact.each do |k,msg|
+    div{:class => k} #{msg}
