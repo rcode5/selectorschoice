@@ -56,8 +56,10 @@ module SelectorsChoice
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # Version of your assets, change this if you want to expire all your assets
+    # Version of your ssets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.assets.initialize_on_precompile = false
 
     config.default_color_theme = 'gold'
     
