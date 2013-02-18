@@ -1,4 +1,4 @@
 - unless @tracks.empty?
   %ul.tracks
     - @tracks.each do |track|
-      = render 'track', :object => track
+      = render 'track', track: track

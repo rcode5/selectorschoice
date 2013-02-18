@@ -1,2 +1,5 @@
 %li.track
-  #{object.title}
+  #{track.title}
+  %audio{loop: false, src: track.url}
+  .tracklist.markup
+    = markup(track.playlist)

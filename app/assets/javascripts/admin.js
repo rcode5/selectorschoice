@@ -5,3 +5,7 @@
 $(function() {
   $('.datepicker').pickadate();
 });
+
+$('.text_copy').bind('click', function() {
+  $(this).select();
+});

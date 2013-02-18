@@ -20,3 +20,23 @@ li.track {
   height: 300px;
   border: 1px solid $dark_gray;
 }
+
+.audiojs {
+  @include border-radius(10px);
+  @include opacity(0.9);
+  @include drop-shadow(0, 0, 3px, 1px, #646);
+  width: 350px;
+  .scrubber {
+    width: 180px;
+    @include border-radius(3px);
+    .progress {
+      @include gradient(#969, #747);
+    }
+  }
+  @include gradient(#202, #405);
+  .time {
+    em, strong {
+      font-family: helvetica, sans-serif;
+    }
+  }
+}

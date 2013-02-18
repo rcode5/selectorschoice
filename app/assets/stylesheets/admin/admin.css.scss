@@ -3,6 +3,18 @@
 @import '../imports/colors';
 @import '../imports/dimensions';
 .admin {
+
+  input,textarea {
+    @include border-radius(4px);
+    padding: 5px;
+  }
+  textarea {
+    width: 600px;
+  }
+
+  table input {
+    width: 300px;
+  }
   
   li.selected {
     a {
@@ -23,7 +35,12 @@
       td {
         padding: 2px 5px;
         overflow:hidden;
+        &.url {
+          width: 300px;
+          overflow:hidden;
+        }
       }
+      
     }
   }
 }

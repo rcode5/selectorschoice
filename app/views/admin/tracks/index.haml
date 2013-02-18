@@ -2,19 +2,17 @@
 
 %table.tracks
   %tr
+    %th Date
     %th Title
-    %th Display
-    %th Recorded on
     %th URL
     %th
 
   - @tracks.each do |track|
     %tr
-      %td #{track.title}
-      %td #{track.display_title}
-      %td #{track.recorded_on.to_date}
-      %td 
-        #{track.url}
+      %td #{track.recorded_on.to_date.strftime("%M/%d/%Y")}
+      %td #{track.pretty_title}
+      %td
+        %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
         = link_to_icon 'external-url', track.url, target: "_blank" 
 
       %td

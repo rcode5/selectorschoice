@@ -10,13 +10,6 @@
   border: 1px solid $light_gray;
   background-color: $dark_gray;
   @include opacity(0.85);
-  input,textarea {
-    @include border-radius(4px);
-    padding: 5px;
-  }
-  textarea {
-    width: 600px;
-  }
   label {
     width: 200px;
     display: block;

@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'clearance'
 gem 'quiet_assets'
 gem 'simple_form'
+gem 'rdiscount'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,5 +27,6 @@ group :development, :test do
   gem 'jasmine'
   gem 'debugger'
   gem 'pry'
+  gem 'pry-debugger'
 end
 

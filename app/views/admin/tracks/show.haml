@@ -1,0 +1,30 @@
+#notice #{notice}
+
+%p
+  %b Title:
+  = @track.title 
+
+%p 
+  %b Display Title
+  = @track.display_title 
+
+%p 
+  %b Recorded on
+  = @track.recorded_on.to_date
+
+%p 
+  Playit here
+  %audio{loop: false, src: @track.url}
+
+%p
+  %b Playlist:
+  %pre
+    = @track.playlist
+
+%p
+  %b Description:
+  = @track.description 
+
+
+= link_to 'Edit', edit_admin_track_path(@track) |
+= link_to 'All Tracks', admin_tracks_path

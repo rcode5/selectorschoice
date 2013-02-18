@@ -11,7 +11,7 @@
     = stylesheet_link_tag :admin, media: :all
     = javascript_include_tag :application
   </head>
-  %body.admin
+  %body.admin{class: @current_section}
     .container
       %header
         = render 'admin/common/nav'

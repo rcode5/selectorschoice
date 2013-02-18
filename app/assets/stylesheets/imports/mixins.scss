@@ -14,3 +14,27 @@ $default-border-radius: 5px !default;
   -ms-border-radius: $default-border-radius;
   border-radius: $default-border-radius;
 }
+
+@mixin gradient($from, $to) {
+  /* fallback/image non-cover color */
+  background-color: $from;
+ 
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to);
+ 
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+ 
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to);
+ 
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to);
+}
+
+@mixin drop-shadow ($x: 1px, $y: 1px, $blur: 2px, $spread: 0, $color: rgba(0,0,0,0.25)) {
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -moz-box-shadow:    $x $y $blur $spread $color;
+  box-shadow:         $x $y $blur $spread $color;
+}
+
