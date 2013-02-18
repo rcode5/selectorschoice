@@ -1,0 +1,28 @@
+%h1 Tracks
+
+%table.tracks
+  %tr
+    %th Title
+    %th Display
+    %th Recorded on
+    %th URL
+    %th
+
+  - @tracks.each do |track|
+    %tr
+      %td #{track.title}
+      %td #{track.display_title}
+      %td #{track.recorded_on.to_date}
+      %td 
+        #{track.url}
+        = link_to_icon 'external-url', track.url, target: "_blank" 
+
+      %td
+        = link_to_icon 'show', admin_track_path(track)
+        |
+        = link_to_icon 'edit', edit_admin_track_path(track)
+        |
+        = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= link_to 'New Track', new_admin_track_path

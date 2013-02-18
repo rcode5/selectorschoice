@@ -1,6 +1,7 @@
 class Admin::TracksController < AdminController
   # GET /tracks
   # GET /tracks.json
+  
   def index
     @tracks = Track.all
 
@@ -80,4 +81,5 @@ class Admin::TracksController < AdminController
       format.json { head :no_content }
     end
   end
+
 end
