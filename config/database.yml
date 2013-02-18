@@ -1,0 +1,15 @@
+common: &common
+  adapter: postgresql
+  pool: 5
+
+development:
+  <<: *common
+  username: <%= ENV['PG_USER'] || 'postgres' %>
+  database: selectors_choice_dev
+
+test:
+  <<: *common
+  username: <%= ENV['PG_USER'] || 'postgres' %>
+  database: selectors_choice_test
+  min_messages: WARNING
+

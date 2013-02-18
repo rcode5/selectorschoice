@@ -1,0 +1,190 @@
+@import "../imports/mixins";
+@import "../imports/colors";
+@import "../imports/dimensions";
+
+html, body {
+  background-color: $black;
+  color: $pink;
+  font-family: sans-serif, verdana;
+  font-size: 90%;
+
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url(/assets/selectorschoice_webmain.png);
+  background-position: center 10px;
+  background-repeat: no-repeat;
+}
+
+A:link {text-decoration: none; color: $yellow;}
+A:visited {text-decoration: none; color: $dark_yellow;}
+A:active {text-decoration: none}
+A:hover {text-decoration: underline; color: $white;}
+
+footer, .container {
+  width: $width;
+  margin: auto;
+}
+footer {
+  padding-left: 100px;
+  span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: x-small;
+    border-left: 1px solid $light_gray;
+  }
+  span:first-child {
+    margin-left:78px;
+    border-left: 0;
+  }
+}
+body, .container {
+  min-height: 570px; 
+}
+.container {
+  min-height: 570px;
+}
+header{ 
+  padding-top: $header_offset;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+/* #links ul{ */
+/*   padding-left: 20px; */
+/* } */
+/* .links_title { */
+  
+/* } */
+/* ul { list-style: none; } */
+/* ul li { line-height: 20px; } */
+/* img { */
+/*     border: 0px; */
+/* } */
+
+/* div.yellowborder { */
+/*     border: 1px solid #fcc; */
+/* 	border-radius: 8px; */
+/* 	-moz-border-radius: 8px; */
+/* 	-webkit-border-radius: 8px; */
+/* } */
+
+/* div { */
+/*     background-color: #000000; */
+/*     left: 50px; */
+/* } */
+
+/* div#enterbutton { */
+/*     text-align: center; */
+/*     position:relative; */
+/*     top: -100; */
+/*     padding: 10px; */
+/*     width: 50; */
+/* } */
+
+/* div.indexcontents { */
+/*     font-size: 90%; */
+/*     display: none; */
+/*     position: relative; */
+/*     padding: 10px; */
+/*     width: 700px; */
+/*     top: -460px; */
+/* } */
+
+/* div#podcasts { */
+/*     z-index: 100; */
+/*     position: relative; */
+/*     padding: 10px; */
+/* } */
+
+/* #podcasts table td { */
+/*     vertical-align: top;  */
+/* } */
+
+/* .sets-desc { */
+/*     padding: 0 20px 20px 0; */
+/* } */
+/* #setlistscontainer, */
+/* #setlistcontainer { */
+/*     border: 1px solid #fcc; */
+/* 	border-radius: 8px; */
+/* 	-moz-border-radius: 8px; */
+/* 	-webkit-border-radius: 8px; */
+/* } */
+/* #setlistscontainer { */
+/*     z-index: 100; */
+/*     padding: 10px; */
+/*     position:absolute; */
+/*     top: 130px; */
+/* } */
+/* #setlistcontainer { */
+/*     text-align: center; */
+/*     position:absolute; */
+/*     left: 300px; */
+/*     top:130px; */
+/*     padding: 10px; */
+/* 	margin-bottom: 20px; */
+/* } */
+
+/* div#setlists { */
+/*     padding: 10px; */
+/* }     */
+
+/* .opacity70 { */
+/*     filter:alpha(opacity=70); */
+/*     -moz-opacity:0.7; */
+/*     -khtml-opacity: 0.7; */
+/*     opacity: 0.7; */
+/* } */
+
+/* td.eventdate { */
+/*     vertical-align: top; */
+/*     width: 100px; */
+/* } */
+/* td.eventdetails { */
+/*     font-size: 85%; */
+/*     color: #ffff99; */
+/*     padding: 2px 2px 2px 25px; */
+/* } */
+
+/* div.setlistentry0 { */
+/*     color: #ffff99; */
+/*     padding: 1px; */
+/* } */
+
+/* div.setlistentry1 { */
+/*     color: #ff99cc; */
+/*     padding: 1px; */
+/* } */
+
+/* div#setlisttitle { */
+/*     font-size: 120%; */
+/*     font-weight: bold; */
+/*     text-align: center; */
+/*     color: #ffff99; */
+/*     margin-bottom: 10px; */
+/* } */
+
+/* div#menu { */
+/*     z-index: 100; */
+/*     text-align: center; */
+/*     position: relative; */
+/*     top:-475px; */
+/*     width: 700px; */
+/*     padding: 2 10 2 10px; */
+/* }    */
+
+/* div#setlist { */
+/*     text-align: left; */
+/*     font-size: 80%; */
+/*     padding-bottom: 5px; */
+/* } */
+
+/* A:link {text-decoration: none; color: #ffff99;} */
+/* A:visited {text-decoration: none; color: #cccc99;} */
+/* A:active {text-decoration: none} */
+/* A:hover {text-decoration: underline; color: white;}     */

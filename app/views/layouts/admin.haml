@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=iso-8859-1"}
+    %meta{:name => 'description', :content => "Selectors Choice DJ&#39;s - San Francisco - Podcasts - Funk Reggae Rocksteady Soul LoftStyle"}
+    %meta{:name => 'keywords', :content => 'Selectors Choice DJ San Francisco Podcasts Funk Reggae Rocksteady Soul LoftStyle'}
+    %link{:rel => "shortcut icon", :href => "/favicon.ico" }
+    %title #{@title}
+    = csrf_meta_tag
+    = stylesheet_link_tag :application, media: :all
+    = stylesheet_link_tag :admin, media: :all
+    = javascript_include_tag :application
+  </head>
+  %body.admin
+    .container
+      %header
+        %nav
+          %ul
+            %li 
+              %a{:href => '/'} main site
+            %li 
+              %a{:href => '/admin'} administration
+            %li
+              %a{:href => '/admin/tracks'} 
+                tracks
+
+      .main{:id => @current_section}
+        =yield
+        .bottom_spacer
+    %footer
+      %span 
+        [ site by 
+        %a{:href => 'http://rcode5.com'} rcode5
+        ]
+      %span 
+        [
+        hosted by
+        %a{:href => 'http://heroku.com'} heroku
+        ]
+      %span
+        [
+        icons by
+        %a{:href => 'http://purtypixels.com'} purty pixels
+        ]
+    

@@ -1,0 +1,22 @@
+@import "../imports/mixins";
+@import "../imports/colors";
+@import "../imports/dimensions";
+
+$block-margin: 20px;
+$block-padding: 20px;
+li.track {
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  display:block;
+  float: left;
+  padding: $block-padding;
+  margin: $block-margin;
+  width: $width/2 - 2 * $block-margin - 2 * $block-margin;
+
+  height: 300px;
+  border: 1px solid $dark_gray;
+}

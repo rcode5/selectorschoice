@@ -1,0 +1,16 @@
+/* mixins */
+
+@mixin opacity($opacity) {
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})"); 
+  opacity: $opacity; 
+};
+
+$default-border-radius: 5px !default;
+
+@mixin border-radius($radius: $default-border-radius) {
+  -moz-border-radius: $default-border-radius;
+  -webkit-border-radius: $default-border-radius;
+  -khtml-border-radius: $default-border-radius;
+  -ms-border-radius: $default-border-radius;
+  border-radius: $default-border-radius;
+}

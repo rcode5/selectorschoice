@@ -1,0 +1,26 @@
+%nav.subnav
+  %ul
+    %li 
+      %a{:href => '/admin/tracks'} all tracks
+
+= simple_form_for([:admin,@track]) do |f|
+  - if @track.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@track.errors.count, "error")  
+        prohibited this track from being saved:
+
+      %ul
+      - @track.errors.full_messages.each do |msg|
+        %li #{msg}
+
+  = f.input :title, hint: "Title of the track - used by us for searching.  Must be unique"
+  = f.input :display_title, hint: "Display Title of the track.  This will be what we show to users.  If it's not here, we'll fallback to the title."
+  
+  .input.string.optional.field_with_hint
+    = f.label :recorded_on
+    = f.text_field :recorded_on, class: 'datepicker'
+  = f.input :playlist, hint: "Keep it simple.  Artist - Track title, or something similar.  Each track should be on a new line."
+  = f.input :description
+
+  = f.button :submit
