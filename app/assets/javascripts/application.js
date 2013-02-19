@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require audio.min
+//= require mediaelement-and-player
 //= require_tree .
 
