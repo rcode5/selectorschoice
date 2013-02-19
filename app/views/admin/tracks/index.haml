@@ -13,7 +13,7 @@
 
     - @tracks.each do |track|
       %tr.track
-        %td #{track.recorded_on.to_date.strftime("%M/%d/%Y") if track.recorded_on}
+        %td #{track.recorded_on.to_date.strftime("%m/%d/%Y") if track.recorded_on}
         %td #{track.pretty_title}
         %td #{track.author}
         %td

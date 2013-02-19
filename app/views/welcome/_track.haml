@@ -1,8 +1,9 @@
 %li.track
   .hd
-    .title #{track.title}
-    .author by #{track.author}
-    .recorded_on #{track.recorded_on ? track.recorded_on.to_date.strftime("%M%d%Y") : ''}
+    .title #{track.pretty_title}
+    - if track.author.present?
+      .author by #{track.author}
+    .recorded_on #{track.recorded_on ? track.recorded_on.to_date.strftime("%m%d%Y") : ''}
   .bd 
     .audio
       %a.load-audio{"href" => track.url}
@@ -16,12 +17,14 @@
       %h3 tracks
       = markup(track.playlist)
   .ft
-    .styles
-      %h5 Styles
-      = track.style_list.map{|t| content_tag "span", t, class: 'tag'}.join.html_safe
-    .tags 
-      %h5 Tags
-      = track.tag_list.map{|t| content_tag "span", t, class: 'tag'}.join.html_safe
+    - unless track.style_list.empty?
+      .styles
+        %h5 Styles
+        = track.style_list.map{|t| content_tag "span", t, class: 'tag'}.join.html_safe
+    - unless track.tag_list.empty?
+      .tags 
+        %h5 Tags
+        = track.tag_list.map{|t| content_tag "span", t, class: 'tag'}.join.html_safe
     .download
       %a{href: track.url} 
         %i.icon.icon-download 

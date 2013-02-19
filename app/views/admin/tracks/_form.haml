@@ -12,6 +12,7 @@
 
   = f.input :title, hint: "Title of the track - used by us for searching.  Must be unique"
   = f.input :display_title, hint: "Display Title of the track.  This will be what we show to users.  If it's not here, we'll fallback to the title."
+  = f.input :author, hint: "This means you, not the artists on the mix"
 
   .input.string.optional.field_with_hint.tags
     = f.label :tags

@@ -5,7 +5,7 @@ class Track < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :styles
 
-  attr_accessible :description, :display_title, :playlist, :recorded_on, :title, :url, :tag_list, :style_list
+  attr_accessible :description, :display_title, :playlist, :recorded_on, :title, :url, :tag_list, :style_list, :author
 
 
   def pretty_title
