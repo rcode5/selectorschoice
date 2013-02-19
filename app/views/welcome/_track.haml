@@ -6,9 +6,7 @@
     .recorded_on #{track.recorded_on ? track.recorded_on.to_date.strftime("%m%d%Y") : ''}
   .bd 
     .audio
-      %a.load-audio{"href" => track.url}
-        %i.icon.icon-play
-        play track 
+      %audio{src: track.url, preload: false}
 
     .description.markup
       %h3 description
