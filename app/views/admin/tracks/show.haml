@@ -1,40 +1,47 @@
 #notice #{notice}
 
-%p
-  %b Title
-  = @track.title 
+.controls
+  = link_to_icon :edit, edit_admin_track_path(@track) 
+  = link_to_icon :list, admin_tracks_path
+%ul.track-info
+  %li
+    .label Title
+    .value 
+      = @track.title 
+      = @track.published? ? "(published)" : "(draft)"
 
-%p 
-  %b Display Title
-  = @track.display_title 
+  %li 
+    .label Display Title
+    .value 
+      = @track.display_title 
 
-%p 
-  %b Recorded on
-  = @track.recorded_on.to_date unless @track.recorded_on.blank?
+  %li 
+    .label Recorded on
+    .value
+      = @track.recorded_on.to_date unless @track.recorded_on.blank?
 
-%p 
-  %b URL
-  #{@track.url}
+  %li 
+    .label URL
+    .value #{@track.url}
 
-%p
-  %b Tags 
-  #{@track.tag_list.join(",")}
+  %li
+    .label Tags 
+    .value #{@track.tag_list.join(",")}
 
-%p 
-  %b Styles 
-  #{@track.style_list.join(",")}
+  %li 
+    .label Styles 
+    .value #{@track.style_list.join(",")}
 
-%p
-  %b Playlist:
-  .content.markup
-    = markup @track.playlist
+  %li
+    .label Playlist:
+    .value.content.markup
+      = markup @track.playlist
 
-%p
-  %b Description:
-  .content.markup
-    = @track.description 
+  %li
+    .label Description:
+    .value.content.markup
+      = @track.description 
 
-
-= link_to 'Edit', edit_admin_track_path(@track) 
-|
-= link_to 'All Tracks', admin_tracks_path
+.controls.bottom
+  = link_to_icon :edit, edit_admin_track_path(@track) 
+  = link_to_icon :list, admin_tracks_path

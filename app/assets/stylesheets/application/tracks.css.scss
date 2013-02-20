@@ -15,6 +15,8 @@ li.track {
   @include opacity(0.9);
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   width: $width;
+  min-width:400px;
+  max-width:800px;
   display:block;
   float: left;
   padding: $block-padding;
@@ -84,5 +86,39 @@ li.track {
 .markup {
   li {
     line-height: 1.4em;
+  }
+}
+
+body.admin.tracks {
+  .main { 
+    position:relative;
+  }
+  .controls {
+   position: absolute;
+   top: 0;
+   right: 0;
+  }
+  .controls.bottom {
+    top: inherit;
+  }
+  .track-info {
+    list-style: none;
+    margin:0;
+    padding: 0;
+    li {
+      margin-top:5px;
+      margin-bottom: 12px;
+    }
+    
+    .label { 
+      margin-bottom: 5px;
+    }
+    .value {
+      @include opacity(0.7);
+      padding: 10px;
+      border: 1px solid $medium_gray;
+      background-color: $dark_gray;
+      @include border-radius(5px);
+    }
   }
 }

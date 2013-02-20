@@ -1,15 +1,16 @@
 module ApplicationHelper
 
   def link_to_icon icon, link, opts = {}
+    icon_classes = (opts.delete :icon_classes) || nil
+    icon_tag = content_tag 'i', '', class: ["icon icon-#{icon}",icon_classes].compact.join(" ")
+
     if link.present?
-      icon_classes = (opts.delete :icon_classes) || nil
       opts[:title] ||= icon
       link_to link, opts do
-        content_tag 'i', '', class: ["icon icon-#{icon}",icon_classes].compact.join(" ")
+        icon_tag 
       end
-        
     else
-      txt
+      icon_tag
     end
   end
 

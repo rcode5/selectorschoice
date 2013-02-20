@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "tracks/new" do
+describe "admin/tracks/new" do
   before(:each) do
     assign(:track, stub_model(Track,
       :title => "MyString",

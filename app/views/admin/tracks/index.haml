@@ -1,4 +1,7 @@
-%h1 Tracks
+%h1 
+  Tracks 
+  = link_to_icon :add, new_admin_track_path, title: 'add new track'
+
 
 - if @tracks.empty?
   .empty Maybe you ought to add some tracks!
@@ -12,8 +15,8 @@
       %th
 
     - @tracks.each do |track|
-      %tr.track
-        %td #{track.recorded_on.to_date.strftime("%m/%d/%Y") if track.recorded_on}
+      %tr.track{:class => track.published? ? '' : 'unpublished'}
+        %td #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
         %td #{track.pretty_title}
         %td #{track.author}
         %td
@@ -25,6 +28,3 @@
           = link_to_icon 'edit', edit_admin_track_path(track)
           = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
 
-
-.controls 
-  = link_to 'Add New Track', new_admin_track_path

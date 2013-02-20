@@ -15,18 +15,15 @@ gem 'acts-as-taggable-on'
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails',   :git => 'git://github.com/rails/sass-rails.git', :branch => '3-2-stable'
+gem 'sass-rails'
 
 group :assets do
-  gem 'coffee-rails', :git => 'git://github.com/rails/coffee-rails.git', :branch => '3-2-stable'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
+  gem 'factory_girl'
   gem 'rspec-rails'
   gem 'jasmine'
   gem 'debugger'

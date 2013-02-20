@@ -31,7 +31,7 @@
   }
     
   table.tracks {
-    max-width: $width;
+    max-width: $max_width;
     border-top: 1px solid $medium_gray;
     background: black;
     @include opacity(0.7);

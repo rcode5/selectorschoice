@@ -41,3 +41,6 @@ $column_size: -35px;
 .icon.icon-delete {
   @include icon_position(3,2);
 }
+.icon.icon-list {
+  @include icon_position(0,2);
+}
