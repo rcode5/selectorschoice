@@ -95,11 +95,24 @@ body.admin.tracks {
   }
   .controls {
    position: absolute;
-   top: 0;
+   top: -10px;
    right: 0;
   }
   .controls.bottom {
     top: inherit;
+  }
+  .recorded_on {
+    vertical-align: top;
+  }
+  tr.unpublished {
+    background-color: #444;
+  }
+  td.info > div {
+    line-height: 20px;
+    margin: 0 0 4px;
+  }
+  .title {
+    font-style: italic;
   }
   .track-info {
     list-style: none;
@@ -116,7 +129,8 @@ body.admin.tracks {
     .value {
       @include opacity(0.7);
       padding: 10px;
-      border: 1px solid $medium_gray;
+      border-right: 1px solid $medium_dark_gray;
+      border-bottom: 1px solid $medium_dark_gray;
       background-color: $dark_gray;
       @include border-radius(5px);
     }

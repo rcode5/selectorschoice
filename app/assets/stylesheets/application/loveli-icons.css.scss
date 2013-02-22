@@ -44,3 +44,6 @@ $column_size: -35px;
 .icon.icon-list {
   @include icon_position(0,2);
 }
+.icon.icon-check {
+  @include icon_position(2,2);
+}

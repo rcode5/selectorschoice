@@ -9,3 +9,10 @@ $ ->
     $(this).select()
 
   $('form .tags input').select2({tags:['this', 'that']})
+
+  $('#notice').bind 'click', ->
+    $(this).fadeOut()
+
+  setTimeout (->
+    $('#notice').fadeOut()
+  ), 5000

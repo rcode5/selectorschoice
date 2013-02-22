@@ -8,23 +8,29 @@
 - else
   %table.tracks
     %tr
-      %th Date
-      %th Title
-      %th Author
-      %th URL
+      %th Recorded on
+      %th Track
+      %th Pub?
       %th
 
     - @tracks.each do |track|
       %tr.track{:class => track.published? ? '' : 'unpublished'}
-        %td #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
-        %td #{track.pretty_title}
-        %td #{track.author}
-        %td
-          %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
-          = link_to_icon 'external-url', track.url, target: "_blank" 
-
+        %td.recorded_on
+          #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
+        %td.info 
+          .title            
+            #{track.pretty_title}
+          - if track.author.present?            
+            .author            
+              by #{track.author}
+          .url
+            %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
+            = link_to_icon 'external-url', track.url, target: "_blank" 
+        %td.published
+          = track.published? ? (link_to_icon 'check', nil) :''
         %td.edit-controls
           = link_to_icon 'show', admin_track_path(track)
           = link_to_icon 'edit', edit_admin_track_path(track)
           = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+
 

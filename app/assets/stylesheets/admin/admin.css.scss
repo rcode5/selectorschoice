@@ -2,6 +2,21 @@
 @import '../imports/mixins';
 @import '../imports/colors';
 @import '../imports/dimensions';
+
+#notice {
+  @include drop-shadow(0,0,5px,1px, pink);
+  padding: 10px;
+  margin: 10px auto;
+  width: 50%;
+  background: #606;
+  @include border-radius(4px);
+  @include opacity(0.8);
+  position: absolute;
+  z-index:5;
+  left: $width / 3;
+}
+
+
 .admin {
 
   input,textarea {
