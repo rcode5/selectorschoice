@@ -3,7 +3,7 @@
     .title #{track.pretty_title}
     - if track.author.present?
       .author by #{track.author}
-    .recorded_on #{track.recorded_on ? track.recorded_on.to_date.strftime("%m%d%Y") : ''}
+    .recorded_on #{track.recorded_on ? track.recorded_on.to_date.strftime("%m %d %Y") : ''}
   .bd 
     .audio
       %audio{src: track.url, preload: false}
