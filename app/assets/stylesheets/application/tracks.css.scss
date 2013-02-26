@@ -10,10 +10,11 @@ ul.tracks {
 }
 
 li.track {
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  position: relative;
   @include border-radius(15px);
   background-color: $dark_gray;
   @include opacity(0.9);
-  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   width: $width;
   min-width:400px;
   max-width:800px;
@@ -24,20 +25,27 @@ li.track {
   border: 1px solid $dark_gray;
   .hd {
     .title {
+      margin-top: 18px;
+      font-size: 180%;
       text-transform: uppercase;
     }
     div {
       display: inline-block;
     }
     .recorded_on {
+      font-size: 130%;
       margin-left: 20px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
     }
   }
   .bd, .ft {
     margin-top: 10px;
   }
-  .tracklist {
+  .description, .tracklist {
     margin-top: 10px;
+    color: $pink_gray;
   }
   .tags, .styles {
     line-height: 2.5em;
