@@ -9,7 +9,7 @@
     = csrf_meta_tag
     = stylesheet_link_tag :application, media: :all
     = javascript_include_tag :application
-  </head>
+
   %body
     .container
       %header
@@ -20,3 +20,4 @@
         .bottom_spacer
     = render '/common/footer'
     
+  = render '/common/ga'
