@@ -2,3 +2,5 @@
   %ul.tracks
     - @tracks.each do |track|
       = render 'track', track: track
+  .apple_pagination
+    = will_paginate @tracks,previous_label: '&laquo; newer', next_label: 'older &raquo;'

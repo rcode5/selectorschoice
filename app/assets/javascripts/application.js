@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require mediaelement-and-player
+//= require_tree ./plugins
 //= require_tree .
 

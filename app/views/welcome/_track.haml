@@ -8,10 +8,11 @@
     .audio
       %audio{src: track.url, preload: false}
 
-    .description.markup
-      %h3 description
-      = markup(track.description)
-    .tracklist.markup
+    - if track.description.present?      
+      .description.markup
+        %h3 description
+        = markup(track.description)
+    .tracklist.markup.compactible
       %h3 tracks
       = markup(track.playlist)
   .ft

@@ -1,0 +1,2 @@
+$ ->
+  #$('.compactible').compactible();
