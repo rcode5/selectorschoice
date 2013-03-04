@@ -1,7 +1,8 @@
 $.compactibleDefaults =
+  closedHeight: '30px'
   openCloseButton:
-    open:"<div class='open-close open'>open<i class='icon icon-open'></i></div>"
-    close:"<div class='open-close close'>close<i class='icon icon-close'></i></div>"
+    open:"<div class='open-close open' title='show'><i class='icon icon-open'></i></div>"
+    close:"<div class='open-close close' title='hide'><i class='icon icon-close'></i></div>"
   start: 'close'
   wrapperClass: 'compactible-shrink-wrap'
 
@@ -11,30 +12,41 @@ $.fn.compactible = (method) ->
     open: ->
       $this = $(this)
       opts = $this.data()
-      $this.show()
+      opener = $this.find('.open')
+      closer = $this.find('.close')
+      opener.hide();
+      closer.show();
+      $this.animate({height: "100%"})
     close: ->
       $this = $(this)
       opts = $this.data()
-      $this.find('.open-close.close').remove()
-      $this.find('.open-close.open').remove()
-      $this.prepend(opts.openCloseButton.close)
-      $this.hide()
+      opener = $this.find('.open')
+      closer = $this.find('.close')
+      opener.show();
+      closer.hide();
+      $this.animate({height: opts.closedHeight})
+
     init: (options) ->
       $this = $(this)
       o = $.extend({},$.compactibleDefaults, options);
       $this.data(o);
 
-      $wrapper = $this.wrap($('<div>', {class: o.wrapperClass}));
-      $wrapper.prepend('.open-close.close')
-      $wrapper.prepend('.open-close.open')
+      $this.prepend(o.openCloseButton.open)
+      $this.prepend(o.openCloseButton.close)
+      opener = $this.find('.open')
+      closer = $this.find('.close')
       if o.start == 'close'
-        $wrapper.find
+        $this.compactible('close');
+      else
+        $this.compactible('open');
+
+      opener.bind 'click', ->
+        $this.compactible('open')
+      closer.bind 'click', ->
+        $this.compactible('close')
 
       unless o.openCloseButton[o.start]
         console.log "the start parameter must be one of the following values %s" % _.keys(o.openCloseButton)
-      el = o.openCloseButton[o.start] || o.openCloseButton['close']
-      $this.prepend(el);
-      $this.compactible(o.start);
 
 
   this.each () ->

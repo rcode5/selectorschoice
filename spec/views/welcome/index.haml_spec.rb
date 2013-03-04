@@ -11,4 +11,7 @@ describe 'welcome/index' do
   it 'renders published tracks' do
     assert_select '.track', count: Track.published.count
   end
+  it 'renders a div for pagination' do
+    assert_select '.apple_pagination'
+  end
 end

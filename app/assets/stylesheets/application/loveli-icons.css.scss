@@ -17,20 +17,19 @@ $column_size: -35px;
   background-position: ($column * $column_size + $column_offset) ($row * $row_size + $row_offset);
 }
 
-.icon.icon-add {
+.icon.icon-add,
+.icon.icon-open {
   @include icon_position(0,2);
+}
+.icon.icon-close,
+.icon.icon-minus {
+  @include icon_position(1,2);
 }
 .icon.icon-show {
   @include icon_position(6,3);
 }
-.icon.icon-open {
-  @include icon_position(4,3);
-}
 .icon.icon-play {
   @include icon_position(7,0);
-}
-.icon.icon-close {
-  @include icon_position(5,3);
 }
 .icon.icon-download, .icon.icon-external-url {
   @include icon_position(0,3);
