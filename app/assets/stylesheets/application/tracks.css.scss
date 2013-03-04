@@ -5,6 +5,49 @@
 $block-margin: 20px;
 $block-padding: 20px;
 
+.apple_pagination {
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  position: relative;
+  @include border-radius(15px);
+  background-color: $dark_gray;
+  @include opacity(0.9);
+  color: yellow;
+  width: $width;
+  min-width:400px;
+  max-width:800px;
+  padding: $block-padding;
+  margin: $block-margin;
+  border: 1px solid $dark_gray;
+  text-align: center;
+  cursor: default;
+  @include clearfix;
+  a, span {
+    padding: 0.2em 0.3em;
+  }
+  .disabled {
+    color: #aaaaaa;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: darken($xlight_gray, 20);
+    display: inline-block;
+    color: black;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    @include border-radius(0.2em);
+    text-shadow: rgba($light_gray, .8) 0px 1px 1px;
+  }
+  a {
+    color: $medium_gray;
+    text-decoration: none;
+    &:hover, &:focus {
+      text-decoration: underline
+    }
+  }
+}
+  
 ul.tracks {
   @include clearfix;
 }
