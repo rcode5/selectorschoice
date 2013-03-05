@@ -92,6 +92,7 @@
       .css4 { font-size: 1.6em; }
       .tag {
         @include border-radius(4px);
+        whitespace: nowrap;
         padding: 5px 7px;
         margin: 5px;
         border: 1px solid $dark_gray;

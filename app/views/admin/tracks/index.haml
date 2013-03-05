@@ -7,10 +7,10 @@
   .empty Maybe you ought to add some tracks!
 - else
   .tabs
-    - if @published.present?
-      %a{href: '#published'} published 
     - if @unpublished.present?      
       %a{href: '#unpublished', class: 'current'} unpublished
+    - if @published.present?
+      %a{href: '#published'} published 
   - if @published.present?
     .tab_content#published
       %table.tracks
