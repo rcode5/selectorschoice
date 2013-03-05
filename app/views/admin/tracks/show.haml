@@ -1,5 +1,3 @@
-#notice #{notice}
-
 .controls
   = link_to_icon :edit, edit_admin_track_path(@track) 
   = link_to_icon :list, admin_tracks_path
@@ -35,12 +33,12 @@
   %li
     .label Playlist:
     .value.content.markup
-      = markup @track.playlist
+      = markup (@track.playlist || '')
 
   %li
     .label Description:
     .value.content.markup
-      = @track.description 
+      = markup (@track.description || '')
 
 .controls.bottom
   = link_to_icon :edit, edit_admin_track_path(@track) 

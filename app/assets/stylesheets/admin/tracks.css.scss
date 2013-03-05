@@ -1,0 +1,60 @@
+/* admin */
+@import '../imports/mixins';
+@import '../imports/colors';
+@import '../imports/dimensions';
+
+.admin {
+  &.tracks {
+    .main { 
+      position:relative;
+    }
+    .controls {
+      position: absolute;
+      top: -10px;
+      right: 0;
+      z-index: 4;
+    }
+    .controls.bottom {
+      top: inherit;
+    }
+    .recorded_on {
+      vertical-align: top;
+    }
+    tr.unpublished {
+      background-color: #444;
+    }
+    td.info > div {
+      line-height: 20px;
+      margin: 0 0 4px;
+    }
+    .title {
+      font-style: italic;
+    }
+  }
+
+ .track-info {
+    @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+    position: relative;
+    @include border-radius(15px);
+    background-color: $dark_gray;
+    @include opacity(0.9);
+    border: 1px solid $dark_gray;
+    list-style: none;
+    @include clearfix;
+    li {
+      padding: 10px;
+
+      margin-top:5px;
+      margin-bottom: 12px;
+    }
+    
+    .label { 
+      margin-bottom: 5px;
+    }
+    .value {
+      @include opacity(0.7);
+      padding: 10px;
+    }
+  }
+
+}

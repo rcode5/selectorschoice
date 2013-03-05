@@ -70,6 +70,31 @@
         overflow:hidden;
       }
     }
-    
   }
+
+  .track-info {
+    @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+    position: relative;
+    @include border-radius(15px);
+    background-color: $dark_gray;
+    @include opacity(0.9);
+    border: 1px solid $dark_gray;
+    list-style: none;
+    @include clearfix;
+    li {
+      padding: 10px;
+
+      margin-top:5px;
+      margin-bottom: 12px;
+    }
+    
+    .label { 
+      margin-bottom: 5px;
+    }
+    .value {
+      @include opacity(0.7);
+      padding: 10px;
+    }
+  }
+
 }

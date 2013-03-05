@@ -1,3 +1,3 @@
-- if flash
-  - [:notice, :warning, :error].map{|k| Hash[k,flash[k]] if flash[k]}.compact.each do |k,msg|
-    div{:class => k} #{msg}
+- [:notice, :warning, :error].map{|k| [k, flash && flash[k]] }.reject{|k,v| v.nil? || v.empty?}.each do |k,v|
+  %div{:class => k} #{v}
+  
