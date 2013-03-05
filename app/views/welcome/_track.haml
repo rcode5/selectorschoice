@@ -14,21 +14,24 @@
     - if track.description.present?      
       .description.markup
         %h3 in this mix
-        = markup(track.description)
+        = markup(track.description || '')
     .tracklist.markup
-      .compactible
+      - if !track.playlist.present?
         %h3 tracklist
-        = markup(track.playlist)
+        .markup none :(
+      - else
+        .compactible
+          %h3 tracklist
+          = markup(track.playlist || '')
+    .download
+      %a{href: track.url, title: 'download this track'} 
+        %i.icon.icon-download 
   .ft
     - unless track.style_list.empty?
       .styles
         %h5 Styles
-        = track.style_list.map{|t| content_tag "span", t, class: 'tag'}.join.html_safe
+        = track.style_list.map{|t| render_tag_link t}.join.html_safe
     - unless track.tag_list.empty?
       .tags 
         %h5 Tags
-        = track.tag_list.map{|t| content_tag "span", t, class: 'tag'}.join.html_safe
-    .download
-      %a{href: track.url} 
-        %i.icon.icon-download 
-        Download          
+        = track.tag_list.map{|t| render_tag_link t}.join.html_safe
