@@ -3,7 +3,7 @@ class Admin::TracksController < AdminController
   # GET /tracks.json
   
   def index
-    @tracks = Track.all
+    @published, @unpublished = Track.by_recency.partition(&:published)
 
     respond_to do |format|
       format.html # index.html.erb

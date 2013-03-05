@@ -3,34 +3,65 @@
   = link_to_icon :add, new_admin_track_path, title: 'add new track'
 
 
-- if @tracks.empty?
+- if (@published + @unpublished).empty?
   .empty Maybe you ought to add some tracks!
 - else
-  %table.tracks
-    %tr
-      %th Recorded on
-      %th Track
-      %th Pub?
-      %th
+  .tabs
+    %a{href: '#published'} published
+    %a{href: '#unpublished', class: 'current'} unpublished
+  .tab_content#published
+    %table.tracks
+      %tr
+        %th Recorded on
+        %th Track
+        %th Pub?
+        %th
 
-    - @tracks.each do |track|
-      %tr.track{:class => track.published? ? '' : 'unpublished'}
-        %td.recorded_on
-          #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
-        %td.info 
-          .title            
-            #{track.pretty_title}
-          - if track.author.present?            
-            .author            
-              by #{track.author}
-          .url
-            %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
-            = link_to_icon 'external-url', track.url, target: "_blank" 
-        %td.published
-          = track.published? ? (link_to_icon 'check', nil) :''
-        %td.edit-controls
-          = link_to_icon 'show', admin_track_path(track)
-          = link_to_icon 'edit', edit_admin_track_path(track)
-          = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+      - @published.each do |track|
+        %tr.track{:class => track.published? ? '' : 'unpublished'}
+          %td.recorded_on
+            #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
+          %td.info 
+            .title            
+              #{track.pretty_title}
+            - if track.author.present?            
+              .author            
+                by #{track.author}
+            .url
+              %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
+              = link_to_icon 'external-url', track.url, target: "_blank" 
+          %td.published
+            = track.published? ? (link_to_icon 'check', nil) :''
+          %td.edit-controls
+            = link_to_icon 'show', admin_track_path(track)
+            = link_to_icon 'edit', edit_admin_track_path(track)
+            = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+  .tab_content#unpublished
+    %table.tracks
+      %tr
+        %th Recorded on
+        %th Track
+        %th Pub?
+        %th
+
+      - @unpublished.each do |track|
+        %tr.track{:class => track.published? ? '' : 'unpublished'}
+          %td.recorded_on
+            #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
+          %td.info 
+            .title            
+              #{track.pretty_title}
+            - if track.author.present?            
+              .author            
+                by #{track.author}
+            .url
+              %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
+              = link_to_icon 'external-url', track.url, target: "_blank" 
+          %td.published
+            = track.published? ? (link_to_icon 'check', nil) :''
+          %td.edit-controls
+            = link_to_icon 'show', admin_track_path(track)
+            = link_to_icon 'edit', edit_admin_track_path(track)
+            = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
 
 
