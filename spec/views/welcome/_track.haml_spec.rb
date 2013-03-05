@@ -23,7 +23,7 @@ describe 'welcome/_track' do
     end
   end
   it 'renders a download link' do
-    assert_select ".ft .download a[href=#{@tr.url}] i.icon-download"
+    assert_select ".bd .download a[href=#{@tr.url}] i.icon-download"
   end
 
 end

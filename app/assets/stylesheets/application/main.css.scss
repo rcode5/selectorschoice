@@ -26,10 +26,9 @@ ol, ul {
   }
 }
 
-A:link {text-decoration: none; color: $yellow;}
-A:visited {text-decoration: none; color: $dark_yellow;}
+A:link, a:visited {text-decoration: none; color: $gray_pink;}
 A:active {text-decoration: none}
-A:hover {text-decoration: underline; color: $white;}
+A:hover {text-decoration: underline; color: $light_pink;}
 
 footer, .container {
   width: $width;
@@ -86,4 +85,16 @@ nav.site_nav {
       }
     }
   }
+}
+.nothing {
+  .oops {
+    text-align:center;
+    font-size: 400%;
+    color: white;
+    whitespace: nowrap;
+  }
+  font-size: 200%;
+  color: $xlight_gray;
+  width: 40%;
+  margin: auto;
 }

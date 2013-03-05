@@ -5,22 +5,34 @@
 $block-margin: 20px;
 $block-padding: 20px;
 
-.apple_pagination {
+.tagged, .apple_pagination {
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   position: relative;
   @include border-radius(15px);
   background-color: $dark_gray;
   @include opacity(0.9);
-  color: yellow;
   width: $width;
-  min-width:400px;
-  max-width:800px;
+  min-width: $min-width;
+  max-width: $max_width;
   padding: $block-padding;
-  margin: $block-margin;
+  margin: 0px $block-margin;
   border: 1px solid $dark_gray;
   text-align: center;
   cursor: default;
   @include clearfix;
+}
+
+.tagged {
+  .label {
+    color: $gray_pink;
+    text-transform: uppercase;
+  }
+  .icon.icon-delete {
+    float: right;
+  }
+    
+}
+.apple_pagination {
   a, span {
     padding: 0.2em 0.3em;
   }
@@ -59,8 +71,8 @@ li.track {
   background-color: $dark_gray;
   @include opacity(0.9);
   width: $width;
-  min-width:400px;
-  max-width:800px;
+  min-width: $min_width;
+  max-width: $max_width;
   display:block;
   float: left;
   padding: $block-padding;
@@ -84,6 +96,7 @@ li.track {
     }
   }
   .bd, .ft {
+    position: relative;
     margin-top: 10px;
   }
   .description, .tracklist {
@@ -93,13 +106,6 @@ li.track {
   .tags, .styles {
     line-height: 2.5em;
   }
-  .tag {
-    @include border-radius(4px);
-    padding: 5px 7px;
-    margin: 5px;
-    border: 1px solid $dark_gray;
-    background-color: $medium_dark_gray;
-  }
   .load-audio {
     cursor: pointer;
   }
@@ -108,11 +114,26 @@ li.track {
     font-size: 18px;
   }
   .download {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    
     .icon {
       text-align: bottom;
     }
   }
 }
+li.track, .tagged {
+  .tag {
+    @include border-radius(4px);
+    padding: 5px 7px;
+    margin: 5px;
+    border: 1px solid $dark_gray;
+    background-color: $medium_dark_gray;
+  }
+}
+
+.tagged
 
 .audiojs {
   @include border-radius(10px);
@@ -126,7 +147,7 @@ li.track {
       @include gradient(#969, #747);
     }
   }
-  @include gradient(#202, #405);
+  @include gradient(#202, #504);
   .time {
     em, strong {
       font-family: helvetica, sans-serif;
