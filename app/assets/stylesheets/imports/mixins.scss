@@ -5,15 +5,36 @@
   opacity: $opacity; 
 };
 
-$default-border-radius: 5px !default;
+$default-border-radius: 5px;
 
 @mixin border-radius($radius: $default-border-radius) {
-  -moz-border-radius: $default-border-radius;
-  -webkit-border-radius: $default-border-radius;
-  -khtml-border-radius: $default-border-radius;
-  -ms-border-radius: $default-border-radius;
-  border-radius: $default-border-radius;
-}
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -khtml-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+};
+
+@mixin border-radius-top($radius: $default-border-radius) {
+  @include border-radius-top-left($radius);
+  @include border-radius-top-right($radius);
+};
+
+@mixin border-radius-top-left($radius: $default-border-radius) {
+  -moz-border-radius-topleft: $radius;
+  -webkit-border-top-left-radius: $radius;
+  -khtml-border-top-left-radius: $radius;
+  -ms-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+};
+
+@mixin border-radius-top-right($radius: $default-border-radius) {
+  -moz-border-radius-topright: $radius;
+  -webkit-border-top-right-radius: $radius;
+  -khtml-border-top-right-radius: $radius;
+  -ms-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+};
 
 @mixin gradient($from, $to) {
   /* fallback/image non-cover color */

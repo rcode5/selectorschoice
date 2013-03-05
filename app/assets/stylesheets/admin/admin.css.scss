@@ -41,13 +41,9 @@
       color: white;
     }
   }
-  .main {
-    width: $width;
-  }
     
   table.tracks {
     max-width: $max_width;
-    border-top: 1px solid $medium_gray;
     background: black;
     @include opacity(0.7);
     tr.track { 
@@ -72,29 +68,54 @@
     }
   }
 
-  .track-info {
-    @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
-    position: relative;
-    @include border-radius(15px);
-    background-color: $dark_gray;
-    @include opacity(0.9);
-    border: 1px solid $dark_gray;
-    list-style: none;
-    @include clearfix;
-    li {
-      padding: 10px;
-
-      margin-top:5px;
-      margin-bottom: 12px;
+  .block {
+    @include border-radius(10px);
+    width: 300px;
+    float: left;
+    padding: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid $medium_dark_gray;
+    background-color: black;
+    @include opacity(0.7);
+    h3 {
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $medium_dark_gray;
     }
-    
-    .label { 
-      margin-bottom: 5px;
-    }
-    .value {
-      @include opacity(0.7);
-      padding: 10px;
+    .tag_cloud {
+      line-height: 2.5em;
+      .css1 { font-size: 1.0em; }
+      .css2 { font-size: 1.2em; }
+      .css3 { font-size: 1.4em; }
+      .css4 { font-size: 1.6em; }
+      .tag {
+        @include border-radius(4px);
+        padding: 5px 7px;
+        margin: 5px;
+        border: 1px solid $dark_gray;
+        background-color: $medium_dark_gray;
+      }
     }
   }
+  .content {
+    @include clearfix;
+  }
 
+  .tabs {
+    padding-bottom: 10px;
+    a {
+      padding: 10px;
+      background-color: $dark_gray;
+      border: 1px solid $medium_dark_gray;
+      @include border-radius-top(5px);
+      &:hover {
+        background-color: $black;
+      }
+      &.current {
+        background-color: $medium_dark_gray;
+      }
+    }
+  }
 }

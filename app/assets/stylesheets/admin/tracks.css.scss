@@ -31,8 +31,12 @@
       font-style: italic;
     }
   }
+  
+  .tab_content#published {
+    display: none;
+  }
 
- .track-info {
+  .track-info {
     @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
     position: relative;
     @include border-radius(15px);
@@ -56,5 +60,4 @@
       padding: 10px;
     }
   }
-
 }

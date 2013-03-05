@@ -19,5 +19,8 @@ class Track < ActiveRecord::Base
     def published
       where(published: true)
     end
+    def unpublished
+      where(published: [false, nil])
+    end
   end
 end

@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Admin::TracksController do
 
-  def valid_attributes
-    FactoryGirl.build(:track).attributes.reject{|k,v| ['id','created_at','updated_at'].include? k }
+  def valid_attributes(overrides={})
+    FactoryGirl.build(:track).attributes.reject{|k,v| ['id','created_at','updated_at'].include? k }.merge(overrides)
   end
 
   describe 'authorized' do
@@ -12,9 +12,12 @@ describe Admin::TracksController do
     end
     describe "GET index" do
       it "assigns all tracks as @tracks" do
-        track = Track.create! valid_attributes
+        tracks = []
+        tracks << Track.create!(valid_attributes(published: true))
+        tracks << Track.create!(valid_attributes(published: false))
         get :index, {}
-        assigns(:tracks).should eq([track])
+        assigns(:published).should eq([tracks[0]])
+        assigns(:unpublished).should eq([tracks[1]])
       end
     end
 
