@@ -43,7 +43,6 @@
   }
     
   table.tracks {
-    max-width: $max_width;
     background: black;
     @include opacity(0.7);
     tr.track { 
@@ -53,7 +52,7 @@
       margin-right: 10px;
     }
     .edit-controls {
-      padding-left: 30px;
+      whitespace: nowrap;
     }
     tr.odd {
       background: $dark_gray;
