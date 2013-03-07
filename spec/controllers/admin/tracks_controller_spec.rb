@@ -104,6 +104,20 @@ describe Admin::TracksController do
           put :update, {:id => track.to_param, :track => valid_attributes}
           expect(response).to redirect_to(admin_track_path(Track.last))
         end
+
+        it 'properly updates tags' do
+          track = Track.create! valid_attributes
+          put :update, {:id => track.to_param, :track => {:tag_list => 'tag1,tag2'}}
+          expect(Track.find(track.id).tag_list).to eql ['tag2','tag1']
+        end
+
+        it 'properly updates tags' do
+          track = Track.create! valid_attributes(:tag_list => ['this','that'])
+          expect(Track.find(track.id).tag_list).to eql ['that','this']
+          put :update, {:id => track.to_param, :track => {:tag_list => 'this'}}
+          expect(Track.find(track.id).tag_list).to eql ['this']
+        end
+
       end
 
       describe "with invalid params" do
