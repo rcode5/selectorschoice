@@ -90,7 +90,7 @@ class Admin::TracksController < AdminController
   def set_recorded_on_from_params
     params[:track][:recorded_on] = params[:recorded_on_day] || ''
     if params[:recorded_on_time].present?
-      params[:track][:recorded_on] = Time.zone.parse([params[:track][:recorded_on],params[:recorded_on_time]].join '' )
+      params[:track][:recorded_on] = Time.zone.parse([params[:track][:recorded_on],params[:recorded_on_time]].join ' ' )
     end
     params[:track].delete(:recorded_on) unless params[:track][:recorded_on].present?
   end

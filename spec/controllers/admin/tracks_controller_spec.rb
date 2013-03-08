@@ -118,6 +118,25 @@ describe Admin::TracksController do
           expect(Track.find(track.id).tag_list).to eql ['this']
         end
 
+        12.times do |hr|
+          hr += 7
+          sfx = 'pm'
+          if hr < 12
+            sfx = 'am'
+          end
+          clock_time = "#{hr}:00#{sfx}"
+          it "computes the proper time given recorded on date and time (given #{clock_time})" do
+            track = Track.create! valid_attributes
+            put :update, {:id => track.to_param, :track => {}, "recorded_on_day" => '01 Mar, 2013', "recorded_on_time" => clock_time }
+            r = Track.find(track.id).recorded_on
+            expect(r.month).to eql 3
+            expect(r.day).to eql 1
+            expect(r.year).to eql 2013
+            expect(r.hour).to eql hr
+          end
+        end
+
+
       end
 
       describe "with invalid params" do
