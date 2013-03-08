@@ -16,7 +16,7 @@
   %li 
     .label Recorded on
     .value
-      = @track.recorded_on.to_date unless @track.recorded_on.blank?
+      = @track.recorded_on unless @track.recorded_on.blank?
 
   %li 
     .label URL

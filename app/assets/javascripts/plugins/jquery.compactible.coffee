@@ -1,8 +1,8 @@
 $.compactibleDefaults =
   closedHeight: '30px'
   openCloseButton:
-    open:"<div class='open-close open' title='show'><i class='icon icon-open'></i></div>"
-    close:"<div class='open-close close' title='hide'><i class='icon icon-close'></i></div>"
+    open:"<a class='tooltip open-close open' title='show tracklist'><i class='icon icon-open'></i></a>"
+    close:"<a class='tooltip open-close close' title='hide tracklist'><i class='icon icon-close'></i></a>"
   start: 'close'
   wrapperClass: 'compactible-shrink-wrap'
 
@@ -40,11 +40,14 @@ $.fn.compactible = (method) ->
       else
         $this.compactible('open');
 
-      opener.bind 'click', ->
+      opener.bind 'click', (ev) ->
+        ev.preventDefault();
         $this.compactible('open')
-      closer.bind 'click', ->
+        return false
+      closer.bind 'click', (ev) ->
+        ev.preventDefault();
         $this.compactible('close')
-
+        return false
       unless o.openCloseButton[o.start]
         console.log "the start parameter must be one of the following values %s" % _.keys(o.openCloseButton)
 

@@ -46,7 +46,7 @@ class Admin::TracksController < AdminController
   # POST /tracks.json
   def create
     @track = Track.new(params[:track])
-
+    set_recorded_on_from_params
     respond_to do |format|
       if @track.save
         format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully created.' }
@@ -62,7 +62,7 @@ class Admin::TracksController < AdminController
   # PUT /tracks/1.json
   def update
     @track = Track.find(params[:id])
-
+    set_recorded_on_from_params
     respond_to do |format|
       if @track.update_attributes(params[:track])
         format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully updated.' }
@@ -86,4 +86,11 @@ class Admin::TracksController < AdminController
     end
   end
 
+  private
+  def set_recorded_on_from_params
+    params[:track][:recorded_on] = params[:recorded_on_day] || ''
+    if params[:recorded_on_time].present?
+      params[:track][:recorded_on] = Time.zone.parse([params[:track][:recorded_on],params[:recorded_on_time]].join '' )
+    end
+  end
 end

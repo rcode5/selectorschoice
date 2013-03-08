@@ -1,0 +1,24 @@
+@import "../imports/mixins";
+@import "../imports/colors";
+@import "../imports/dimensions";
+
+a.tooltip {
+  outline:none; 
+  display: inline;
+  position: relative;
+}
+a.tooltip:hover {
+  text-decoration:none;
+} 
+a.tooltip:hover:after {
+  background: $medium_dark_gray;
+  @include border-radius(4px);
+  @include drop-shadow(1px 1px 1px $medium_gray);
+  bottom: 36px;
+  left: -40px;
+  color: #fff;
+  content: attr(title);
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 10;
+}

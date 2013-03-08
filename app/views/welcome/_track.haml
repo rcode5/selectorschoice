@@ -24,8 +24,7 @@
           %h3 tracklist
           = markup(track.playlist || '')
     .download
-      %a{href: track.url, title: 'download this track'} 
-        %i.icon.icon-download 
+      = link_to_icon 'download', track.url, class: 'tooltip', title: 'download this track' 
   .ft
     - unless track.style_list.empty?
       .styles
