@@ -92,5 +92,6 @@ class Admin::TracksController < AdminController
     if params[:recorded_on_time].present?
       params[:track][:recorded_on] = Time.zone.parse([params[:track][:recorded_on],params[:recorded_on_time]].join '' )
     end
+    params[:track].delete(:recorded_on) unless params[:track][:recorded_on].present?
   end
 end
