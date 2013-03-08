@@ -1,10 +1,11 @@
 # admin javascript manifest
 # = require pickadate.min
+# = require jquery.timepicker
 # = require select2
 
 $ ->
   $('.datepicker').pickadate()
-
+  $('.timepicker').timepicker()
   $('.text_copy').bind 'click', ->
     $(this).select()
 

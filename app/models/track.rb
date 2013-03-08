@@ -13,6 +13,7 @@ class Track < ActiveRecord::Base
   end
 
   class << self
+    
     def by_recency
       order('recorded_on desc, updated_at desc')
     end

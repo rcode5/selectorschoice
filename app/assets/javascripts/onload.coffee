@@ -10,6 +10,6 @@ $ ->
   $('.compactible').compactible(
     start:'open'
     openCloseButton:
-      open:"<div class='open-close open' title='show'>&#8853;</div>"
-      close:"<div class='open-close close' title='hide'>&#8854;</div>"
+      open:"<a href='#' class='tooltip open-close open' title='show tracklist'>&#8853;</a>"
+      close:"<a href='#' class='tooltip open-close close' title='hide tracklist'>&#8854;</a>"
   )

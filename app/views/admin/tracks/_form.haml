@@ -23,7 +23,8 @@
 
   .input.string.optional.field_with_hint
     = f.label :recorded_on
-    = f.text_field :recorded_on, class: 'datepicker'
+    = text_field_tag :recorded_on_day, @track.recorded_on.strftime("%d %b, %Y"),class: 'datepicker'
+    = text_field_tag :recorded_on_time, @track.recorded_on.strftime("%H:%M %p"), class: 'timepicker'
   = f.input :url, hint: "Full URL to the music file (on Amazon S3 or elsewhere)."
   = f.input :playlist, hint: "Keep it simple.  Artist - Track title, or something similar.  Each track should be on a new line.  You can use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown</a> for formatting if you want to get fancy."
   = f.input :description, hint: "Describe the track.  You can use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown</a> for formatting if you want to get fancy."
