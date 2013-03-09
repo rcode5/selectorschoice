@@ -62,6 +62,15 @@ describe Admin::TracksController do
           post :create, {:track => valid_attributes}
           expect(response).to redirect_to(admin_track_path(Track.last))
         end
+
+        it 'create handles recorded_on_day/time params' do
+          hr = 8
+          sfx = 'pm'
+          clock_time = "#{hr}:00#{sfx}"
+          put :create, {:track => valid_attributes(:title => 'rock and roll', :recorded_on => nil), "recorded_on_day" => '01 Mar, 2013', "recorded_on_time" => clock_time }
+          expect(Track.where(:title => 'rock and roll').first.recorded_on).to be_present
+        end
+
       end
 
       describe "with invalid params" do
@@ -135,7 +144,6 @@ describe Admin::TracksController do
             expect(r.hour).to eql hr
           end
         end
-
 
       end
 
