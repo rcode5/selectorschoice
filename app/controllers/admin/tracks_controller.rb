@@ -45,8 +45,8 @@ class Admin::TracksController < AdminController
   # POST /tracks
   # POST /tracks.json
   def create
-    @track = Track.new(params[:track])
     set_recorded_on_from_params
+    @track = Track.new(params[:track])
     respond_to do |format|
       if @track.save
         format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully created.' }
