@@ -6,7 +6,7 @@
       - if track.author.present?
         = track.author 
         = "&mdash;".html_safe
-      #{track.recorded_on ? track.recorded_on.to_date.strftime("%m %d %Y") : ''}
+      %span.date #{track.recorded_on ? track.recorded_on.to_date.strftime("%m %d %Y") : ''}
   .bd 
     .audio
       %audio{src: track.url, preload: false}

@@ -98,6 +98,7 @@ li.track {
   border: 1px solid $dark_gray;
   .hd {
     .title {
+      max-width: 65%;      
       margin-top: 18px;
       font-size: 180%;
       text-transform: uppercase;
@@ -106,11 +107,15 @@ li.track {
       display: inline-block;
     }
     .recorded_on {
+      max-width: 35%;
       font-size: 120%;
       margin-left: 20px;
       position: absolute;
       right: 20px;
       top: 42px;
+      .date {
+        whitespace: nowrap;
+      }
     }
   }
   .bd, .ft {
