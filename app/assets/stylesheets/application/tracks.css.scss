@@ -16,9 +16,11 @@
   border: 1px solid $dark_gray;
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   @include border-radius(15px);
-  background-color: $dark_gray;
-  @include opacity(0.9);
+  background-color: rgba(30, 0, 30, 0.8);
   text-align: center;
+}
+.apple_pagination {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .search_row {
@@ -88,8 +90,7 @@ li.track {
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   position: relative;
   @include border-radius(15px);
-  background-color: $dark_gray;
-  @include opacity(0.9);
+  background-color: rgba(30, 0, 30, 0.8);
   display:block;
   padding: $block-padding;
   margin: $block-margin;

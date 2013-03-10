@@ -52,7 +52,6 @@ footer {
   span:first-child {
     border-left: 0;
   }
-
 }
 body, .container {
   min-height: 570px; 
@@ -108,17 +107,17 @@ nav.site_nav {
   position: absolute;
   width: $min-width;
   padding: $block-padding;
-  margin: 0px $block-margin;
+  margin: $block-margin;
   cursor: default;
   @include clearfix;
   border: 1px solid $dark_gray;
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   @include border-radius(15px);
-  background-color: $dark_gray;
+  background-color: rgba(0,0,0,.6);
   @include opacity(1);
   text-align: center;
   left: $min-width / 2;
-  top: 120px;
+  top: 110px;
   z-index: 20
   
 }
