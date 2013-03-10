@@ -4,7 +4,7 @@ class TagsController < ApplicationController
       fmt.html { redirect_to '/' }
       fmt.json {
         tags = Track.tag_counts
-        styles = Track.tag_counts_on(:style)
+        styles = Track.style_counts
         render json: (tags+styles).map(&:name).compact.uniq.sort
       }
     end
