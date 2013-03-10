@@ -1,3 +1,8 @@
+.search_row
+  %form.search
+    %input{:name => 'tags', :placeholder => 'search by tag'}
+    %input{:type => 'hidden', :name => 'search'}  
+    %i{:class => 'icon black icon-search', :title => 'search'}
 - unless @tracks.empty?
   - if @tags.present?
     .tagged

@@ -1,6 +1,8 @@
 SelectorsChoice::Application.routes.draw do
   resources :tracks, only: [:index, :show]
 
+  resources :tags, only: [:index], constraints: {format: /json/}
+
   resources :admin, only: :index
   namespace :admin do
     resources :tracks
