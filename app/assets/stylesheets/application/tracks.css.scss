@@ -4,7 +4,6 @@
 
 .search_row, .tagged, .apple_pagination {
   position: relative;
-  width: $width;
   min-width: $min-width;
   max-width: $max_width;
   padding: $block-padding;
@@ -80,6 +79,9 @@
   
 ul.tracks {
   @include clearfix;
+  width: $width;
+  min-width: $min_width;
+  max-width: $max_width;
 }
 
 li.track {
@@ -88,11 +90,7 @@ li.track {
   @include border-radius(15px);
   background-color: $dark_gray;
   @include opacity(0.9);
-  width: $width;
-  min-width: $min_width;
-  max-width: $max_width;
   display:block;
-  float: left;
   padding: $block-padding;
   margin: $block-margin;
   border: 1px solid $dark_gray;
