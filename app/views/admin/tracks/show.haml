@@ -14,6 +14,11 @@
       = @track.display_title 
 
   %li 
+    .label Author
+    .value 
+      = @track.author
+
+  %li 
     .label Recorded on
     .value
       = @track.recorded_on unless @track.recorded_on.blank?
