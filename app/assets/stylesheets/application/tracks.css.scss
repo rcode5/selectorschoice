@@ -187,9 +187,12 @@ li.track, .tagged {
     cursor: pointer;
     position: absolute;
     left: 100px;
-    top: 14px;
+    top: 0px;
     color: $gray_pink;
   }
+}
+.compactible_tracklist {
+  display:none;
 }
 
 .markup {

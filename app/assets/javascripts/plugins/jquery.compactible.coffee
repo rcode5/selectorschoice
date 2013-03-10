@@ -12,19 +12,25 @@ $.fn.compactible = (method) ->
     open: ->
       $this = $(this)
       opts = $this.data()
-      opener = $this.find('.open')
-      closer = $this.find('.close')
-      opener.hide();
-      closer.show();
-      $this.animate({height: "100%"})
+      if opts.section
+        opener = $this.find('.open')
+        closer = $this.find('.close')
+        opener.hide();
+        closer.show();
+        $section = $(opts.section)
+        if !$section.is(':visible')
+          $(opts.section).slideDown()
     close: ->
       $this = $(this)
       opts = $this.data()
-      opener = $this.find('.open')
-      closer = $this.find('.close')
-      opener.show();
-      closer.hide();
-      $this.animate({height: opts.closedHeight})
+      if (opts.section)
+        opener = $this.find('.open')
+        closer = $this.find('.close')
+        opener.show();
+        closer.hide();
+        $section = $(opts.section)
+        if $section.is(':visible')
+          $(opts.section).slideUp()
 
     init: (options) ->
       $this = $(this)

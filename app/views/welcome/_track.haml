@@ -20,8 +20,8 @@
         %h3 tracklist
         .markup none :(
       - else
-        .compactible
-          %h3 tracklist
+        %h3.compactible{'data-section' => "#tracklist#{track.id}"} tracklist
+        .compactible_tracklist{id:"tracklist#{track.id}"}
           = markup(track.playlist || '')
     .download
       = link_to_icon 'download', track.url, class: 'tooltip', title: 'download this track' 
