@@ -1,4 +1,5 @@
 # admin javascript manifest
+# = require_tree ./support
 # = require pickadate.min
 # = require jquery.timepicker
 # = require select2

@@ -11,7 +11,7 @@ a.tooltip:hover {
   text-decoration:none;
 } 
 a.tooltip:hover:after {
-  background: rgba(60,60,60,0.8);
+  background: $medium_dark_gray;
   @include border-radius(4px);
   @include drop-shadow(1px 1px 1px $medium_gray);
   bottom: 36px;
