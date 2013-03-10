@@ -55,7 +55,7 @@ $.fn.compactible = (method) ->
         $this.compactible('close')
         return false
       unless o.openCloseButton[o.start]
-        console.log "the start parameter must be one of the following values %s" % _.keys(o.openCloseButton)
+        SC.log "the start parameter must be one of the following values %s" % _.keys(o.openCloseButton)
 
 
   this.each () ->

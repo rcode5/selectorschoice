@@ -26,7 +26,6 @@ $.fn.tabify = (method) ->
       $.error( 'Method ' +  method + ' does not exist on jQuery.compactible' );
 
 $ ->
-  console.log  $('.tabs')
   $('.tabs').tabify()
 
 # $('#tabs div').hide();

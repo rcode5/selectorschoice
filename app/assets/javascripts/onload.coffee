@@ -8,8 +8,8 @@ $ ->
 
   $('.compactible').compactible(
     openCloseButton:
-      open:"<a href='#' class='tooltip open-close open' title='show tracklist'>&#8853;</a>"
-      close:"<a href='#' class='tooltip open-close close' title='hide tracklist'>&#8854;</a>"
+      open:"<a href='#' class='tooltip open-close open' title='show tracklist'>&#8853;<span class='ie'>+</span></a>"
+      close:"<a href='#' class='tooltip open-close close' title='hide tracklist'>&#8854;<span class='ie'>[-]</span></a>"
   )
 
   $('.flash').bind 'click', () ->
