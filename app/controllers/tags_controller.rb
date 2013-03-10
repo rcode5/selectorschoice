@@ -5,7 +5,7 @@ class TagsController < ApplicationController
       fmt.json {
         tags = Track.tag_counts
         styles = Track.style_counts
-        render json: (tags+styles).map(&:name).compact.uniq.sort
+        render json: (tags+styles).map(&:name).map(&:downcase).uniq.sort
       }
     end
   end

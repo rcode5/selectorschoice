@@ -13,9 +13,9 @@ $ ->
     $.ajax(
       url:'/tags.json'
       success: (d) ->
-        $('#track_tag_list, #track_style_list').select2({tags: d, placeholder: 'search by tag'})
+        $('#track_tag_list, #track_style_list').select2({tags: d})
       error: ->
-        $('#track_tag_list, #track_style_list').select2({tags: [], placeholder: 'search by tag'})
+        $('#track_tag_list, #track_style_list').select2({tags: []})
     )
 
   $('#notice').bind 'click', ->

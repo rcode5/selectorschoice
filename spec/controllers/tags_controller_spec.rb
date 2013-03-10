@@ -8,7 +8,7 @@ describe TagsController do
       t = FactoryGirl.create :track, published: true
       10.times do |x| 
         tag = "tag%02d" % x
-        style = "style%02d" % x
+        style = "Style%02d" % x
         t.tag_list << tag
         t.style_list << style
       end
@@ -21,7 +21,7 @@ describe TagsController do
       expect(response.content_type).to eql 'application/json'
     end
 
-    it 'returns tags and styles' do
+    it 'returns tags and styles (downcased)' do
       resp = JSON.parse(response.body)
       expect(resp).to include 'common_style'
       expect(resp).to include 'common_tag'
