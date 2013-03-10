@@ -7,8 +7,8 @@ describe WelcomeController do
       sample_styles = []
       10.times do |x| 
         t = FactoryGirl.create :track, published: ((x%2) == 0) 
-        tag = "tag%02d" % x
-        style = "style%02d" % x
+        tag = "Tag%02d" % x
+        style = "Style%02d" % x
         t.tag_list = tag
         t.style_list = style
         t.tag_list << 'common_tag'
