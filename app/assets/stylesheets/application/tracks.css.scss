@@ -2,26 +2,44 @@
 @import "../imports/colors";
 @import "../imports/dimensions";
 
-$block-margin: 20px;
-$block-padding: 20px;
-
-.tagged, .apple_pagination {
-  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+.search_row, .tagged, .apple_pagination {
   position: relative;
-  @include border-radius(15px);
-  background-color: $dark_gray;
-  @include opacity(0.9);
   width: $width;
   min-width: $min-width;
   max-width: $max_width;
   padding: $block-padding;
   margin: 0px $block-margin;
-  border: 1px solid $dark_gray;
-  text-align: center;
   cursor: default;
   @include clearfix;
 }
 
+.tagged, .apple_pagination {
+  border: 1px solid $dark_gray;
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  @include border-radius(15px);
+  background-color: $dark_gray;
+  @include opacity(0.9);
+  text-align: center;
+}
+
+.search_row {
+  padding-right: 0;
+  margin-left: 2 * $block-margin;
+  @include opacity(0.8);
+  .icon-search {
+    position: absolute;
+    right: 8px;
+    bottom: 22px;
+    cursor: pointer;
+  }
+  .select2-container { 
+    float: right;
+    width: 200px;
+    .select2-choices {
+      @include border-radius(8px);
+    }
+  }
+}
 .tagged {
   .label {
     color: $gray_pink;

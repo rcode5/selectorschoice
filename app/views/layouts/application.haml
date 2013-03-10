@@ -18,6 +18,7 @@
         = render '/common/nav'
 
       .main{:id => @current_section}
+        = render '/common/flash', flash: flash
         =yield
         .bottom_spacer
     = render '/common/footer'

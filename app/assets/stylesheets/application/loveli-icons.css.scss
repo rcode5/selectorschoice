@@ -1,11 +1,14 @@
 .icon {
-   background-image: url(/assets/loveli-icons.png);
    display: inline-block;
    width: 23px;
    height: 23px;
    overflow: hidden;
    background-repeat: no-repeat;
    background-color: transparent;
+   background-image: url(/assets/loveli-icons.png);
+}
+.icon.black {
+   background-image: url(/assets/loveli-icons-black.png);
 }
 
 $row_offset: -41px;
@@ -16,7 +19,9 @@ $column_size: -35px;
 @mixin icon_position($column, $row) {
   background-position: ($column * $column_size + $column_offset) ($row * $row_size + $row_offset);
 }
-
+.icon.icon-search {
+  @include icon_position(7,3);
+}
 .icon.icon-add,
 .icon.icon-open {
   @include icon_position(0,2);

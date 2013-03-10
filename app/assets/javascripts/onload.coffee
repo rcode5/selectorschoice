@@ -13,3 +13,25 @@ $ ->
       open:"<a href='#' class='tooltip open-close open' title='show tracklist'>&#8853;</a>"
       close:"<a href='#' class='tooltip open-close close' title='hide tracklist'>&#8854;</a>"
   )
+
+  $('.flash').bind 'click', () ->
+    $(this).fadeOut()
+
+  $('.flash').each (idx, el) ->
+    $el = $(el)
+    setTimeout ->
+      $el.fadeOut()
+    ,
+      3500
+
+  $('.icon-search').bind 'click', () ->
+    $(this).closest('form').submit()
+
+  if $('form.search [name=tags]').length
+    $.ajax(
+      url:'/tags.json'
+      success: (d) ->
+        $('.search [name=tags]').select2({tags: d, placeholder: 'search'})
+      error: ->
+        $('.search [name=tags]').select2({tags: [], placeholder: 'search by tag'})
+    )

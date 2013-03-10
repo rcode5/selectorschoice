@@ -98,3 +98,22 @@ nav.site_nav {
   width: 40%;
   margin: auto;
 }
+
+.flash {
+  position: absolute;
+  width: $min-width;
+  padding: $block-padding;
+  margin: 0px $block-margin;
+  cursor: default;
+  @include clearfix;
+  border: 1px solid $dark_gray;
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  @include border-radius(15px);
+  background-color: $dark_gray;
+  @include opacity(1);
+  text-align: center;
+  left: $min-width / 2;
+  top: 120px;
+  z-index: 20
+  
+}
