@@ -92,26 +92,27 @@ li.track {
   @include border-radius(15px);
   background-color: rgba(30, 0, 30, 0.8);
   display:block;
-  padding: $block-padding;
+  padding: 0 $block-padding;
   margin: $block-margin;
   border: 1px solid $dark_gray;
   .hd {
     .title {
+      padding: 8px 12px;
+      background-color: #430a22;
+      background-color: rgba(70,40,50, 0.7);
+      @include border-radius(4px);
       max-width: 65%;      
       margin-top: 18px;
       font-size: 180%;
       text-transform: uppercase;
     }
-    div {
-      display: inline-block;
-    }
     .recorded_on {
       max-width: 35%;
-      font-size: 120%;
       margin-left: 20px;
       position: absolute;
       right: 20px;
-      top: 42px;
+      top: 53px;
+      color: $light_gray;
       .date {
         white-space: nowrap;
       }
@@ -121,11 +122,16 @@ li.track {
     position: relative;
     margin-top: 10px;
   }
+  .ft {
+    @include clearfix;
+  }
   .description, .tracklist {
     margin-top: 10px;
     color: $pink_gray;
   }
   .tags, .styles {
+    width: 49%;
+    float: left;
     line-height: 2.5em;
   }
   .load-audio {
@@ -148,10 +154,11 @@ li.track {
 li.track, .tagged {
   .tag {
     @include border-radius(4px);
-    padding: 5px 7px;
+    padding: 0 9px;
     margin: 5px;
     border: 1px solid $dark_gray;
     background-color: $medium_dark_gray;
+    display: inline-block;
   }
 }
 
