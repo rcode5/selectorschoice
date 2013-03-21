@@ -1,14 +1,13 @@
 require 'rubygems'
 require 'aws-sdk'
 
+# log requests using the default rails logger
+AWS.config(:logger => Rails.logger)
+# load credentials from a file
+config_path = File.expand_path(File.join(Rails.root, 'config','aws.yml'))
+AWS.config(YAML.load(File.read(config_path)))
 
-# Change this stuff.
-AWS.config({
-             :access_key_id => "DUMMY",
-             :secret_access_key => "DUMMY"
-           })
 bucket_name = 'selectors_choice'
-
 
 s3 = AWS::S3.new()
 bucket = s3.buckets[bucket_name]
