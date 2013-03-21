@@ -3,4 +3,4 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   b = new BrowserSniffer()
-  $('.audio audio').mediaelementplayer()
+  $('.audio audio').mediaelementplayer(flash: '/assets/flashmediaelement.swf')
