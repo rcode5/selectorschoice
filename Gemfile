@@ -18,6 +18,8 @@ gem 'select2-rails'
 # in production environments by default.
 gem 'sass-rails'
 
+gem 'aws-sdk'
+
 group :assets do
   gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
