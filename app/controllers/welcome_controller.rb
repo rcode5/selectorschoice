@@ -9,6 +9,6 @@ class WelcomeController < ApplicationController
     else
       @tracks = Track.published
     end
-    @tracks = @tracks.by_recency.paginate(:page => params[:page], :per_page => 7)
+    @tracks = @tracks.by_recency.paginate(:page => params[:page], :per_page => 8)
   end
 end

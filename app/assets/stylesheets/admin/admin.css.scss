@@ -18,7 +18,21 @@
 
 
 .admin {
-
+  background:none;
+  header {
+    background: rgb(50,50,50);
+    height: 25px;
+    padding:20px;
+    margin:0 0 10px;
+    .site-name {
+      float: left;
+    }
+    .site_nav {
+      height: 24px;
+      top: auto;
+      float: right;
+    }
+  }
   input,textarea {
     @include border-radius(4px);
     padding: 5px;
@@ -26,7 +40,9 @@
   textarea {
     width: 600px;
   }
-
+  h1 {
+    margin-bottom: 28px;
+  }
   table {
     .icon {
       vertical-align: middle;
@@ -58,6 +74,7 @@
       background: $dark_gray;
     }
     td {
+      border-top: 1px solid $medium_dark_gray;
       padding: 2px 5px;
       overflow:hidden;
       &.url {
@@ -69,21 +86,24 @@
 
   .block {
     @include border-radius(10px);
-    width: 300px;
+    width: 100%;
     float: left;
-    padding: 20px;
-    margin-right: 20px;
+    padding: 6px 0px 15px;
+    margin-right: 0px;
     margin-bottom: 20px;
     border-top: 1px solid $medium_dark_gray;
-    background-color: black;
+    background-color: rgba(255,255,255,0.15);
     @include opacity(0.7);
     h3 {
-      margin-top: 5px;
-      margin-bottom: 15px;
+      margin: 5px 10px 15px;
       padding-bottom: 10px;
       border-bottom: 1px solid $medium_dark_gray;
     }
+    ul, ul li { 
+      margin: 5px;
+    }
     .tag_cloud {
+      margin: 5px;
       line-height: 2.5em;
       .css1 { font-size: 1.0em; }
       .css2 { font-size: 1.2em; }

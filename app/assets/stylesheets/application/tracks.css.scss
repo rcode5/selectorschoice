@@ -2,6 +2,10 @@
 @import "../imports/colors";
 @import "../imports/dimensions";
 
+h3 .author {
+  float: right;
+  letter-spacing: 0px;
+}
 .search_row, .tagged, .apple_pagination {
   position: relative;
   min-width: $min-width;
@@ -101,21 +105,9 @@ li.track {
       background-color: #430a22;
       background-color: rgba(70,40,50, 0.7);
       @include border-radius(4px);
-      max-width: 65%;      
       margin-top: 18px;
       font-size: 180%;
       text-transform: uppercase;
-    }
-    .recorded_on {
-      max-width: 35%;
-      margin-left: 20px;
-      position: absolute;
-      right: 20px;
-      top: 53px;
-      color: $light_gray;
-      .date {
-        white-space: nowrap;
-      }
     }
   }
   .bd, .ft {
@@ -129,10 +121,19 @@ li.track {
     margin-top: 10px;
     color: $pink_gray;
   }
+  .tags {
+    h5 {
+      float: left; 
+      margin: 7px 10px 15px 0;
+    }
+  }
   .tags, .styles {
-    width: 49%;
     float: left;
-    line-height: 2.5em;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+    a.tag {
+      color: $xlight_gray;
+    }
   }
   .load-audio {
     cursor: pointer;

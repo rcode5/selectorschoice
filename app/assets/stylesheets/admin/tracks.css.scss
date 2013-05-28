@@ -20,9 +20,12 @@
     }
     td {
       vertical-align: top;
+      background-color: #222;
     }
     tr.unpublished {
-      background-color: #444;
+      td {
+        background-color: #444;
+      }
     }
     td.info > div {
       line-height: 20px;
