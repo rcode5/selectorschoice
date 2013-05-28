@@ -19,7 +19,4 @@ describe 'welcome/index' do
       assert_select '.apple_pagination'
     end
   end
-  describe 'with tags' do
-    pending 'it shows only tagged tracks'
-  end
 end

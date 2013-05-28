@@ -12,7 +12,7 @@ describe 'welcome/_track' do
     assert_select '.track .ft'
   end
   it 'renders the title' do
-    assert_select '.hd h2.title', @tr.title
+    assert_select '.hd h2.title', /#{@tr.title}/
   end
   it 'renders the audio tag' do
     assert_select ".bd .audio audio[src=#{@tr.url}]"
