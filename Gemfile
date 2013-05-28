@@ -33,5 +33,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-debugger'
   gem 'heroku'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 

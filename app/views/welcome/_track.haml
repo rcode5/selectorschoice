@@ -1,36 +1,34 @@
 - track ||= (track || @track)
 %li.track
   .hd
-    %h2.title #{track.pretty_title}
-    .recorded_on 
-      - if track.author.present?
-        = track.author 
-        = "&mdash;".html_safe
-      %span.date #{track.recorded_on ? track.recorded_on.to_date.strftime("%m %d %Y") : ''}
+    %h2.title 
+      - if track.recorded_on
+        %span.date 
+          =h (track.recorded_on.to_date.strftime("%m %d %Y") + ' &mdash; ').html_safe
+      = track.pretty_title
   .bd 
     .audio
       %audio{src: track.url, preload: false, type: 'audio/mpeg'}
 
     - if track.description.present?      
       .description.markup
-        %h3 in this mix
+        %h3 
+          in this mix 
+          - if track.author.present?
+            %span.author 
+              = "by #{track.author}"
+
         = markup(track.description || '')
-    .tracklist.markup
-      - if !track.playlist.present?
-        %h3 tracklist
-        .markup none :(
-      - else
+    - if track.playlist.present?
+      .tracklist.markup
         %h3.compactible{'data-section' => "#tracklist#{track.id}"} tracklist
         .compactible_tracklist{id:"tracklist#{track.id}"}
           = markup(track.playlist || '')
     .download
       = link_to_icon 'download', track.url, class: 'tooltip', title: 'download this track' 
   .ft
-    - unless track.style_list.empty?
-      .styles
-        %h5 Styles
-        = track.style_list.map{|t| render_tag_link t}.join.html_safe
-    - unless track.tag_list.empty?
-      .tags 
+    - tags = (track.style_list + track.tag_list).sort
+    - unless tags.empty?
+      .tags
         %h5 Tags
-        = track.tag_list.map{|t| render_tag_link t}.join.html_safe
+        = tags.map{|t| render_tag_link t}.join.html_safe
