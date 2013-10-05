@@ -5,7 +5,11 @@ SelectorsChoice::Application.routes.draw do
 
   resources :admin, only: :index
   namespace :admin do
-    resources :tracks
+    resources :tracks do
+      member do
+        get :clone
+      end
+    end
   end
 
   # reroute clearance endpoints to use our derived controllers for auth

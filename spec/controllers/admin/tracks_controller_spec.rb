@@ -36,6 +36,19 @@ describe Admin::TracksController do
       end
     end
 
+    describe "GET clone" do
+      it "assigns the requested track as @track" do
+        track = Track.create! valid_attributes
+        get :clone, {:id => track.to_param}
+        cloned_track = assigns(:track)
+        [:title, :description, :author, :display_title].each do |fld|
+          cloned_track.send(fld).should eql track.send(fld)
+        end
+        cloned_track.published.should be_false
+        cloned_track.url.should be_empty
+      end
+    end
+
     describe "GET edit" do
       it "assigns the requested track as @track" do
         track = Track.create! valid_attributes

@@ -51,3 +51,6 @@ $column_size: -35px;
 .icon.icon-check {
   @include icon_position(2,2);
 }
+.icon.icon-clone {
+  @include icon_position(2,0);
+}

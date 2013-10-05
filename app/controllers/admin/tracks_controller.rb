@@ -1,7 +1,7 @@
 class Admin::TracksController < AdminController
   # GET /tracks
   # GET /tracks.json
-  
+
   def index
     @published, @unpublished = Track.by_recency.partition(&:published)
 
@@ -35,6 +35,13 @@ class Admin::TracksController < AdminController
       format.html # new.html.erb
       format.json { render json: @track }
     end
+  end
+
+  def clone
+    @track = Track.find(params[:id]).dup
+    @track.published = false
+    @track.url = ''
+    render 'new'
   end
 
   # GET /tracks/1/edit
