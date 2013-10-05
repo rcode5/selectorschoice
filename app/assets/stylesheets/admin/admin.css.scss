@@ -18,6 +18,16 @@
 
 
 .admin {
+  &.flash {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    background-color: $medium_dark_gray;
+    &.error, &.alert, &.notice {
+      background-color: $error_red;
+    }
+  }
   background:none;
   header {
     background: rgb(50,50,50);

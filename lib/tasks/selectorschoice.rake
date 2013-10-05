@@ -14,7 +14,7 @@ namespace :sc do
       end
     end
     
-    desc "Import a dbfile into the asian_art_dev database on the local system"
+    desc "Import a dbfile into the development database on the local system"
     task :import => [:environment] do
       dbfile = ENV['dbfile']
       if dbfile.blank? || !File.exists?(dbfile)

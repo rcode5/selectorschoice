@@ -21,8 +21,6 @@ gem 'sass-rails'
 
 gem 'aws-sdk'
 
-gem 'tire' # elastic search
-
 group :assets do
   gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
