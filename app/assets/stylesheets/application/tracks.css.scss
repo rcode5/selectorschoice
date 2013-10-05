@@ -37,7 +37,7 @@ h3 .author {
     bottom: 22px;
     cursor: pointer;
   }
-  .select2-container { 
+  .select2-container {
     float: right;
     width: 200px;
     .select2-choices {
@@ -53,7 +53,7 @@ h3 .author {
   .icon.icon-delete {
     float: right;
   }
-    
+
 }
 .apple_pagination {
   a, span {
@@ -82,7 +82,7 @@ h3 .author {
     }
   }
 }
-  
+
 ul.tracks {
   @include clearfix;
   width: $width;
@@ -123,7 +123,7 @@ li.track {
   }
   .tags {
     h5 {
-      float: left; 
+      float: left;
       margin: 7px 10px 15px 0;
     }
   }
@@ -146,7 +146,7 @@ li.track {
     position: absolute;
     top: 5px;
     right: 0px;
-    
+
     .icon {
       text-align: bottom;
     }
@@ -207,8 +207,7 @@ li.track, .tagged {
   li {
     line-height: 1.6em;
   }
-  ul li:nth-child(2n) {  
+  ul li:nth-child(2n) {
     background-color: rgba(255,240,240,0.1);
   }
 }
-

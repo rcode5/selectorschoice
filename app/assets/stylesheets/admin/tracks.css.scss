@@ -5,7 +5,7 @@
 
 .admin {
   &.tracks {
-    .main { 
+    .main {
       position:relative;
     }
     .controls {
@@ -18,13 +18,16 @@
       top: inherit;
       bottom: 20px;
     }
+    tr:nth-child(even) {
+      background-color: #333;
+    }
     td {
       vertical-align: top;
-      background-color: #222;
     }
     tr.unpublished {
-      td {
-        background-color: #444;
+      background-color: #222;
+      &:nth-child(even) {
+        background-color: #333;
       }
     }
     td.info > div {
@@ -34,8 +37,19 @@
     .title {
       font-style: italic;
     }
+    .pickadate__table {
+      tr, td {
+        background-color: white;
+      }
+    }
+
   }
-  
+  td.recorded_on {
+    white-space: nowrap;
+  }
+  .tab_content {
+    border-top: 1px solid rgba(60, 60, 60, 0.8);
+  }
   .tab_content#published {
     display: none;
   }
@@ -54,8 +68,8 @@
       margin-top:5px;
       margin-bottom: 12px;
     }
-    
-    .label { 
+
+    .label {
       margin-bottom: 5px;
     }
     .value {

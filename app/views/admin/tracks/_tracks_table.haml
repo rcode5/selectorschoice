@@ -1,34 +1,36 @@
 %table.tracks
-  %tr
-    %th Recorded on
-    %th Info
-    %th Track
-    %th
-    %th Pub?
-    %th
+  %thead
+    %tr
+      %th.recorded_on Date
+      %th Info
+      %th Track
+      %th
+      %th Pub?
+      %th
 
-  - tracks.each do |track|
-    %tr.track{:class => track.published? ? '' : 'unpublished'}
-      %td.recorded_on
-        #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
-      %td.info
-        .row
-          %span.title            
-            #{track.pretty_title}
-          - if track.author.present?            
-            %span.author            
-              by #{track.author}
-        .row
-          .tags #{track.tag_list}
-          .styles #{track.style_list}            
-      %td.track
-        .url
-          %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
-      %td.download
-        = link_to_icon 'external-url', track.url, target: "_blank", title: 'download mp3'
-      %td.published
-        = track.published? ? (link_to_icon 'check', nil) :''
-      %td.edit-controls
-        = link_to_icon 'show', admin_track_path(track)
-        = link_to_icon 'edit', edit_admin_track_path(track)
-        = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+  %tbody
+    - tracks.each do |track|
+      %tr.track{:class => track.published? ? '' : 'unpublished'}
+        %td.recorded_on
+          #{track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on}
+        %td.info
+          .row
+            %span.title
+              #{track.pretty_title}
+            - if track.author.present?
+              %span.author
+                by #{track.author}
+          .row
+            .tags #{track.tag_list}
+            .styles #{track.style_list}
+        %td.track
+          .url
+            %input{ readonly: :readonly, class: 'url text_copy', value: track.url}
+        %td.download
+          = link_to_icon 'external-url', track.url, target: "_blank", title: 'download mp3'
+        %td.published
+          = track.published? ? (link_to_icon 'check', nil) :''
+        %td.edit-controls
+          = link_to_icon 'show', admin_track_path(track)
+          = link_to_icon 'edit', edit_admin_track_path(track)
+          = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
