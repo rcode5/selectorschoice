@@ -17,6 +17,7 @@
   %body
     .container
       %header
+        .home
         = render '/common/nav'
 
       .main{:id => @current_section}
@@ -24,5 +25,5 @@
         =yield
         .bottom_spacer
     = render '/common/footer'
-    
+
   = render '/common/ga'

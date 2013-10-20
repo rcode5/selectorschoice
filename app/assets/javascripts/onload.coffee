@@ -1,4 +1,7 @@
 $ ->
+  $('.home').bind 'click', (ev) ->
+    location.href = '/'
+
   $('.audio audio').bind 'play', (ev) ->
     if (_gaq && _gaq.push)
       _gaq.push(['_trackEvent', 'play', $(this).attr('src')]);
