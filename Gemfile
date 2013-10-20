@@ -36,6 +36,6 @@ group :development, :test do
   gem 'heroku'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'simplecov'
+  gem 'simplecov', :require => false
 end
 
