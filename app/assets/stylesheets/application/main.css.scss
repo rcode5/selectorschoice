@@ -54,12 +54,12 @@ footer {
   }
 }
 body, .container {
-  min-height: 570px; 
+  min-height: 570px;
 }
 .container {
   min-height: 570px;
 }
-header{ 
+header{
   padding-top: $header_offset;
   .home {
     height: $header_offset;
@@ -83,13 +83,15 @@ h4, h5, h6 {
 nav.site_nav {
   position: relative;
   float: right;
-  top: -49px;
+  margin-right: 17px;
+  top: -19px;
+
   ul {
-    li { 
+    li {
       float:left;
       margin: 0;
-      padding: 0 16px;
-      border-left: 1px solid $light_gray;
+      padding: 0 4px;
+      @include opacity(0.8);
       &:first-child {
         border-left: 0;
         padding-left: 0;
@@ -126,7 +128,7 @@ nav.site_nav {
   left: $min-width / 2;
   top: 110px;
   z-index: 20
-  
+
 }
 
 .ie {

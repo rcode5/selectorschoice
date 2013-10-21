@@ -54,3 +54,17 @@ $column_size: -35px;
 .icon.icon-clone {
   @include icon_position(2,0);
 }
+.icon.icon-home {
+  @include icon_position(7,5);
+}
+.icon.icon-info,
+.icon.icon-about {
+  @include icon_position(1,4);
+}
+.icon.icon-dashboard,
+.icon.icon-settings {
+  @include icon_position(0,6);
+}
+.icon.icon-sign-out { 
+  @include icon_position(2,4);
+}

@@ -11,7 +11,7 @@ h3 .author {
   min-width: $min-width;
   max-width: $max_width;
   padding: $block-padding;
-  margin: 0px $block-margin;
+  margin: 8px $block-margin 0;
   cursor: default;
   @include clearfix;
 }
