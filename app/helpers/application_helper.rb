@@ -5,7 +5,7 @@ module ApplicationHelper
     icon_tag = content_tag 'i', '', class: ["icon icon-#{icon}",icon_classes].compact.join(" ")
 
     if link.present?
-      opts[:title] ||= icon
+      opts[:title] ||= icon.humanize
       link_to link, opts do
         icon_tag 
       end
