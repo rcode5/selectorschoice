@@ -32,7 +32,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'jasmine'
   gem 'pry'
-  gem 'pry-debugger'
+#  gem 'pry-debugger'
   gem 'heroku'
   gem 'guard'
   gem 'guard-rspec'
