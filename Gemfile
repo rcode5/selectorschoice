@@ -14,7 +14,6 @@ gem 'rdiscount'
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
 gem 'select2-rails'
-gem 'rdiscount'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,7 +32,6 @@ group :development, :test do
   gem 'jasmine'
   gem 'pry'
 #  gem 'pry-debugger'
-  gem 'heroku'
   gem 'guard'
   gem 'guard-rspec'
   gem 'simplecov', :require => false
