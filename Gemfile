@@ -14,6 +14,7 @@ gem 'rdiscount'
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
 gem 'select2-rails'
+gem 'addressable'
 
 # Gems used only for assets and not required
 # in production environments by default.
