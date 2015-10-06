@@ -5,8 +5,8 @@ describe WelcomeController do
     before do
       sample_tags = []
       sample_styles = []
-      10.times do |x| 
-        t = FactoryGirl.create :track, published: ((x%2) == 0) 
+      10.times do |x|
+        t = FactoryGirl.create :track, published: ((x%2) == 0)
         tag = "Tag%02d" % x
         style = "Style%02d" % x
         t.tag_list = tag
@@ -23,8 +23,12 @@ describe WelcomeController do
     it 'fetches tagged items if params includes tags' do
       get :index, :tags => 'tag02'
       expect(assigns(:tags)).to eql ['tag02']
-      expect(assigns(:tracks).map(&:tag_list)).to eql [['tag02', 'common_tag']]
-      expect(assigns(:tracks).map(&:style_list)).to eql [['style02', 'common_style']]
+      tag_list = assigns(:tracks).map(&:tag_list).flatten
+      style_list = assigns(:tracks).map(&:style_list).flatten
+      expect(tag_list).to include 'tag02'
+      expect(tag_list).to include 'common_tag'
+      expect(style_list).to include 'style02'
+      expect(style_list).to include 'common_style'
     end
 
     it 'fetches tagged items if params includes tags with commas' do
