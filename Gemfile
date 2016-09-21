@@ -30,9 +30,9 @@ end
 group :development, :test do
   gem 'factory_girl'
   gem 'rspec-rails'
-  gem 'jasmine'
   gem 'pry-byebug'
-  gem 'guard'
-  gem 'guard-rspec'
+  # gem 'jasmine'
+  # gem 'guard'
+  # gem 'guard-rspec'
   gem 'simplecov', :require => false
 end
