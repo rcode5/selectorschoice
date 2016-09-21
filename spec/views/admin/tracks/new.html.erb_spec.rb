@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe "admin/tracks/new" do
   before(:each) do
-    assign(:track, stub_model(Track,
+    assign(:track, FactoryGirl::build(:track,
       :title => "MyString",
       :display_title => "MyString",
       :playlist => "MyText",
       :description => "MyText"
-    ).as_new_record)
+    ))
   end
 
   it "renders new track form" do
