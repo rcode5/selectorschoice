@@ -16,8 +16,8 @@ describe Admin::TracksController do
         tracks << Track.create!(valid_attributes(published: true))
         tracks << Track.create!(valid_attributes(published: false))
         get :index, {}
-        assigns(:published).should eq([tracks[0]])
-        assigns(:unpublished).should eq([tracks[1]])
+        expect(assigns(:published)).to eq([tracks[0]])
+        expect(assigns(:unpublished)).to eq([tracks[1]])
       end
     end
 
@@ -25,14 +25,14 @@ describe Admin::TracksController do
       it "assigns the requested track as @track" do
         track = Track.create! valid_attributes
         get :show, {:id => track.to_param}
-        assigns(:track).should eq(track)
+        expect(assigns(:track)).to eq(track)
       end
     end
 
     describe "GET new" do
       it "assigns a new track as @track" do
         get :new, {}
-        assigns(:track).should be_a_new(Track)
+        expect(assigns(:track)).to be_a_new(Track)
       end
     end
 
@@ -42,10 +42,10 @@ describe Admin::TracksController do
         get :clone, {:id => track.to_param}
         cloned_track = assigns(:track)
         [:title, :description, :author, :display_title].each do |fld|
-          cloned_track.send(fld).should eql track.send(fld)
+          expect(cloned_track.send(fld)).to eql track.send(fld)
         end
-        cloned_track.published.should be_false
-        cloned_track.url.should be_empty
+        expect(cloned_track.published).to be_falsey
+        expect(cloned_track.url).to be_empty
       end
     end
 
@@ -53,7 +53,7 @@ describe Admin::TracksController do
       it "assigns the requested track as @track" do
         track = Track.create! valid_attributes
         get :edit, {:id => track.to_param}
-        assigns(:track).should eq(track)
+        expect(assigns(:track)).to eq(track)
       end
     end
 
@@ -67,8 +67,8 @@ describe Admin::TracksController do
 
         it "assigns a newly created track as @track" do
           post :create, {:track => valid_attributes}
-          assigns(:track).should be_a(Track)
-          assigns(:track).should be_persisted
+          expect(assigns(:track)).to be_a(Track)
+          expect(assigns(:track)).to be_persisted
         end
 
         it "redirects to the created track" do
@@ -89,14 +89,14 @@ describe Admin::TracksController do
       describe "with invalid params" do
         it "assigns a newly created but unsaved track as @track" do
           # Trigger the behavior that occurs when invalid params are submitted
-          Track.any_instance.stub(:save).and_return(false)
+          allow_any_instance_of(Track).to receive(:save).and_return(false)
           post :create, {:track => { "title" => "invalid value" }}
-          assigns(:track).should be_a_new(Track)
+          expect(assigns(:track)).to be_a_new(Track)
         end
 
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
-          Track.any_instance.stub(:save).and_return(false)
+          allow_any_instance_of(Track).to receive(:save).and_return(false)
           post :create, {:track => { "title" => "invalid value" }}
           expect(response).to render_template("new")
         end
@@ -111,14 +111,14 @@ describe Admin::TracksController do
           # specifies that the Track created on the previous line
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
-          Track.any_instance.should_receive(:update_attributes).with({ "title" => "MyString" })
+          expect_any_instance_of(Track).to receive(:update_attributes).with({ "title" => "MyString" })
           put :update, {:id => track.to_param, :track => { "title" => "MyString" }}
         end
 
         it "assigns the requested track as @track" do
           track = Track.create! valid_attributes
           put :update, {:id => track.to_param, :track => valid_attributes}
-          assigns(:track).should eq(track)
+          expect(assigns(:track)).to eq(track)
         end
 
         it "redirects to the track" do
@@ -164,15 +164,15 @@ describe Admin::TracksController do
         it "assigns the track as @track" do
           track = Track.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
-          Track.any_instance.stub(:save).and_return(false)
+          allow_any_instance_of(Track).to receive(:save).and_return(false)
           put :update, {:id => track.to_param, :track => { "title" => "invalid value" }}
-          assigns(:track).should eq(track)
+          expect(assigns(:track)).to eq(track)
         end
 
         it "re-renders the 'edit' template" do
           track = Track.create! valid_attributes
           # Trigger the behavior that occurs when invalid params are submitted
-          Track.any_instance.stub(:save).and_return(false)
+          allow_any_instance_of(Track).to receive(:save).and_return(false)
           put :update, {:id => track.to_param, :track => { "title" => "invalid value" }}
           expect(response).to render_template("edit")
         end

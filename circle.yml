@@ -1,3 +1,5 @@
-test:
-  override:
-    - bundle exec rake
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./bin/deploy.sh selectorschoice

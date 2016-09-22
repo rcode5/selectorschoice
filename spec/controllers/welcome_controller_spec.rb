@@ -18,7 +18,7 @@ describe WelcomeController do
       get :index
     end
     it 'fetches only published tracks' do
-      expect(assigns(:tracks).all?(&:published)).to be_true
+      expect(assigns(:tracks).all?(&:published)).to be_truthy
     end
     it 'fetches tagged items if params includes tags' do
       get :index, :tags => 'tag02'

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "admin/tracks/edit" do
   before(:each) do
-    @track = assign(:track, stub_model(Track,
+    @track = assign(:track, FactoryGirl::create(:track,
       :title => "MyString",
       :display_title => "MyString",
       :playlist => "MyText",
