@@ -13,7 +13,7 @@ gem 'simple_form'
 gem 'rdiscount'
 gem 'acts-as-taggable-on'
 gem 'will_paginate'
-gem 'select2-rails'
+gem 'select2-rails', '~> 3.x'
 gem 'addressable'
 
 # Gems used only for assets and not required
@@ -31,8 +31,5 @@ group :development, :test do
   gem 'factory_girl'
   gem 'rspec-rails'
   gem 'pry-byebug'
-  # gem 'jasmine'
-  # gem 'guard'
-  # gem 'guard-rspec'
   gem 'simplecov', :require => false
 end

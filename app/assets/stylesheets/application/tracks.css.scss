@@ -8,8 +8,6 @@ h3 .author {
 }
 .search_row, .tagged, .apple_pagination {
   position: relative;
-  min-width: $min-width;
-  max-width: $max_width;
   padding: $block-padding;
   margin: 8px $block-margin 0;
   cursor: default;
@@ -29,7 +27,7 @@ h3 .author {
 
 .search_row {
   padding-right: 0;
-  margin-left: 2 * $block-margin;
+  margin-left: $block-margin;
   @include opacity(0.8);
   .icon-search {
     position: absolute;
@@ -85,9 +83,6 @@ h3 .author {
 
 ul.tracks {
   @include clearfix;
-  width: $width;
-  min-width: $min_width;
-  max-width: $max_width;
 }
 
 li.track {
