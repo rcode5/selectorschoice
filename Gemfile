@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 ruby "2.1.5"
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 3.2.x'
 gem 'journey'
 gem 'arel'
 gem 'pg'
 gem 'haml'
 gem 'jquery-rails'
 gem 'clearance'
-gem 'quiet_assets'
 gem 'simple_form'
 gem 'rdiscount'
 gem 'acts-as-taggable-on'
@@ -16,6 +15,7 @@ gem 'will_paginate'
 gem 'select2-rails', '~> 3.x'
 gem 'addressable'
 gem 'strong_parameters'
+gem 'quiet_assets'
 
 # Gems used only for assets and not required
 # in production environments by default.
