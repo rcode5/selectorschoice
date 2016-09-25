@@ -1,4 +1,4 @@
-require 'clearance/testing'
+require 'clearance/rspec'
 
 # use this helper for request specs
 def sign_in_via_post(email)
@@ -15,5 +15,3 @@ def sign_in_with_email(email)
   sign_in_as u
   u
 end
-
-
