@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.1.5"
+ruby "2.3.1"
 
 gem 'rails', '~> 3.2.x'
 gem 'journey'
@@ -31,6 +31,7 @@ end
 group :development, :test do
   gem 'factory_girl'
   gem 'rspec-rails'
+  gem 'test-unit'
   gem 'pry-byebug'
   gem 'simplecov', :require => false
 end
