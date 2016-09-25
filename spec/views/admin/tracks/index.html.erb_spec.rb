@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "admin/tracks/index" do
   before(:each) do
-    published = [FactoryGirl.create(Track)]
-    unpublished = [FactoryGirl.create(Track, published: false)]
+    published = [FactoryGirl.create(:track)]
+    unpublished = [FactoryGirl.create(:track, published: false)]
     @tracks = published + unpublished
     assign(:published, published)
     assign(:unpublished, unpublished)

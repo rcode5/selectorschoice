@@ -15,7 +15,7 @@ $ ->
       close:"<a href='#' class='tooltip open-close close' title='hide tracklist'>&#8854;<span class='ie'>[-]</span></a>"
   )
 
-  $('.flash').bind 'click', () ->
+  $('.flash').on 'click', () ->
     $(this).fadeOut()
 
   $('.flash').each (idx, el) ->

@@ -113,8 +113,8 @@ nav.site_nav {
 }
 
 .flash {
-  position: absolute;
-  width: $min-width;
+  position: fixed;
+  width: $max-width;
   padding: $block-padding;
   margin: $block-margin;
   cursor: default;
@@ -125,8 +125,6 @@ nav.site_nav {
   background-color: rgba(0,0,0,.6);
   @include opacity(1);
   text-align: center;
-  left: $min-width / 2;
-  top: 110px;
   z-index: 20
 
 }

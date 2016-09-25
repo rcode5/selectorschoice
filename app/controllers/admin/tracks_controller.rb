@@ -53,7 +53,7 @@ class Admin::TracksController < AdminController
   # POST /tracks.json
   def create
     set_recorded_on_from_params
-    @track = Track.new(params[:track])
+    @track = Track.new(track_params)
     respond_to do |format|
       if @track.save
         format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully created.' }
@@ -71,7 +71,7 @@ class Admin::TracksController < AdminController
     @track = Track.find(params[:id])
     set_recorded_on_from_params
     respond_to do |format|
-      if @track.update_attributes(params[:track])
+      if @track.update_attributes(track_params)
         format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully updated.' }
         format.json { head :no_content }
       else
@@ -94,6 +94,10 @@ class Admin::TracksController < AdminController
   end
 
   private
+  def track_params
+    params.require(:track).permit(:description, :display_title, :playlist, :recorded_on, :title, :url, :tag_list, :style_list, :author, :published)
+  end
+
   def set_recorded_on_from_params
     params[:track][:recorded_on] = params[:recorded_on_day] || ''
     if params[:recorded_on_time].present?
