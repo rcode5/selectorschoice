@@ -11,6 +11,5 @@
  *= require_self
  *= require_tree ./application
  *= require select2
- *= require mediaelementplayer
+ *= require mediaelement_rails
  */
-

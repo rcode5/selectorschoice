@@ -13,11 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require select2
-//= require mediaelement-and-player
-//= require mep-feature-googleanalytics
+//= require mediaelement_rails
 //= require jquery.gaEventTracker
 //= require_tree ./support
 //= require_tree ./plugins
 //= require_tree .
 
-
+### require mep-feature-googleanalytics
