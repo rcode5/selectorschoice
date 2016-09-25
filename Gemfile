@@ -23,7 +23,7 @@ gem 'sass-rails', '~> 4.0.x'
 gem 'aws-sdk'
 
 gem 'coffee-rails'
-gem 'uglifier', '>= 1.0.3'
+gem 'uglifier'
 
 group :development, :test do
   gem 'factory_girl'
