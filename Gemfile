@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.3.1"
 
-gem 'rails', '~> 3.2.x'
+gem 'rails', '~> 4.2.1'
 gem 'journey'
 gem 'arel'
 gem 'pg'
@@ -14,12 +14,12 @@ gem 'acts-as-taggable-on'
 gem 'will_paginate'
 gem 'select2-rails', '~> 3.x'
 gem 'addressable'
-gem 'strong_parameters'
-gem 'quiet_assets'
+#gem 'strong_parameters'
+#gem 'quiet_assets'
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.x'
 
 gem 'aws-sdk'
 
