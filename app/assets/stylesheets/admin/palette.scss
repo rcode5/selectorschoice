@@ -1,0 +1,21 @@
+// app/assets/stylesheets/palette.scss
+.palette-colors {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.palette-colors__color {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin: 7px;
+  width: 150px;
+  height: 120px;
+  position: relative;
+}
+.palette-colors__color-info {
+  padding: 4px;
+  text-align:center;
+  background-color: rgba(200,200,200,0.7);
+  font-size: 0.8rem;
+  color: #000;
+}

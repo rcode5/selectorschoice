@@ -163,6 +163,8 @@ GEM
     rspec-support (3.6.0)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
+    sass-color-extractor (0.1.4)
+      sass (~> 3.4)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -225,6 +227,7 @@ DEPENDENCIES
   rails (~> 4.2.x)
   rdiscount
   rspec-rails
+  sass-color-extractor
   sassc-rails
   select2-rails (~> 3.x)
   simple_form

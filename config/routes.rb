@@ -12,6 +12,7 @@ SelectorsChoice::Application.routes.draw do
         get :clone
       end
     end
+    resource :palette, only: [:show]
   end
 
   # reroute clearance endpoints to use our derived controllers for auth
