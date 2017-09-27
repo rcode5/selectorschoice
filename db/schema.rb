@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20170927054329) do
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
-    t.string   "taggable_type", limit: 255
+    t.string   "taggable_type"
     t.integer  "tagger_id"
-    t.string   "tagger_type",   limit: 255
+    t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
@@ -37,33 +37,33 @@ ActiveRecord::Schema.define(version: 20170927054329) do
   add_index "taggings", ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
-    t.string  "name",           limit: 255
-    t.integer "taggings_count",             default: 0
+    t.string  "name"
+    t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "tracks", force: :cascade do |t|
-    t.string   "title",         limit: 255
-    t.string   "display_title", limit: 255
+    t.string   "title"
+    t.string   "display_title"
     t.text     "playlist"
     t.text     "description"
     t.datetime "recorded_on"
-    t.string   "url",           limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "author",        limit: 255
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "author"
     t.boolean  "published"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",              limit: 255
+    t.string   "email"
     t.string   "encrypted_password", limit: 128
     t.string   "salt",               limit: 128
     t.string   "confirmation_token", limit: 128
     t.string   "remember_token",     limit: 128
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
