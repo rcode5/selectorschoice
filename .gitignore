@@ -14,3 +14,4 @@ romey.sqlite
 .sass-cache
 .jhw-cache
 coverage/
+.byebug_history

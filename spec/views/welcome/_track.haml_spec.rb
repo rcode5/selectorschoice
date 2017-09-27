@@ -15,15 +15,15 @@ describe 'welcome/_track' do
     assert_select '.hd h2.title', /#{@tr.title}/
   end
   it 'renders the audio tag' do
-    assert_select ".bd .audio audio[src=#{@tr.url}]"
+    assert_select ".bd .audio audio[src=?]", @tr.url
   end
   it 'renders runs markdown conversion on the tracklist' do
-    assert_select '.tracklist.markup' do 
+    assert_select '.tracklist.markup' do
       assert_select 'ul li', /song 1/
     end
   end
   it 'renders a download link' do
-    assert_select ".bd .download a[href=#{@tr.url}] i.icon-download"
+    assert_select ".bd .download a[href=?] i.icon-download", @tr.url
   end
 
 end
