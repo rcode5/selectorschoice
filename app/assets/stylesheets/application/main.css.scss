@@ -60,12 +60,11 @@ body, .container {
   min-height: 570px;
 }
 header{
-  padding-top: $header_offset;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   .home {
     height: $header_offset;
-    position: absolute;
-    width: 60%;
-    top: 0;
   }
 }
 
@@ -81,23 +80,8 @@ h4, h5, h6 {
 }
 
 nav.site_nav {
-  position: relative;
-  float: right;
-  margin-right: 17px;
-  top: -19px;
-
-  ul {
-    li {
-      float:left;
-      margin: 0;
-      padding: 0 4px;
-      @include opacity(0.8);
-      &:first-child {
-        border-left: 0;
-        padding-left: 0;
-      }
-    }
-  }
+  margin-top: 20px;
+  display: flex;
 }
 .nothing {
   .oops {

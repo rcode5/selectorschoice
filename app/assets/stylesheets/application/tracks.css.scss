@@ -6,7 +6,7 @@ h3 .author {
   float: right;
   letter-spacing: 0px;
 }
-.search_row, .tagged, .apple_pagination {
+.tagged, .apple_pagination {
   position: relative;
   padding: $block-padding;
   margin: 8px $block-margin 0;
@@ -26,6 +26,9 @@ h3 .author {
 }
 
 .search_row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   padding-right: 0;
   margin-left: $block-margin;
   @include opacity(0.8);
@@ -36,7 +39,6 @@ h3 .author {
     cursor: pointer;
   }
   .select2-container {
-    float: right;
     width: 200px;
     .select2-choices {
       @include border-radius(8px);

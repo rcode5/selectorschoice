@@ -6,9 +6,9 @@
 - unless @tracks.empty?
   - if @tags.present?
     .tagged
-      %span.label Tagged with: 
+      %span.label Tagged with:
       = @tags.map{|t| render_remove_tag_link t, class: 'tag', title: 'remove tag'}.join.html_safe
-      %a{href: '/'} 
+      %a{href: '/'}
         %i.icon.icon-delete{title: 'clear tags'}
   %ul.tracks
     - @tracks.each do |track|
@@ -20,7 +20,7 @@
   .nothing
     %p.oops
       = ":( oops"
-    %p 
-      We couldn't find anything that matched your request.  Click 
+    %p
+      We couldn't find anything that matched your request.  Click
       %a{href: '/'} here
       to start at the beginning.

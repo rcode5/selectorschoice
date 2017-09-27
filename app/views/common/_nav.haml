@@ -1,11 +1,10 @@
 %nav.site_nav
-  %ul
-    %li
-      = link_to_icon 'home', root_path
-    %li
-      = link_to_icon 'about', about_index_path
-    - if signed_in?
-      %li
-        = link_to_icon 'dashboard', admin_index_path
-      %li
-        = link_to_icon 'sign-out', sign_out_path, method: :delete
+  .site_nav--entry
+    = link_to_icon 'home', root_path
+  .site_nav--entry
+    = link_to_icon 'about', about_index_path
+  - if signed_in?
+    .site_nav--entry
+      = link_to_icon 'dashboard', admin_index_path
+    .site_nav--entry
+      = link_to_icon 'sign-out', sign_out_path, method: :delete
