@@ -9,10 +9,8 @@ describe WelcomeController do
         t = FactoryGirl.create :track, published: ((x%2) == 0)
         tag = "Tag%02d" % x
         style = "Style%02d" % x
-        t.tag_list = tag
-        t.style_list = style
-        t.tag_list << 'common_tag'
-        t.style_list << 'common_style'
+        t.tag_list = [tag, 'common_tag']
+        t.style_list = [style, 'common_style']
         t.save
       end
       get :index

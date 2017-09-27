@@ -1,7 +1,4 @@
 class Admin::TracksController < AdminController
-  # GET /tracks
-  # GET /tracks.json
-
   def index
     @published, @unpublished = Track.by_recency.partition(&:published)
 
@@ -11,12 +8,6 @@ class Admin::TracksController < AdminController
     end
   end
 
-#  def tags
-#    render json: Track.all.map(&:tags).flatten.map(&:name).uniq.compact.sort
-#  end
-
-  # GET /tracks/1
-  # GET /tracks/1.json
   def show
     @track = Track.find(params[:id])
 
@@ -26,8 +17,6 @@ class Admin::TracksController < AdminController
     end
   end
 
-  # GET /tracks/new
-  # GET /tracks/new.json
   def new
     @track = Track.new
 
@@ -44,13 +33,10 @@ class Admin::TracksController < AdminController
     render 'new'
   end
 
-  # GET /tracks/1/edit
   def edit
     @track = Track.find(params[:id])
   end
 
-  # POST /tracks
-  # POST /tracks.json
   def create
     set_recorded_on_from_params
     @track = Track.new(track_params)
@@ -65,8 +51,6 @@ class Admin::TracksController < AdminController
     end
   end
 
-  # PUT /tracks/1
-  # PUT /tracks/1.json
   def update
     @track = Track.find(params[:id])
     set_recorded_on_from_params
@@ -81,8 +65,6 @@ class Admin::TracksController < AdminController
     end
   end
 
-  # DELETE /tracks/1
-  # DELETE /tracks/1.json
   def destroy
     @track = Track.find(params[:id])
     @track.destroy
