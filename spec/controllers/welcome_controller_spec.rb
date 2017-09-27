@@ -31,7 +31,13 @@ describe WelcomeController do
 
     it 'fetches tagged items if params includes tags with commas' do
       get :index, :tags => 'tag02, common_tag'
-      expect(assigns(:tags)).to eql ['common_tag', 'tag02'].sort
+      expect(assigns(:tags)).to match_array ['common_tag', 'tag02']
+      expect(assigns(:tracks).count).to eql 1
+    end
+
+    it 'works with apostrophes in the tags' do
+      get :index, :tags => "50's rock, tag02"
+      expect(assigns(:tags)).to match_array ["50's rock", 'tag02']
       expect(assigns(:tracks).count).to eql 1
     end
 
