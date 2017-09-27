@@ -32,16 +32,20 @@ h3 .author {
   padding-right: 0;
   margin-left: $block-margin;
   @include opacity(0.8);
+  form.search {
+    display: flex;
+    align-items: center;
+  }
   .icon-search {
-    position: absolute;
-    right: 8px;
-    bottom: 22px;
+    position: relative;
+    left: -29px;
+    top: 1px;
     cursor: pointer;
   }
   .select2-container {
-    width: 200px;
+    min-width: 200px;
     .select2-choices {
-      @include border-radius(8px);
+      @include border-radius(3px);
     }
   }
 }
