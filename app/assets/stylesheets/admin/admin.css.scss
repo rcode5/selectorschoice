@@ -16,7 +16,14 @@
   left: $width / 3;
 }
 
-
+.admin-site-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-site-nav__item {
+  padding:  0 4px;
+}
 .admin {
   &.flash {
     position: relative;
@@ -34,13 +41,8 @@
     height: 25px;
     padding:20px;
     margin:0 0 10px;
+    display: flex;
     .site-name {
-      float: left;
-    }
-    .site_nav {
-      height: 24px;
-      top: auto;
-      float: right;
     }
   }
   h1 {
