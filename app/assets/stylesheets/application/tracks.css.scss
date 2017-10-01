@@ -3,7 +3,6 @@
 @import "../imports/dimensions";
 
 h3 .author {
-  float: right;
   letter-spacing: 0px;
 }
 .tagged, .apple_pagination {
@@ -103,8 +102,7 @@ h3 .author {
   .hd {
     .title {
       padding: 8px 12px;
-      background-color: #430a22;
-      background-color: rgba(70,40,50, 0.7);
+      background-color: $purple_background;
       @include border-radius(4px);
       margin-top: 18px;
       font-size: 180%;
@@ -121,18 +119,37 @@ h3 .author {
   .description, .tracklist {
     margin-top: 10px;
     color: $pink_gray;
+    h3 {
+      color: $dark_pink;
+    }
+  }
+  .description-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .description-header__title, .description-header__author {
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: $dark_pink;
   }
   .tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     h5 {
-      float: left;
       margin: 7px 10px 15px 0;
     }
   }
   .tags, .styles {
-    float: left;
     line-height: 1.5em;
     margin-bottom: 10px;
+    h5 {
+      color: $dark_pink;
+    }
     a.tag {
+      font-size: 80%;
       color: $xlight_gray;
     }
   }
@@ -159,7 +176,7 @@ h3 .author {
     padding: 0 9px;
     margin: 5px;
     border: 1px solid $dark_gray;
-    background-color: $medium_dark_gray;
+    background-color: $purple_background;
     display: inline-block;
   }
 }

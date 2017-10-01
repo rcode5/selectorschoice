@@ -13,10 +13,10 @@
 
     - if track.description.present?
       .description.markup
-        %h3
-          in this mix
+        .description-header
+          %h3.description-header__title in this mix
           - if track.author.present?
-            %span.author
+            %h3.description-header__author
               = "by #{track.author}"
 
         = markup(track.description || '')
