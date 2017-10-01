@@ -1,0 +1,25 @@
+AllCops:
+  Exclude:
+    - db/migrate/**/*.rb
+    - db/schema.rb
+    - script/**/*
+
+Metrics/AbcSize:
+  Max: 35
+
+Metrics/BlockLength:
+  Max: 120
+  Exclude:
+    - spec/**/*_spec.rb
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - config/initializers/assets.rb
+    - config/initializers/secret_token.rb
+
+Style/Documentation:
+  Enabled: false
