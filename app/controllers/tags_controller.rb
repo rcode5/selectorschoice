@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class TagsController < ApplicationController
   def index
     respond_to do |fmt|
       fmt.html { redirect_to '/' }
-      fmt.json {
+      fmt.json do
         tags = Track.tag_counts
         styles = Track.style_counts
-        render json: (tags+styles).map(&:name).map(&:downcase).uniq.sort
-      }
+        render json: (tags + styles).map(&:name).map(&:downcase).uniq.sort
+      end
     end
   end
 end

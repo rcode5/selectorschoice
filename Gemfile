@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
-ruby "2.4.1"
+ruby '2.4.1'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
@@ -14,8 +16,9 @@ gem 'mediaelement_rails'
 gem 'pg'
 gem 'rails', '~> 4.2.x'
 gem 'rdiscount'
-gem 'sassc-rails'
+gem 'rubocop'
 gem 'sass-color-extractor'
+gem 'sassc-rails'
 gem 'select2-rails', '~> 3.x'
 gem 'simple_form'
 gem 'uglifier'
@@ -25,5 +28,5 @@ group :development, :test do
   gem 'factory_girl'
   gem 'pry-byebug'
   gem 'rspec-rails'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end

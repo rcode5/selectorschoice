@@ -1,21 +1,21 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe TagsController do
   describe '#index.json' do
     before do
-      sample_tags = []
-      sample_styles = []
       t = FactoryGirl.create :track, published: true
-      10.times do |x| 
-        tag = "tag%02d" % x
-        style = "Style%02d" % x
+      10.times do |x|
+        tag = format('tag%02d', x)
+        style = format('Style%02d', x)
         t.tag_list << tag
         t.style_list << style
       end
       t.tag_list << 'common_tag'
       t.style_list << 'common_style'
       t.save
-      get :index, :format => :json
+      get :index, format: :json
     end
     it 'returns json' do
       expect(response.content_type).to eql 'application/json'

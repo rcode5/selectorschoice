@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -7,16 +9,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require File.join([Rails.root, 'lib', 'random_string'])
 
-
 ['jon@bunnymatic.com'].each do |email|
   pass = RandomString.generate
-  if Rails.env != 'production' 
-    pass = 'monkey'
-  end
+  pass = 'monkey' if Rails.env != 'production'
   u = User.new
   u.email = email
   u.password = pass
-  if u.save
-    puts "Created #{email} #{pass}"
-  end
+  puts "Created #{email} #{pass}" if u.save
 end
