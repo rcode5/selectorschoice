@@ -79,9 +79,17 @@ h4, h5, h6 {
   letter-spacing: inherit;
 }
 
-nav.site_nav {
+nav.site-nav {
   margin-top: 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  .site-nav__entry {
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .nothing {
   .oops {
