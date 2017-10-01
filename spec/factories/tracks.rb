@@ -1,13 +1,14 @@
-FactoryGirl.define do
+# frozen_string_literal: true
 
+FactoryGirl.define do
   sequence :title do |n|
     "hot new mix #{n}"
   end
 
   sequence :author do |n|
-    ["Mr Rogers", "Soul Suspect"][n%2]
+    ['Mr Rogers', 'Soul Suspect'][n % 2]
   end
-  
+
   sequence :url do |n|
     "http://s3.amazon.com/selectors_choice/rock_it_#{n}.mp3"
   end
@@ -21,5 +22,4 @@ FactoryGirl.define do
     description 'set description *with emphasis*'
     playlist '* song 1\n* song 2'
   end
-
 end

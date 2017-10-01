@@ -14,7 +14,7 @@
   %body.admin{class: [@current_section, controller.class.name.gsub(/.*::/,'').gsub(/Controller$/,'').tableize].join(' ')}
     .container
       %header
-        .site-name 
+        .site-name
           %a{:href => root_path} selectors choice
         = render 'admin/common/nav'
 

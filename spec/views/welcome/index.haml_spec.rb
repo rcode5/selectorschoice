@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe 'welcome/index' do
   describe 'with no args' do
     before do
-      8.times { |x| FactoryGirl.create :track, published: ((x%2) == 0) }
+      8.times { |x| FactoryGirl.create :track, published: x.even? }
       tracks = Track.published
       allow(tracks).to receive(:total_pages).and_return(2)
       allow(tracks).to receive(:total_entries).and_return(8)

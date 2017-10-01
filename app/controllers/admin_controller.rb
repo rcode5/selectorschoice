@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdminController < ApplicationController
   before_filter :require_login
 
@@ -14,5 +16,4 @@ class AdminController < ApplicationController
       styles: Track.tag_counts_on(:styles)
     }
   end
-
 end

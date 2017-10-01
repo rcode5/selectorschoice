@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Track < ActiveRecord::Base
   validates :title, presence: true
   validates :url, url: true, presence: true
@@ -10,13 +12,14 @@ class Track < ActiveRecord::Base
   end
 
   class << self
-
     def by_recency
       order('recorded_on desc, updated_at desc')
     end
+
     def published
       where(published: true)
     end
+
     def unpublished
       where(published: [false, nil])
     end

@@ -1,7 +1,9 @@
-SelectorsChoice::Application.routes.draw do
-  resources :tracks, only: [:index, :show]
+# frozen_string_literal: true
 
-  resources :tags, only: [:index], constraints: {format: /json/}
+SelectorsChoice::Application.routes.draw do
+  resources :tracks, only: %i[index show]
+
+  resources :tags, only: [:index], constraints: { format: /json/ }
 
   resources :about, only: [:index]
 
@@ -17,14 +19,14 @@ SelectorsChoice::Application.routes.draw do
 
   # reroute clearance endpoints to use our derived controllers for auth
   resources :passwords, controller: 'passwords',
-    only: [:create, :new]
+                        only: %i[create new]
 
   resource :session, controller: 'sessions',
-    only: [:create, :new, :destroy]
+                     only: %i[create new destroy]
 
-  resources :users, controller: 'users', only: [:create, :new] do
+  resources :users, controller: 'users', only: %i[create new] do
     resource :password, controller: 'passwords',
-      only: [:create, :edit, :update]
+                        only: %i[create edit update]
   end
 
   # clearance routes define sign_in and sign_out

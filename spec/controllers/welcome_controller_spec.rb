@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe WelcomeController do
   describe '#index' do
     before do
-      sample_tags = []
-      sample_styles = []
       10.times do |x|
-        t = FactoryGirl.create :track, published: ((x%2) == 0)
-        tag = "Tag%02d" % x
-        style = "Style%02d" % x
+        t = FactoryGirl.create :track, published: x.even?
+        tag = format('Tag%02d', x)
+        style = format('Style%02d', x)
         t.tag_list = [tag, 'common_tag']
         t.style_list = [style, 'common_style']
         t.save
@@ -19,7 +19,7 @@ describe WelcomeController do
       expect(assigns(:tracks).all?(&:published)).to be_truthy
     end
     it 'fetches tagged items if params includes tags' do
-      get :index, :tags => 'tag02'
+      get :index, tags: 'tag02'
       expect(assigns(:tags)).to eql ['tag02']
       tag_list = assigns(:tracks).map(&:tag_list).flatten
       style_list = assigns(:tracks).map(&:style_list).flatten
@@ -30,21 +30,20 @@ describe WelcomeController do
     end
 
     it 'fetches tagged items if params includes tags with commas' do
-      get :index, :tags => 'tag02, common_tag'
-      expect(assigns(:tags)).to match_array ['common_tag', 'tag02']
+      get :index, tags: 'tag02, common_tag'
+      expect(assigns(:tags)).to match_array %w[common_tag tag02]
       expect(assigns(:tracks).count).to eql 1
     end
 
     it 'works with apostrophes in the tags' do
-      get :index, :tags => "50's rock, tag02"
+      get :index, tags: "50's rock, tag02"
       expect(assigns(:tags)).to match_array ["50's rock", 'tag02']
       expect(assigns(:tracks).count).to eql 1
     end
 
     it 'searchs tags and styles equally' do
-      get :index, :tags => 'tag02, style02'
+      get :index, tags: 'tag02, style02'
       expect(assigns(:tracks).count).to eql 1
     end
-
   end
 end
