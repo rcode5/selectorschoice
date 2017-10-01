@@ -81,11 +81,11 @@ h3 .author {
   }
 }
 
-ul.tracks {
+.tracks {
   @include clearfix;
 }
 
-li.track {
+.track {
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   position: relative;
   @include border-radius(15px);
@@ -147,7 +147,7 @@ li.track {
     }
   }
 }
-li.track, .tagged {
+.track, .tagged {
   .tag {
     @include border-radius(4px);
     padding: 0 9px;
