@@ -7,6 +7,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'factory_girl'
+Dir[Rails.root.join('spec/{factories,support}/**/*.rb')].each { |f| require f }
+
 require File.join([Rails.root, 'lib', 'random_string'])
 
 ['jon@bunnymatic.com'].each do |email|
@@ -16,4 +19,12 @@ require File.join([Rails.root, 'lib', 'random_string'])
   u.email = email
   u.password = pass
   puts "Created #{email} #{pass}" if u.save
+end
+
+5.times.each do |idx|
+  title = "Mix #{idx}"
+  published = [true, false].sample
+  next if Track.find_by(title: title)
+  track = Track.create(FactoryGirl.attributes_for(:track, title: title, published: published))
+  puts "---> created #{track.title}"
 end
