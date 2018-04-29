@@ -33,7 +33,7 @@ module ApplicationHelper
     end
   end
 
-  def markup(c)
-    RDiscount.new(c).to_html.html_safe
+  def markup(content)
+    RDiscount.new(content).to_html.html_safe
   end
 end
