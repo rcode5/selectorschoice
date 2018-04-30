@@ -1,0 +1,23 @@
+.content
+  .block
+    h3 Tracks
+    ul
+      li
+        | Total:
+        = @track_counts[:all]
+      li
+        | Published:
+        = @track_counts[:published]
+      li
+        | In the wings:
+        = @track_counts[:unpublished]
+  .block
+    h3 Tags
+    .tag_cloud.tags
+      - tag_cloud(@track_tags[:tags], %w(css1 css2 css3 css4)) do |tag, css_class|
+        span.tag class=css_class = tag.name
+  .block
+    h3 styles
+    .tag_cloud.styles
+      - tag_cloud(@track_tags[:styles], %w(css1 css2 css3 css4)) do |tag, css_class|
+        span.tag class=css_class = tag.name

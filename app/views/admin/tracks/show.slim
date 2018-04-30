@@ -1,46 +1,46 @@
 .controls
   = link_to_icon :edit, edit_admin_track_path(@track)
   = link_to_icon :list, admin_tracks_path
-%ul.track-info
-  %li
+ul.admin-track-info
+  li
     .label Title
     .value
       = @track.title
       = @track.published? ? "(published)" : "(draft)"
 
-  %li
+  li
     .label Display Title
     .value
       = @track.display_title
 
-  %li
+  li
     .label Author
     .value
       = @track.author
 
-  %li
+  li
     .label Recorded on
     .value
       = @track.recorded_on unless @track.recorded_on.blank?
 
-  %li
+  li
     .label URL
-    .value #{@track.url}
+    .value = @track.url
 
-  %li
+  li
     .label Tags
-    .value #{@track.tag_list.join(",")}
+    .value = @track.tag_list.join(",")
 
-  %li
+  li
     .label Styles
-    .value #{@track.style_list.join(",")}
+    .value = @track.style_list.join(",")
 
-  %li
+  li
     .label Playlist:
     .value.content.markup
       = markup (@track.playlist || '')
 
-  %li
+  li
     .label Description:
     .value.content.markup
       = markup (@track.description || '')

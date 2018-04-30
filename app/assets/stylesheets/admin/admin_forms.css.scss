@@ -10,20 +10,34 @@
   border: 1px solid $light_gray;
   background-color: $dark_gray;
   @include opacity(0.85);
+
+  .control-label {
+    font-size: x-small;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
   input,textarea {
     @include border-radius(4px);
-    padding: 5px;
+    border: 0;
+    background-color: $dark-pink;
+    color: $gray-pink;
+    padding: 8px;
+    font-size: inherit;
   }
   textarea {
     width: 600px;
+    max-width: 95%;
   }
   label {
     width: 200px;
     display: block;
   }
   span.hint {
+    margin-top: 4px;
     display: block;
     color: $light_gray;
+    font-size: small;
   }
   .input {
     margin-bottom: 20px;

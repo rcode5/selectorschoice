@@ -1,4 +1,4 @@
 - if flash && flash[:error].present?
-  .flash.error Error: #{flash.error}
+  .flash.error = "Error: #{flash.error}"
 - if flash && flash[:notice].present?
-  .flash.notice #{flash.notice}
+  .flash.notice = flash.notice
