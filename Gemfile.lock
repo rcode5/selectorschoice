@@ -156,6 +156,8 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdiscount (2.2.0.1)
+    rspec-collection_matchers (1.1.3)
+      rspec-expectations (>= 2.99.0.beta1)
     rspec-core (3.7.1)
       rspec-support (~> 3.7.0)
     rspec-expectations (3.7.0)
@@ -252,6 +254,7 @@ DEPENDENCIES
   pry-byebug
   rails (~> 4.2.x)
   rdiscount
+  rspec-collection_matchers
   rspec-rails
   rubocop
   sass-color-extractor

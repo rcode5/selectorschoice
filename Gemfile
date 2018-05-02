@@ -9,7 +9,6 @@ gem 'arel'
 gem 'aws-sdk'
 gem 'clearance'
 gem 'coffee-rails'
-gem 'slim'
 gem 'journey'
 gem 'jquery-rails'
 gem 'mediaelement_rails'
@@ -21,12 +20,14 @@ gem 'sass-color-extractor'
 gem 'sassc-rails'
 gem 'select2-rails', '~> 3.x'
 gem 'simple_form'
+gem 'slim'
 gem 'uglifier'
 gem 'will_paginate'
 
 group :development, :test do
   gem 'factory_girl'
   gem 'pry-byebug'
+  gem 'rspec-collection_matchers'
   gem 'rspec-rails'
   gem 'simplecov', require: false
 end
