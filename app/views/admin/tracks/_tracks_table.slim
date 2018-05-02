@@ -1,0 +1,35 @@
+table.admin-tracks__table
+  thead
+    tr
+      th.admin-track__recorded_on Date
+      th Info
+      th
+      th Pub?
+      th
+
+  tbody
+    - tracks.each do |track|
+      tr.admin-track__row class=(track.published? ? '' : 'unpublished')
+        td.admin-track__recorded_on
+          = track.recorded_on.to_date.strftime("%m %d %Y") if track.recorded_on
+        td.admin-track__info
+          .row
+            span.title = track.pretty_title
+            - if track.author.present?
+              '
+              span.author
+                | by #{track.author}
+          .row
+            .admin-track__tags = track.tag_list
+            .admin-track__styles = track.style_list
+          .admin-track__url
+            input readonly="readonly" class='admin-track__url--input' value=track.url
+        td.admin-track__download
+          = link_to_icon 'external-url', track.url, target: "_blank", title: 'download mp3'
+        td.admin-track__published
+          = track.published? ? (link_to_icon 'check', nil) :''
+        td.admin-track__edit-controls
+          = link_to_icon 'show', admin_track_path(track)
+          = link_to_icon 'edit', edit_admin_track_path(track)
+          = link_to_icon 'clone', clone_admin_track_path(track)
+          = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }

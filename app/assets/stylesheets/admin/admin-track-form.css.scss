@@ -1,0 +1,20 @@
+.admin-track-form__recorded_on {
+  [name=recorded_on_time] { margin-left: 8px; }
+}
+
+.admin-track-form__flex-row {
+  display: flex;
+}
+
+.admin-track-form__flex-unit {
+  flex: 1;
+  input {
+    width: 90%;
+  }
+}
+
+.admin-track-form__url {
+  input {
+    width: 90%;
+  }
+}

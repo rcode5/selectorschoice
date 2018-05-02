@@ -63,32 +63,6 @@
     }
   }
 
-  table.tracks {
-    background: black;
-    @include opacity(0.7);
-    tr.track {
-      height: 45px;
-    }
-    .text-copy {
-      margin-right: 10px;
-    }
-    .edit-controls {
-      white-space: nowrap;
-    }
-    tr.odd {
-      background: $dark_gray;
-    }
-    td {
-      border-top: 1px solid $medium_dark_gray;
-      padding: 2px 5px;
-      overflow:hidden;
-      &.url {
-        width: 300px;
-        overflow:hidden;
-      }
-    }
-  }
-
   .block {
     @include border-radius(10px);
     width: 100%;
@@ -108,6 +82,8 @@
       margin: 5px;
     }
     .tag_cloud {
+      display: flex;
+      flex-wrap: wrap;
       margin: 5px;
       line-height: 2.5em;
       .css1 { font-size: 1.0em; }

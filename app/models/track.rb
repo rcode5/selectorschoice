@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Track < ActiveRecord::Base
+class Track < ApplicationRecord
   validates :title, presence: true
   validates :url, url: true, presence: true
 

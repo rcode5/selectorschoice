@@ -13,14 +13,15 @@ describe 'admin/tracks/index' do
   end
 
   it 'renders a list of tracks' do
+    expect(@tracks).to have_at_least(1).track
     @tracks.each do |track|
-      assert_select 'tr td.recorded_on', text: track.recorded_on.strftime('%m %d %Y')
-      assert_select 'tr .info .title', track.pretty_title
-      assert_select 'tr .info .author', match: /#{track.author}/
-      assert_select 'tr .track .url input.url'
-      assert_select 'tr .edit-controls .icon-edit'
-      assert_select 'tr .edit-controls .icon-show'
-      assert_select 'tr .edit-controls .icon-delete'
+      assert_select 'tr td.admin-track__recorded_on', text: track.recorded_on.strftime('%m %d %Y')
+      assert_select '.admin-track__info .title', track.pretty_title
+      assert_select '.admin-track__info .author', match: /#{track.author}/
+      assert_select '.admin-track__url input.admin-track__url--input'
+      assert_select '.admin-track__edit-controls .icon-edit'
+      assert_select '.admin-track__edit-controls .icon-show'
+      assert_select '.admin-track__edit-controls .icon-delete'
     end
   end
 end

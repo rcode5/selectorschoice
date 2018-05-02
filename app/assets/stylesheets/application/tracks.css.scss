@@ -90,7 +90,7 @@ h3 .author {
   @include clearfix;
 }
 
-.track {
+ul.tracks .track {
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   position: relative;
   @include border-radius(15px);

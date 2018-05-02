@@ -1,0 +1,108 @@
+/* admin */
+@import '../imports/mixins';
+@import '../imports/colors';
+@import '../imports/dimensions';
+
+.admin.tracks {
+  .main {
+    position:relative;
+  }
+  .controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 4;
+  }
+  .controls.bottom {
+    top: inherit;
+    bottom: 20px;
+  }
+  tr:nth-child(even) {
+    background-color: #333;
+  }
+  td {
+    vertical-align: top;
+  }
+  tr.unpublished {
+    background-color: #222;
+    &:nth-child(even) {
+      background-color: #333;
+    }
+  }
+
+  td.info > div {
+    line-height: 20px;
+    margin: 0 0 4px;
+  }
+  .title {
+    font-style: italic;
+  }
+  .pickadate__table {
+    tr, td {
+      background-color: white;
+    }
+  }
+  .tab_content {
+    border-top: 1px solid rgba(60, 60, 60, 0.8);
+  }
+  .tab_content#published {
+    display: none;
+  }
+
+}
+.admin-track__title {
+  margin-bottom: 6px;
+}
+.admin-track__tags, .admin-track__styles {
+  font-size: small;
+  margin-bottom: 4px;
+}
+
+.admin-tracks__table {
+  margin-top: 20px;
+}
+.admin-track__recorded_on {
+  white-space: nowrap;
+}
+
+.admin-track__row {
+  td { padding: 4px; }
+}
+.admin-track__url {
+  input {
+    background-color: $dark_pink;
+    border: 0;
+    padding: 4px;
+    width: 90%;
+  }
+}
+.admin-track__edit-controls {
+  white-space: nowrap;
+  a + a {
+    margin-left: 4px;
+  }
+}
+
+.admin-track-info {
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
+  position: relative;
+  @include border-radius(15px);
+  background-color: $dark_gray;
+  @include opacity(0.9);
+  border: 1px solid $dark_gray;
+  list-style: none;
+  @include clearfix;
+  > li {
+    padding: 10px;
+    margin-top:5px;
+    margin-bottom: 12px;
+  }
+
+  .label {
+    margin-bottom: 5px;
+  }
+  .value {
+    @include opacity(0.7);
+    padding: 10px;
+  }
+}
