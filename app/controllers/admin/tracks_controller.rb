@@ -41,7 +41,6 @@ module Admin
     end
 
     def create
-      set_recorded_on_from_params
       @track = Track.new(track_params)
       respond_to do |format|
         if @track.save
@@ -56,7 +55,6 @@ module Admin
 
     def update
       @track = Track.find(params[:id])
-      set_recorded_on_from_params
       respond_to do |format|
         if @track.update_attributes(track_params)
           format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully updated.' }
@@ -81,18 +79,18 @@ module Admin
     private
 
     def track_params
-      params.require(:track).permit(:description, :display_title,
-                                    :playlist, :recorded_on, :title, :url,
-                                    :tag_list, :style_list, :author, :published)
+      recorded_on = recorded_on_from_params
+      attrs = params.require(:track).permit(:description, :display_title,
+                                            :playlist, :title, :url, :recorded_on,
+                                            :tag_list, :style_list, :author, :published)
+      attrs[:recorded_on] = recorded_on if recorded_on
+      attrs
     end
 
-    def set_recorded_on_from_params
-      params[:track][:recorded_on] = params[:recorded_on_day] || ''
-      if params[:recorded_on_time].present?
-        params[:track][:recorded_on] =
-          Time.zone.parse([params[:track][:recorded_on], params[:recorded_on_time]].join(' '))
-      end
-      params[:track].delete(:recorded_on) unless params[:track][:recorded_on].present?
+    def recorded_on_from_params
+      track_params = params[:track]
+      recorded_on = [track_params[:recorded_on_day], track_params[:recorded_on_time]].compact(&:present?).join(' ')
+      Time.zone.parse(recorded_on)
     end
   end
 end

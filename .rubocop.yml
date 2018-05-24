@@ -3,6 +3,7 @@ AllCops:
     - db/migrate/**/*.rb
     - db/schema.rb
     - script/**/*
+    - bin/*
 
 Metrics/AbcSize:
   Max: 35

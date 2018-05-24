@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'admin/tracks/index' do
   before(:each) do
-    published = [FactoryGirl.create(:track)]
-    unpublished = [FactoryGirl.create(:track, published: false)]
+    published = [FactoryBot.create(:track)]
+    unpublished = [FactoryBot.create(:track, published: false)]
     @tracks = published + unpublished
     assign(:published, published)
     assign(:unpublished, unpublished)

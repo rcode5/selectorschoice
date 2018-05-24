@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Visitor' do
-  let(:tracks) { FactoryGirl.create_list(:track, 3) }
+  let(:tracks) { FactoryBot.create_list(:track, 3) }
 
   before do
     tracks
