@@ -27,6 +27,7 @@ gem 'uglifier'
 gem 'will_paginate'
 
 group :development, :test do
+  gem 'bundle-audit'
   gem 'factory_bot'
   gem 'pry-byebug'
   gem 'rails-controller-testing'
