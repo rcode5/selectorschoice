@@ -4,7 +4,10 @@ AllCops:
     - db/schema.rb
     - script/**/*
     - bin/*
-    - vendor/bundle/**/*.rb
+    - vendor/bundle/**/*
+    - vendor/**/.*
+
+
 
 Metrics/AbcSize:
   Max: 35
