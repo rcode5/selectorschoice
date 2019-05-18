@@ -17,7 +17,6 @@ gem 'mediaelement_rails'
 gem 'pg'
 gem 'rails', '~> 5.2.0'
 gem 'rdiscount'
-gem 'rubocop'
 gem 'sass-color-extractor'
 gem 'sassc-rails'
 gem 'select2-rails', '~> 3.x'
@@ -33,6 +32,8 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
   gem 'simplecov', require: false
 end
 

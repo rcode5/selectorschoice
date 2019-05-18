@@ -25,6 +25,7 @@ end
   title = "Mix #{idx}"
   published = [true, false].sample
   next if Track.find_by(title: title)
+
   track = Track.create(FactoryGirl.attributes_for(:track, title: title, published: published))
   puts "---> created #{track.title}"
 end
