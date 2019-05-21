@@ -19,6 +19,7 @@ html
         = render '/common/nav'
 
       .main id=@current_section
+        = render '/common/temporary_shutdown'
         = render '/common/flash', flash: flash
         = yield
         .bottom_spacer
