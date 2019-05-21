@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-SelectorsChoice::Application.routes.draw do
+Rails.application.routes.draw do
   resources :tracks, only: %i[index show]
 
   resources :tags, only: [:index], constraints: { format: /json/ }

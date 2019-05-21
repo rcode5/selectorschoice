@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe TagsController do
   describe '#index.json' do
     before do
-      t = FactoryGirl.create :track, published: true
+      t = FactoryBot.create :track, published: true
       10.times do |x|
         tag = format('tag%02d', x)
         style = format('Style%02d', x)

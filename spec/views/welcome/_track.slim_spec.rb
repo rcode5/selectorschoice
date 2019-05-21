@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'welcome/_track' do
+describe 'welcome/_track', type: :view do
   before do
-    track = FactoryGirl.create :track, published: true
+    track = FactoryBot.create :track, published: true
     @tr = assign(:track, track)
     render
   end

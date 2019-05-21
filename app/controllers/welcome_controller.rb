@@ -18,6 +18,7 @@ class WelcomeController < ApplicationController
 
   def tags_params
     return unless params.key?(:tags)
+
     [params[:tags].split(',')].flatten.map(&:strip).map(&:downcase).uniq.sort
   end
 end

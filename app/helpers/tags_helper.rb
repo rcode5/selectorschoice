@@ -1,30 +1,28 @@
 # frozen_string_literal: true
 
 module TagsHelper
-  def render_tag(t, html_opts = {})
-    content_tag 'span', t, html_opts
+  def render_tag(tag_contents, html_opts = {})
+    content_tag 'span', tag_contents, html_opts
   end
 
-  def render_tag_link(t, anchor_html_opts = {}, span_html_opts = {})
+  def render_tag_link(tag_contents, anchor_html_opts = {}, span_html_opts = {})
     tags = (params[:tags] || '').split ','
-    tags << t
+    tags << tag_contents
     tags = tags.uniq.compact.sort
-    unless anchor_html_opts[:href].present?
-      anchor_html_opts[:href] = root_path(tags: tags.join(','))
-    end
+    anchor_html_opts[:href] = root_path(tags: tags.join(',')) unless anchor_html_opts[:href].present?
     anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].flatten.join(' ')
     if anchor_html_opts[:href].present?
       content_tag 'a', anchor_html_opts do
-        render_tag(t, span_html_opts)
+        render_tag(tag_contents, span_html_opts)
       end
     else
-      render_tag(t, span_html_opts)
+      render_tag(tag_contents, span_html_opts)
     end
   end
 
-  def render_remove_tag_link(t, anchor_html_opts = {}, span_html_opts = {})
+  def render_remove_tag_link(tag_contents, anchor_html_opts = {}, span_html_opts = {})
     tags = (params[:tags] || '').split ','
-    tags = (tags - [t]).uniq.compact.sort
+    tags = (tags - [tag_contents]).uniq.compact.sort
     opts = {}
 
     unless anchor_html_opts[:href].present?
@@ -34,10 +32,10 @@ module TagsHelper
     anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].flatten.join(' ')
     if anchor_html_opts[:href].present?
       content_tag 'a', anchor_html_opts do
-        render_tag(t, span_html_opts)
+        render_tag(tag_contents, span_html_opts)
       end
     else
-      render_tag(t, span_html_opts)
+      render_tag(tag_contents, span_html_opts)
     end
   end
 end

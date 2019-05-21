@@ -15,6 +15,7 @@ class LinkValidator < ActiveModel::EachValidator
               false
             end
     return if valid
+
     msg = options[:message] || 'is an invalid link - if it starts with'\
                                ' http: it must be a valid url, otherwise'\
                                " it should start with '/' because we will"\

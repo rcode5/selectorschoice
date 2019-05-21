@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
-  sequence :email do |n|
-    "user#{n}@example.com"
-  end
-
+FactoryBot.define do
   factory :user do
-    email
-    password 'password'
+    email { |n| "user#{n}@example.com" }
+    password { 'password' }
   end
 end

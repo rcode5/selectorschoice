@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'admin/tracks/new' do
   before(:each) do
-    assign(:track, FactoryGirl.build(:track,
-                                     title: 'MyString',
-                                     display_title: 'MyString',
-                                     playlist: 'MyText',
-                                     description: 'MyText'))
+    assign(:track, FactoryBot.build(:track,
+                                    title: 'MyString',
+                                    display_title: 'MyString',
+                                    playlist: 'MyText',
+                                    description: 'MyText'))
   end
 
   it 'renders new track form' do

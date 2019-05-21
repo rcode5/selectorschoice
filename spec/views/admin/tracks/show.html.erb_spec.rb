@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'admin/tracks/show' do
   before(:each) do
-    @track = assign(:track, FactoryGirl.create(:track,
-                                               title: 'Title',
-                                               display_title: 'Display Title',
-                                               playlist: 'MyText',
-                                               description: 'MyText'))
+    @track = assign(:track, FactoryBot.create(:track,
+                                              title: 'Title',
+                                              display_title: 'Display Title',
+                                              playlist: 'MyText',
+                                              description: 'MyText'))
   end
 
   it 'renders attributes in <p>' do

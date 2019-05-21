@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'admin/tracks/edit' do
   before(:each) do
-    @track = assign(:track, FactoryGirl.create(:track,
-                                               title: 'MyString',
-                                               display_title: 'MyString',
-                                               playlist: 'MyText',
-                                               description: 'MyText'))
+    @track = assign(:track, FactoryBot.create(:track,
+                                              title: 'MyString',
+                                              display_title: 'MyString',
+                                              playlist: 'MyText',
+                                              description: 'MyText'))
   end
 
   it 'renders the edit track form' do
