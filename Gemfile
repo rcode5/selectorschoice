@@ -25,6 +25,11 @@ gem 'slim'
 gem 'uglifier'
 gem 'will_paginate'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
 group :development, :test do
   gem 'bundle-audit'
   gem 'factory_bot'
