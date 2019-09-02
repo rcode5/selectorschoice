@@ -21,8 +21,8 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - sharex-dependencies-v1-{{ checksum "Gemfile.lock" }}
-            - sharex-dependencies-v1-
+            - selectorschoice-dependencies-v1-{{ checksum "Gemfile.lock" }}
+            - selectorschoice-dependencies-v1-
       - run:
           shell: /bin/bash
           name: Machine Setup
@@ -49,7 +49,7 @@ jobs:
           name: Ruby Tests (rspec)
           command: bundle exec rspec --color --tty --format progress spec
       - save_cache:
-          key: lt-dependencies-v1-{{ checksum "Gemfile.lock" }}
+          key: selectorschoice-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             - ~/.bundle
