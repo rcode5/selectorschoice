@@ -1,46 +1,38 @@
-# This configuration was automatically generated from a CircleCI 1.0 config.
-# It should include any build commands you had along with commands that CircleCI
-# inferred from your project structure. We strongly recommend you read all the
-# comments in this file to understand the structure of CircleCI 2.0, as the idiom
-# for configuration has changed substantially in 2.0 to allow arbitrary jobs rather
-# than the prescribed lifecycle of 1.0. In general, we recommend using this generated
-# configuration as a reference rather than using it in production, though in most
-# cases it should duplicate the execution of your original 1.0 config.
 version: 2
 jobs:
   build:
     parallelism: 1
     shell: /bin/bash --login
-
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-      DATABASE_URL: "postgres://ubuntu@localhost/circle_ruby_test"
-
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          DATABASE_URL: "postgres://ubuntu@localhost/selectors_choice_test"
+          DISABLE_SPRING: true
+          RAILS_ENV: test
+          RACK_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: ubuntu
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: ubuntu
-          POSTGRES_DB: circle_ruby_test
+          POSTGRES_DB: selectors_choice_test
           POSTGRES_PASSWORD: ""
     steps:
       - checkout
       - restore_cache:
           keys:
-            # This branch if available
-            - v1-dep-{{ .Branch }}-
-            # Default branch if not
-            - v1-dep-development-
-            # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch set properly
-            - v1-dep-
-      - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+            - sharex-dependencies-v1-{{ checksum "Gemfile.lock" }}
+            - sharex-dependencies-v1-
       - run:
           shell: /bin/bash
           name: Machine Setup
           command: |-
             sudo gem update --system
             sudo gem install bundle rake
+      - run:
+          shell: /bin/bash
+          name: Wait For DB
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 120s
       - run:
           shell: /bin/bash
           name: Bundle install
@@ -55,9 +47,9 @@ jobs:
             bundle exec rake assets:precompile
       - run:
           name: Ruby Tests (rspec)
-          command: bundle exec rake
+          command: bundle exec rspec --color --tty --format progress spec
       - save_cache:
-          key: v1-dep-{{ .Branch }}-{{ epoch }}
+          key: lt-dependencies-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             - ~/.bundle
@@ -67,3 +59,8 @@ jobs:
           path: /tmp/circleci-artifacts
       - store_artifacts:
           path: /tmp/circleci-test-results
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
