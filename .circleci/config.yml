@@ -61,6 +61,6 @@ jobs:
           path: /tmp/circleci-test-results
 workflows:
   version: 2
-  build_and_test:
+  Build and Test:
     jobs:
       - build
