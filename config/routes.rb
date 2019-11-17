@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :admin, only: :index
   namespace :admin do
+    resources :files
     resources :tracks do
       member do
         get :clone

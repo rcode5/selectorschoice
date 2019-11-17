@@ -13,4 +13,10 @@ describe Track do
       end
     end
   end
+
+  # it 'signs a filename when getting a url' do
+  #   Aws::S3::Presigner
+  #   track = create(:track)
+  #   url = track.signed_url
+  # end
 end

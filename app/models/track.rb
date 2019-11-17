@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require Rails.root.join('lib', 's3')
+
 class Track < ApplicationRecord
   validates :title, presence: true
   validates :url, url: true, presence: true
@@ -9,6 +11,11 @@ class Track < ApplicationRecord
 
   def pretty_title
     display_title.present? ? display_title : title
+  end
+
+  def signed_url
+    client = SelectorsChoice::S3.new
+    client.get_presigned_url(filename, expires_in: 30)
   end
 
   class << self
