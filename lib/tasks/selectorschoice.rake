@@ -1,6 +1,22 @@
 # frozen_string_literal: true
 
+require 'uri'
+require_relative '../s3'
+
 namespace :sc do
+  namespace :s3 do
+    desc 'Migrate from s3 url to filename'
+    task migrate_from_s3_url: [:environment] do
+      Track.all.each do |track|
+        track.filename = track.url.sub(%r{^https?://.*amazonaws.com/#{SelectorsChoice::S3::BUCKET_NAME}/}, '')
+        track.filename = track.filename.sub(%r{^https?://#{SelectorsChoice::S3::BUCKET_NAME}.*amazonaws.com/}, '')
+
+        track.filename = CGI.unescape(track.filename)
+        track.save!
+      end
+    end
+  end
+
   namespace :db do
     desc 'Fetch the latest backup from heroku'
     task fetch: [:environment] do

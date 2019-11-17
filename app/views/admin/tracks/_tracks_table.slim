@@ -23,9 +23,9 @@ table.admin-tracks__table
             .admin-track__tags = track.tag_list
             .admin-track__styles = track.style_list
           .admin-track__url
-            input readonly="readonly" class='admin-track__url--input' value=track.url
+            input readonly="readonly" class='admin-track__url--input' value=track.signed_url
         td.admin-track__download
-          = link_to_icon 'external-url', track.url, target: "_blank", title: 'download mp3'
+          = link_to_icon 'external-url', track.signed_url, target: "_blank", title: 'download mp3'
         td.admin-track__published
           = track.published? ? (link_to_icon 'check', nil) :''
         td.admin-track__edit-controls

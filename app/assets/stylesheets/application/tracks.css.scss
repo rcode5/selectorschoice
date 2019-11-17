@@ -171,17 +171,24 @@ ul.tracks .track {
   }
 }
 .track, .tagged {
+  a:first-of-type {
+      margin-left: 0
+    }
   .tag {
     @include border-radius(4px);
-    padding: 0 9px;
+    font-size: 14px;
+    padding: 4px 9px;
     margin: 5px;
     border: 1px solid $dark_gray;
     background-color: $purple_background;
     display: inline-block;
   }
+ 
 }
 
-.tagged
+.audio .pre-audio {
+  width: 400px;
+}
 
 .audiojs {
   @include border-radius(10px);
