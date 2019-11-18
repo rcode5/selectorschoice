@@ -12,7 +12,7 @@ $(function() {
       url: '/tracks/' + trackId + '.json'
     }).then(function(resp) {
       var url = resp.data.attributes.signed_url
-      const audioEl = $('<audio>', {
+      var audioEl = $('<audio>', {
         src: url,
         preload: false,
         type: 'audio/mpeg'
@@ -30,8 +30,8 @@ $(function() {
   }
   
   $('.audio .pre-audio').on('click', function(ev) {
-    const $el = $(ev.target)
-    const trackId = $el.attr('track_id')
+    var $el = $(ev.target)
+    var trackId = $el.attr('track_id')
     replaceWithAudioTrack($el, trackId)
   })
   $('.audio audio').mediaelementplayer({
