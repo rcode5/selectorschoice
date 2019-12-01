@@ -14,7 +14,7 @@ $(function() {
       var url = resp.data.attributes.signed_url
       var audioEl = $('<audio>', {
         src: url,
-        preload: false,
+        preload: true,
         type: 'audio/mpeg'
       })
       el.after(audioEl)
