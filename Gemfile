@@ -5,7 +5,6 @@ ruby '2.6.3'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
-gem 'arel'
 gem 'aws-sdk', '~> 3'
 gem 'aws-sdk-s3', '~> 1'
 gem 'bootsnap'
@@ -38,7 +37,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '4.0.0.beta3'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'simplecov', require: false
