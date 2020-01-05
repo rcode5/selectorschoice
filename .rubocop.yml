@@ -9,6 +9,12 @@ AllCops:
 
 
 
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - config/initializers/assets.rb
+    - config/initializers/secret_token.rb
+
 Metrics/AbcSize:
   Max: 35
 
@@ -19,12 +25,6 @@ Metrics/BlockLength:
 
 Metrics/MethodLength:
   Max: 15
-
-Metrics/LineLength:
-  Max: 120
-  Exclude:
-    - config/initializers/assets.rb
-    - config/initializers/secret_token.rb
 
 Style/Documentation:
   Enabled: false
