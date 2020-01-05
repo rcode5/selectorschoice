@@ -37,6 +37,8 @@ jobs:
           shell: /bin/bash
           name: Bundle install
           command: |-
+            gem list
+            bundle update bundler
             bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
             bundle exec bundle-audit update && bundle exec bundle-audit check
       - run:
