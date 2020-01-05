@@ -28,7 +28,7 @@ jobs:
           name: Machine Setup
           command: |-
             sudo gem update --system
-            sudo gem install bundle rake
+            sudo gem install bundler rake
       - run:
           shell: /bin/bash
           name: Wait For DB
