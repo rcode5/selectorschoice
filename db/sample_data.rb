@@ -8,7 +8,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'factory_girl'
-Dir[Rails.root.join('spec/{factories,support}/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/{factories,support}/**/*.rb')].sort.each { |f| require f }
 
 require File.join([Rails.root, 'lib', 'random_string'])
 
