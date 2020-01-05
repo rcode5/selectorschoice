@@ -56,7 +56,7 @@ module Admin
     def update
       @track = Track.find(params[:id])
       respond_to do |format|
-        if @track.update_attributes(track_params)
+        if @track.update(track_params)
           format.html { redirect_to admin_track_path(@track), notice: 'Track was successfully updated.' }
           format.json { head :no_content }
         else

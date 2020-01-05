@@ -1,4 +1,4 @@
-class AddAuthorToTrack < ActiveRecord::Migration
+class AddAuthorToTrack < ActiveRecord::Migration[4.2]
   def change
     add_column :tracks, :author, :string
   end

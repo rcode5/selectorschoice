@@ -5,7 +5,6 @@ ruby '2.6.3'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
-gem 'arel'
 gem 'aws-sdk', '~> 3'
 gem 'aws-sdk-s3', '~> 1'
 gem 'bootsnap'
@@ -17,7 +16,7 @@ gem 'journey'
 gem 'jquery-rails'
 gem 'listen'
 gem 'pg'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.1'
 gem 'rdiscount'
 gem 'sassc-rails'
 gem 'select2-rails', '~> 3.x'
@@ -38,7 +37,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rails-controller-testing'
   gem 'rspec-collection_matchers'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '4.0.0.beta3'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'simplecov', require: false

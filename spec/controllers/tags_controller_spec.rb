@@ -18,7 +18,7 @@ describe TagsController do
       get :index, format: :json
     end
     it 'returns json' do
-      expect(response.content_type).to eql 'application/json'
+      expect(response.content_type).to eql 'application/json; charset=utf-8'
     end
 
     it 'returns tags and styles (downcased)' do
