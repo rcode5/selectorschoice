@@ -12,6 +12,7 @@ jobs:
           RACK_ENV: test
           PGHOST: 127.0.0.1
           PGUSER: ubuntu
+          BUNDLER_VERSION: 2.1.3
       - image: circleci/postgres:9.6-alpine
         environment:
           POSTGRES_USER: ubuntu
@@ -28,7 +29,10 @@ jobs:
           name: Machine Setup
           command: |-
             sudo gem update --system
-            sudo gem install bundler rake
+            sudo gem uninstall bundler
+            sudo rm /usr/local/bin/bundle
+            sudo rm /usr/local/bin/bundler
+            sudo gem install bundler
       - run:
           shell: /bin/bash
           name: Wait For DB
@@ -38,7 +42,6 @@ jobs:
           name: Bundle install
           command: |-
             gem list
-            bundle update bundler
             bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
             bundle exec bundle-audit update && bundle exec bundle-audit check
       - run:
