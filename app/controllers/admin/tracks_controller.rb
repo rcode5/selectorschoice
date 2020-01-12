@@ -81,7 +81,7 @@ module Admin
     def track_params
       recorded_on = recorded_on_from_params
       attrs = params.require(:track).permit(:description, :display_title,
-                                            :playlist, :title, :url, :recorded_on,
+                                            :playlist, :title, :filename, :recorded_on,
                                             :tag_list, :style_list, :author, :published)
       attrs[:recorded_on] = recorded_on if recorded_on
       attrs
