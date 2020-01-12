@@ -4,8 +4,7 @@ require Rails.root.join('lib', 's3')
 
 class Track < ApplicationRecord
   validates :title, presence: true
-  validates :url, url: true, presence: true
-
+  validates :filename, presence: true
   acts_as_taggable
   acts_as_taggable_on :styles
 

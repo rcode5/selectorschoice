@@ -32,7 +32,7 @@
     - recorded_on = @track.recorded_on
     = text_field_tag :recorded_on_day, (recorded_on.present? ? recorded_on.strftime("%d %b, %Y") : ''), class: 'datepicker', placeholder: "Date"
     = text_field_tag :recorded_on_time, (recorded_on.present? ? recorded_on.strftime("%I:%M%p") : ''), class: 'timepicker', placeholder: "Time"
-  = f.input :url, hint: "Full URL to the music file (on Amazon S3 or elsewhere).", wrapper_html: { class: "admin-track-form__url" }
+  = f.input :filename, hint: "Filename on Amazon S3 without leading slash.", wrapper_html: { class: "admin-track-form__filename" }
   = f.input :playlist, hint: "Keep it simple.  Artist - Track title, or something similar.  Each track should be on a new line.  You can use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown</a> for formatting if you want to get fancy.".html_safe
   = f.input :description, hint: "Describe the track.  You can use <a href='http://daringfireball.net/projects/markdown/syntax'>markdown</a> for formatting if you want to get fancy.".html_safe
   = f.button :submit
