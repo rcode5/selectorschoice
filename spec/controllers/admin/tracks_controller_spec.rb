@@ -46,7 +46,7 @@ describe Admin::TracksController do
           expect(cloned_track.send(fld)).to eql track.send(fld)
         end
         expect(cloned_track.published).to be_falsey
-        expect(cloned_track.url).to be_empty
+        expect(cloned_track.filename).to be_empty
       end
     end
 

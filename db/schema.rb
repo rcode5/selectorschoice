@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_12_011714) do
+ActiveRecord::Schema.define(version: 2020_01_12_011715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2020_01_12_011714) do
     t.text "playlist"
     t.text "description"
     t.datetime "recorded_on"
-    t.string "url", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "author", limit: 255

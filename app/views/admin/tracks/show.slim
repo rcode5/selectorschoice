@@ -24,8 +24,12 @@ ul.admin-track-info
       = @track.recorded_on unless @track.recorded_on.blank?
 
   li
-    .label URL
-    .value = @track.url
+    .label Filename
+    .value = @track.filename
+
+  li
+    .label Signed URL
+    .value = @track.signed_url
 
   li
     .label Tags

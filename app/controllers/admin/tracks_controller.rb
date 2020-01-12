@@ -32,7 +32,7 @@ module Admin
     def clone
       @track = Track.find(params[:id]).dup
       @track.published = false
-      @track.url = ''
+      @track.filename = ''
       render 'new'
     end
 
@@ -83,8 +83,16 @@ module Admin
       attrs = params.require(:track).permit(:description, :display_title,
                                             :playlist, :title, :filename, :recorded_on,
                                             :tag_list, :style_list, :author, :published)
+      attrs[:tag_list] = process_tag_params(attrs[:tag_list])
+      attrs[:style_list] = process_tag_params(attrs[:style_list])
       attrs[:recorded_on] = recorded_on if recorded_on
       attrs
+    end
+
+    def process_tag_params(tag_list)
+      return unless tag_list.present?
+
+      tag_list.split(',').map(&:strip)
     end
 
     def recorded_on_from_params

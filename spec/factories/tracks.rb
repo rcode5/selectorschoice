@@ -5,7 +5,6 @@ FactoryBot.define do
     title { |n| "hot new mix #{n}" }
     author { |_n| ['Mr Rogers', 'Soul Suspect'].cycle }
     filename { |n| "rock it #{n}.mp3" }
-    url { "http://s3.amazon.com/selectors_choice/#{filename}" }
     recorded_on { (Time.now - rand(50).days) }
     published { true }
     description { 'set description *with emphasis*' }
