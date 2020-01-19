@@ -26,7 +26,7 @@ namespace :sc do
       else
         url = `heroku pgbackups:url --app #{app}`
         db_prefix = app.tr('-', '_')
-        fname = "#{db_prefix}_#{Time.now.strftime('%Y%m%d')}.postgres"
+        fname = "#{db_prefix}_#{Time.zone.now.strftime('%Y%m%d')}.postgres"
         puts "Fetching database from #{url} - dumping to file #{fname}"
         `curl -o #{fname} \"#{url}\"`
       end

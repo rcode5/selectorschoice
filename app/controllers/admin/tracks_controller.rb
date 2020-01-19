@@ -90,7 +90,7 @@ module Admin
     end
 
     def process_tag_params(tag_list)
-      return unless tag_list.present?
+      return if tag_list.blank?
 
       tag_list.split(',').map(&:strip)
     end

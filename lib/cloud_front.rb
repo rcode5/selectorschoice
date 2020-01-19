@@ -17,7 +17,7 @@ module SelectorsChoice
 
     def get_presigned_url(filename, opts = {})
       url = Addressable::URI.parse("https://#{cf_domain}/#{ERB::Util.url_encode(filename)}")
-      opts.merge!(expires: Time.current + 300.seconds)
+      opts[:expires] = Time.current + 300.seconds
       signer.signed_url(url.to_s, opts)
     end
 
@@ -28,7 +28,7 @@ module SelectorsChoice
     end
 
     def unpack_key(key)
-      return unless key.present?
+      return if key.blank?
 
       # if we have to use a key from an env var directly,
       # it should have '\n' (2 characters) encoded into it where

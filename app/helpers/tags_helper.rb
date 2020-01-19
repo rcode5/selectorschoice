@@ -9,7 +9,7 @@ module TagsHelper
     tags = (params[:tags] || '').split ','
     tags << tag_contents
     tags = tags.uniq.compact.sort
-    anchor_html_opts[:href] = root_path(tags: tags.join(',')) unless anchor_html_opts[:href].present?
+    anchor_html_opts[:href] = root_path(tags: tags.join(',')) if anchor_html_opts[:href].blank?
     anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].flatten.join(' ')
     if anchor_html_opts[:href].present?
       content_tag 'a', anchor_html_opts do
@@ -25,7 +25,7 @@ module TagsHelper
     tags = (tags - [tag_contents]).uniq.compact.sort
     opts = {}
 
-    unless anchor_html_opts[:href].present?
+    if anchor_html_opts[:href].blank?
       opts = { tags: tags.join(',') } if tags.present?
       anchor_html_opts[:href] = root_path(opts)
     end
