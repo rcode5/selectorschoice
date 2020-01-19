@@ -6,7 +6,7 @@ feature 'Visitor' do
   let(:tracks) { FactoryBot.create_list(:track, 3) }
 
   before do
-    mock_s3
+    mock_cloud_front
     tracks
   end
 

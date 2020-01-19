@@ -32,6 +32,7 @@ end
 
 group :development, :test do
   gem 'bundle-audit'
+  gem 'climate_control'
   gem 'factory_bot'
   gem 'fuubar'
   gem 'pry-byebug'
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails', '4.0.0.beta3'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'admin/tracks/index' do
   before(:each) do
-    mock_s3
+    mock_cloud_front
     published = [FactoryBot.create(:track)]
     unpublished = [FactoryBot.create(:track, published: false)]
     @tracks = published + unpublished

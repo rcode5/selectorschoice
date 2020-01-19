@@ -986,6 +986,7 @@ GEM
       bcrypt (>= 3.1.1)
       email_validator (~> 2.0)
       railties (>= 5.0)
+    climate_control (0.2.0)
     coderay (1.1.2)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -1125,6 +1126,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
+    rubocop-rails (2.4.1)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
     ruby-progressbar (1.10.1)
     sassc (2.2.1)
       ffi (~> 1.9)
@@ -1164,7 +1168,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.6.0)
+    unicode-display_width (1.6.1)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -1187,6 +1191,7 @@ DEPENDENCIES
   bundle-audit
   capybara
   clearance
+  climate_control
   coffee-rails
   dotenv-rails
   factory_bot
@@ -1204,6 +1209,7 @@ DEPENDENCIES
   rspec-rails (= 4.0.0.beta3)
   rubocop
   rubocop-performance
+  rubocop-rails
   sassc-rails
   select2-rails (~> 3.x)
   shoulda-matchers

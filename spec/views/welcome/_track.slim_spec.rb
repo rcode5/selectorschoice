@@ -4,7 +4,7 @@ require 'rails_helper'
 require Rails.root.join('lib', 's3')
 describe 'welcome/_track', type: :view do
   before do
-    mock_s3
+    mock_cloud_front
     track = FactoryBot.create :track, published: true
     @tr = assign(:track, track)
     render
