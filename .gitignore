@@ -16,3 +16,4 @@ romey.sqlite
 coverage/
 .byebug_history
 .env*
+*.pem
