@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'admin/tracks/show' do
   before(:each) do
-    mock_s3
+    mock_cloud_front
     @track = assign(:track, FactoryBot.create(:track,
                                               title: 'Title',
                                               display_title: 'Display Title',

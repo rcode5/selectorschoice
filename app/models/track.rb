@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require Rails.root.join('lib', 's3')
+require Rails.root.join('lib', 'cloud_front')
 
 class Track < ApplicationRecord
   validates :title, presence: true
@@ -13,8 +13,10 @@ class Track < ApplicationRecord
   end
 
   def signed_url
-    client = SelectorsChoice::S3.new
-    client.get_presigned_url(filename, expires_in: 30)
+    SelectorsChoice::CloudFront.new.get_presigned_url(
+      filename,
+      expires: Time.current + 300.seconds
+    )
   end
 
   class << self

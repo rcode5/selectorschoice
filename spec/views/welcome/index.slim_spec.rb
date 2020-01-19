@@ -5,7 +5,7 @@ require 'rails_helper'
 describe 'welcome/index', type: :view do
   describe 'with no args' do
     before do
-      mock_s3
+      mock_cloud_front
       8.times { |x| FactoryBot.create :track, published: x.even? }
       tracks = Track.published.paginate(page: 1, per_page: 2)
       assign(:tracks, tracks)

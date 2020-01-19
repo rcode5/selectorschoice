@@ -2,7 +2,7 @@
 
 module SelectorsChoice
   class S3
-    BUCKET_NAME = 'selectors_choice'
+    BUCKET_NAME = ENV.fetch('AWS_S3_BUCKET', 'selectors_choice')
 
     def initialize
       @client = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS_KEY_ID'],
