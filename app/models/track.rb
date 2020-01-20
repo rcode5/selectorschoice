@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require Rails.root.join('lib', 'cloud_front')
+require Rails.root.join('lib/cloud_front')
 
 class Track < ApplicationRecord
   validates :title, presence: true
@@ -9,7 +9,7 @@ class Track < ApplicationRecord
   acts_as_taggable_on :styles
 
   def pretty_title
-    display_title.present? ? display_title : title
+    display_title.presence || title
   end
 
   def signed_url

@@ -16,7 +16,7 @@ describe Admin::TracksController do
         tracks = []
         tracks << Track.create!(valid_attributes(published: true))
         tracks << Track.create!(valid_attributes(published: false))
-        get :index, {}
+        get :index
         expect(assigns(:published)).to eq([tracks[0]])
         expect(assigns(:unpublished)).to eq([tracks[1]])
       end
@@ -32,7 +32,7 @@ describe Admin::TracksController do
 
     describe 'GET new' do
       it 'assigns a new track as @track' do
-        get :new, {}
+        get :new
         expect(assigns(:track)).to be_a_new(Track)
       end
     end
@@ -61,9 +61,9 @@ describe Admin::TracksController do
     describe 'POST create' do
       describe 'with valid params' do
         it 'creates a new Track' do
-          expect do
+          expect {
             post :create, params: { track: valid_attributes }
-          end.to change(Track, :count).by(1)
+          }.to change(Track, :count).by(1)
         end
 
         it 'assigns a newly created track as @track' do
@@ -187,9 +187,9 @@ describe Admin::TracksController do
         @track = Track.create! valid_attributes
       end
       it 'destroys the requested track' do
-        expect do
+        expect {
           delete :destroy, params: { id: @track.to_param }
-        end.to change(Track, :count).by(-1)
+        }.to change(Track, :count).by(-1)
       end
 
       it 'redirects to the tracks list' do

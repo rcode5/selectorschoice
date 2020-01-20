@@ -1,33 +1,142 @@
+# Configuration hierarchy:
+#
+# 1. Rubocop defaults
+# 2. Carbon Five defaults (this file)
+# 3. Project overrides
+#
+# See http://rubocop.readthedocs.io/en/latest/configuration/#inheriting-configuration-from-a-remote-url for details.
+#
+
+require: 
+  - rubocop-performance
+  - rubocop-rails
+
 AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   Exclude:
-    - db/migrate/**/*.rb
-    - db/schema.rb
-    - script/**/*
-    - bin/*
-    - vendor/bundle/**/*
-    - vendor/**/.*
+    - "bin/*"
+    - "config/initializers/secret_token.rb"
+    - "db/schema.rb"
+    - "db/sample_data.rb"
+    - "db/migrate/*.rb"
+    - "lib/templates/**/*"
+    - "**/node_modules/**/*"
+    - "script/rails"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "log/**/*"
 
+#
+# Ruby Cops
+#
 
+Layout/CaseIndentation:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  Enabled: false
 
 Layout/LineLength:
   Max: 120
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Lint/ScriptPermission:
   Exclude:
-    - config/initializers/assets.rb
-    - config/initializers/secret_token.rb
+    - "Rakefile"
 
 Metrics/AbcSize:
   Max: 35
+  Exclude:
+    - "spec/**/*"
 
 Metrics/BlockLength:
-  Max: 120
+  CountComments: false
+  Max: 50
   Exclude:
-    - spec/**/*_spec.rb
+    - "config/**/*"
+    - "spec/**/*"
+
+Metrics/ClassLength:
+  Max: 250
+  Exclude:
+    - "spec/**/*"
 
 Metrics/MethodLength:
-  Max: 15
+  Max: 25
+  Exclude:
+    - "db/migrate/*"
+    - "spec/**/*"
+
+Naming/PredicateName:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Security/YAMLLoad:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
 
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
 Style/FormatStringToken:
+  Enabled: false
+  
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/ModuleFunction:
+  EnforcedStyle: extend_self
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/PreferredHashMethods:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/StructInheritance:
+  Enabled: true
+
+#
+# Rails Cops
+#
+
+Rails/ApplicationRecord:
+  Exclude:
+    - "db/migrate/**"
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/OutputSafety:
   Enabled: false

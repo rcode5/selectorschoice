@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require Rails.root.join('lib', 's3')
+
 describe 'welcome/_track', type: :view do
   before do
     mock_cloud_front
