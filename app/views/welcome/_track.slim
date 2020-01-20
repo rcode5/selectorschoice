@@ -8,7 +8,7 @@ li.track
         = track.pretty_title
   .bd
     .audio
-      img.pre-audio track_id=track.id src=image_url('dummy_media_player.png')
+      img.js-pre-audio.pre-audio track_id=track.id src=image_url('dummy_media_player.png')
 
     - if track.description.present?
       .description.markup
@@ -25,7 +25,7 @@ li.track
         .compactible_tracklist id="tracklist#{track.id}"
           = markup(track.playlist || '')
     .download
-      = link_to_icon 'download', track.signed_url, class: 'tooltip', title: 'download this track'
+      = link_to_icon 'download', '#', class: 'js-pre-download tooltip', title: 'download this track', "track_id": track.id
   .ft
     - tags = (track.style_list + track.tag_list).sort
     - unless tags.empty?

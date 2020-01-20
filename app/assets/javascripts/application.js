@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require select2
+//= require selectize
 //= require jquery.gaEventTracker
 //= require_tree ./support
 //= require_tree ./plugins
