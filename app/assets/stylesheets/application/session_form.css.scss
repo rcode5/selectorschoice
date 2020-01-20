@@ -10,8 +10,13 @@
   background-color: $dark_gray;
   @include opacity(0.85);
   input,textarea {
+    border: none;
     @include border-radius(4px);
-    padding: 5px;
+    padding: 7px;
+    background-color: rgba(255,255,255,0.7);
+    &[type=submit] {
+      background-color: buttonface;
+    }
   }
   textarea {
     width: 600px;
@@ -19,6 +24,9 @@
   label {
     width: 200px;
     display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 4px
   }
   span.hint {
     display: block;
@@ -28,4 +36,7 @@
     margin-bottom: 20px;
   }
 
+}
+.other-links {
+  padding-top: 20px;
 }
