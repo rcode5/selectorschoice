@@ -6,9 +6,9 @@ h3 .author {
   letter-spacing: 0px;
 }
 .tagged, .apple_pagination {
-  position: relative;
   padding: $block-padding;
-  margin: 8px $block-margin 0;
+  margin-top: 8px;
+  margin-bottom: 0;
   cursor: default;
   @include clearfix;
 }
@@ -29,23 +29,28 @@ h3 .author {
   align-items: center;
   justify-content: flex-end;
   padding-right: 0;
-  margin-left: $block-margin;
+  width: 100%;
   @include opacity(0.8);
+    z-index: 10001;
   form.search {
+    min-width: 200px;
     display: flex;
     align-items: center;
   }
-  .icon-search {
-    position: relative;
-    left: -29px;
-    top: 1px;
-    cursor: pointer;
+  .selectize-control {
+    width:100%;
   }
-  .select2-container {
-    min-width: 200px;
-    .select2-choices {
-      @include border-radius(3px);
-    }
+  .selectize-control.multi .selectize-input.has-items {
+    padding-right: 30px;
+  }
+  .search {
+    position: relative;
+  }
+  .icon-search {
+    position: absolute;
+    right: 5px;
+    z-index: 20;
+    cursor: pointer;
   }
 }
 .tagged {
@@ -54,6 +59,7 @@ h3 .author {
     text-transform: uppercase;
   }
   .icon.icon-delete {
+    opacity: 0.7;
     float: right;
   }
 
@@ -86,18 +92,14 @@ h3 .author {
   }
 }
 
-.tracks {
-  @include clearfix;
-}
-
-ul.tracks .track {
+ul .track {
   @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
-  position: relative;
   @include border-radius(15px);
   background-color: rgba(30, 0, 30, 0.8);
   display:block;
   padding: 0 $block-padding;
-  margin: $block-margin;
+  margin-top: $block-margin;
+  margin-bottom: $block-margin;
   border: 1px solid $dark_gray;
   .hd {
     .title {
@@ -110,7 +112,6 @@ ul.tracks .track {
     }
   }
   .bd, .ft {
-    position: relative;
     margin-top: 10px;
   }
   .ft {

@@ -2,7 +2,7 @@
 //= require_tree ./support
 //= require pickadate.min
 //= require jquery.timepicker
-//= require select2
+//= require selectize
 
 $(function() {
   $('.datepicker').pickadate()
@@ -12,13 +12,21 @@ $(function() {
   });
 
   if ($('#track_tag_list, #track_style_list').length) {
+    console.log($(this).val())
     $.ajax({
       url: '/tags.json',
-      success: function(d) {
-        $('#track_tag_list, #track_style_list').select2({tags: d})
+      success: function(availableTags) {
+        $('#track_tag_list, #track_style_list').selectize({
+          create: true,
+          options: availableTags.map(function(tag) { return({text: tag, value: tag}) }),
+        })
       },
       error: function() {
-        $('#track_tag_list, #track_style_list').select2({tags: []})
+        $('#track_tag_list, #track_style_list').selectize({
+          create: true,
+          options: [],
+          items: [],
+        })
       }
     })
   }

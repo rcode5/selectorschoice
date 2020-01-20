@@ -1,6 +1,6 @@
 .search_row
   form.search
-    input name='tags' placeholder=('search by tag/style')
+    input name='tags' placeholder=('search by tag/style') value=@tags&.join(",")
     input type='hidden' name='search'
     i class=('icon black icon-search') title='search'
 - unless @tracks.empty?

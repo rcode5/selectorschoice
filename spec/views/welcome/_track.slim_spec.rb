@@ -26,6 +26,6 @@ describe 'welcome/_track', type: :view do
     end
   end
   it 'renders a download link' do
-    assert_select format('.bd .download a[href="%s"] i.icon-download', @tr.signed_url)
+    assert_select ".bd .download a[track_id='#{@tr.id}'] i.icon-download"
   end
 end
