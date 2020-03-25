@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   build:
     parallelism: 1
@@ -65,7 +65,7 @@ jobs:
       - store_artifacts:
           path: /tmp/circleci-test-results
 workflows:
-  version: 2
+  version: 2.1
   Build and Test:
     jobs:
       - build
