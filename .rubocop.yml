@@ -103,6 +103,15 @@ Style/FormatStringToken:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
 
+Style/HashEachMethods:
+  Enabled: true
+  
+Style/HashTransformKeys: 
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
 Style/Lambda:
   EnforcedStyle: literal
 
@@ -123,7 +132,7 @@ Style/StringLiteralsInInterpolation:
 
 Style/StructInheritance:
   Enabled: true
-
+  
 #
 # Rails Cops
 #
