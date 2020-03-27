@@ -4,7 +4,7 @@ jobs:
     parallelism: 1
     shell: /bin/bash --login
     docker:
-      - image: circleci/ruby:2.6.3-node-browsers
+      - image: circleci/ruby:2.6.5-node-browsers
         environment:
           DATABASE_URL: "postgres://ubuntu@localhost/selectors_choice_test"
           DISABLE_SPRING: true
