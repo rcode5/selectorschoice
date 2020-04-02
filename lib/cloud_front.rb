@@ -10,7 +10,7 @@ module SelectorsChoice
       opts = {
         key_pair_id: ENV['AWS_KEY_PAIR_ID'],
         private_key_path: ENV['AWS_PRIVATE_KEY_PATH'],
-        private_key: unpack_key(ENV['AWS_PRIVATE_KEY'])
+        private_key: unpack_key(ENV['AWS_PRIVATE_KEY']),
       }.compact
       @signer = Aws::CloudFront::UrlSigner.new(**opts)
     end

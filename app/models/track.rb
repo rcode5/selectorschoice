@@ -15,7 +15,7 @@ class Track < ApplicationRecord
   def signed_url
     SelectorsChoice::CloudFront.new.get_presigned_url(
       filename,
-      expires: Time.current + Rails.configuration.track_expiry_in_seconds.seconds
+      expires: Time.current + Rails.configuration.track_expiry_in_seconds.seconds,
     )
   end
 
