@@ -132,7 +132,19 @@ Style/StringLiteralsInInterpolation:
 
 Style/StructInheritance:
   Enabled: true
-  
+
+Style/TrailingCommaInArguments:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+
 #
 # Rails Cops
 #
