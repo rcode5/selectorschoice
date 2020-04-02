@@ -49,6 +49,12 @@ Layout/MultilineMethodCallIndentation:
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
 Lint/ScriptPermission:
   Exclude:
     - "Rakefile"
