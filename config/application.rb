@@ -17,5 +17,6 @@ module SelectorsChoice
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.track_expiry_in_seconds = ENV.fetch('TRACK_EXPIRY_IN_SECONDS', 60 * 60)
   end
 end
