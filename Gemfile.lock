@@ -1007,7 +1007,7 @@ GEM
       activemodel
     erubi (1.9.0)
     execjs (2.7.0)
-    factory_bot (5.1.2)
+    factory_bot (5.2.0)
       activesupport (>= 4.2.0)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
@@ -1163,7 +1163,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tzinfo (1.2.6)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
