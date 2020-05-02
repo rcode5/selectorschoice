@@ -46,6 +46,9 @@ Layout/LineLength:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
@@ -102,6 +105,9 @@ Style/Documentation:
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
+
+Style/ExponentialNotation:
+  Enabled: true
 
 Style/FormatStringToken:
   Enabled: false
