@@ -6,7 +6,7 @@ module SelectorsChoice
 
     BUCKET_NAME = ENV.fetch('AWS_S3_BUCKET', 'selectors_choice')
 
-    EXPIRY_IN_SECONDS = (60 * 60 * 6).seconds) # 6hours - long enough for a whole track
+    EXPIRY_IN_SECONDS = (60 * 60 * 6).seconds # 6hours - long enough for a whole track
 
     def initialize
       opts = {
