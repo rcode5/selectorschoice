@@ -112,6 +112,7 @@ ul .track {
     }
   }
   .bd, .ft {
+    position: relative;
     margin-top: 10px;
   }
   .ft {
@@ -184,7 +185,7 @@ ul .track {
     background-color: $purple_background;
     display: inline-block;
   }
- 
+
 }
 
 .audio .pre-audio {
