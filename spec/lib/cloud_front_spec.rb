@@ -47,7 +47,7 @@ describe SelectorsChoice::CloudFront do
         described_class.new.get_presigned_url('abc def.mp3', whatever: 'opts')
         expect(mock_signer).to have_received(:signed_url)
           .with('https://my-cloudfront-domain.cloudfront.net/abc%20def.mp3',
-                expires: Time.current + 300.seconds, whatever: 'opts')
+                expires: Time.current + (60 * 60 * 6).seconds, whatever: 'opts')
       end
     end
   end
