@@ -31,8 +31,12 @@ AllCops:
 # Ruby Cops
 #
 
+
 Layout/CaseIndentation:
   Enabled: false
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true  
 
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
@@ -51,6 +55,9 @@ Layout/SpaceAroundMethodCallOperator:
 
 Lint/AmbiguousBlockAssociation:
   Enabled: false
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true  
 
 Lint/RaiseException:
   Enabled: true
@@ -135,6 +142,9 @@ Style/MutableConstant:
 
 Style/PreferredHashMethods:
   Enabled: false
+
+Style/SlicingWithRange :
+  Enabled: true  
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
