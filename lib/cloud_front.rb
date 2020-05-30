@@ -6,6 +6,8 @@ module SelectorsChoice
 
     BUCKET_NAME = ENV.fetch('AWS_S3_BUCKET', 'selectors_choice')
 
+    EXPIRY_IN_SECONDS = (60 * 60 * 6).seconds) # 6hours - long enough for a whole track
+
     def initialize
       opts = {
         key_pair_id: ENV['AWS_KEY_PAIR_ID'],
@@ -17,7 +19,7 @@ module SelectorsChoice
 
     def get_presigned_url(filename, opts = {})
       url = Addressable::URI.parse("https://#{cf_domain}/#{ERB::Util.url_encode(filename)}")
-      opts[:expires] = Time.current + 300.seconds
+      opts[:expires] = Time.current + EXPIRY_IN_SECONDS
       signer.signed_url(url.to_s, opts)
     end
 
