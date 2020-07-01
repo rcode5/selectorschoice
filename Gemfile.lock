@@ -1007,8 +1007,8 @@ GEM
       activemodel
     erubi (1.9.0)
     execjs (2.7.0)
-    factory_bot (5.2.0)
-      activesupport (>= 4.2.0)
+    factory_bot (6.0.2)
+      activesupport (>= 5.0.0)
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
     ffi (1.12.2)
