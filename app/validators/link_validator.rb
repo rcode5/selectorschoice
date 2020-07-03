@@ -9,7 +9,7 @@ class LinkValidator < ActiveModel::EachValidator
               if /https?:/.match?(value)
                 URI.parse(value).is_a?(URI::HTTP)
               else
-                %r{^/[\S]*$} =~ value
+                %r{^/\S*$} =~ value
               end
             rescue URI::InvalidURIError
               false

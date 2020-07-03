@@ -3,7 +3,7 @@
 module ApplicationHelper
   def link_to_icon(icon, link, opts = {})
     icon_classes = (opts.delete :icon_classes) || nil
-    icon_tag = content_tag 'i', '', class: ["icon icon-#{icon}", icon_classes].compact.join(' ')
+    icon_tag = tag.i '', class: ["icon icon-#{icon}", icon_classes].compact.join(' ')
 
     if link.present?
       opts[:title] ||= icon.to_s.humanize
