@@ -7,9 +7,19 @@
 # See http://rubocop.readthedocs.io/en/latest/configuration/#inheriting-configuration-from-a-remote-url for details.
 #
 
-require: 
+require:
   - rubocop-performance
   - rubocop-rails
+
+inherit_from:
+  - rubocop/layout.yml
+  - rubocop/lint.yml
+  - rubocop/metrics.yml
+  - rubocop/naming.yml
+  - rubocop/performance.yml
+  - rubocop/rails.yml
+  - rubocop/security.yml
+  - rubocop/style.yml
 
 AllCops:
   DisplayCopNames: true
@@ -27,171 +37,3 @@ AllCops:
     - "vendor/**/*"
     - "log/**/*"
 
-#
-# Ruby Cops
-#
-
-
-Layout/CaseIndentation:
-  Enabled: false
-
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true  
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/HashAlignment:
-  Enabled: false
-
-Layout/LineLength:
-  Max: 120
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Lint/AmbiguousBlockAssociation:
-  Enabled: false
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true  
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Lint/ScriptPermission:
-  Exclude:
-    - "Rakefile"
-
-Metrics/AbcSize:
-  Max: 35
-  Exclude:
-    - "spec/**/*"
-
-Metrics/BlockLength:
-  CountComments: false
-  Max: 50
-  Exclude:
-    - "config/**/*"
-    - "spec/**/*"
-
-Metrics/ClassLength:
-  Max: 250
-  Exclude:
-    - "spec/**/*"
-
-Metrics/MethodLength:
-  Max: 25
-  Exclude:
-    - "db/migrate/*"
-    - "spec/**/*"
-
-Naming/PredicateName:
-  Enabled: false
-
-Performance/Casecmp:
-  Enabled: false
-
-Security/YAMLLoad:
-  Enabled: false
-
-Style/BarePercentLiterals:
-  EnforcedStyle: percent_q
-
-Style/BlockDelimiters:
-  EnforcedStyle: braces_for_chaining
-
-Style/Documentation:
-  Enabled: false
-
-Style/EmptyMethod:
-  EnforcedStyle: expanded
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/FormatStringToken:
-  Enabled: false
-  
-Style/FrozenStringLiteralComment:
-  EnforcedStyle: always
-
-Style/HashEachMethods:
-  Enabled: true
-  
-Style/HashTransformKeys: 
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/Lambda:
-  EnforcedStyle: literal
-
-Style/ModuleFunction:
-  EnforcedStyle: extend_self
-
-Style/MutableConstant:
-  Enabled: false
-
-Style/PreferredHashMethods:
-  Enabled: false
-
-Style/RedundantFetchBlock:
-  Enabled: true
-
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
-  Enabled: true
-
-Style/SlicingWithRange :
-  Enabled: true  
-
-Style/StringLiterals:
-  EnforcedStyle: single_quotes
-
-Style/StringLiteralsInInterpolation:
-  EnforcedStyle: single_quotes
-
-Style/StructInheritance:
-  Enabled: true
-
-Style/TrailingCommaInArguments:
-  Enabled: true
-  EnforcedStyleForMultiline: comma
-
-Style/TrailingCommaInArrayLiteral:
-  Enabled: true
-  EnforcedStyleForMultiline: comma
-
-Style/TrailingCommaInHashLiteral:
-  Enabled: true
-  EnforcedStyleForMultiline: comma
-
-#
-# Rails Cops
-#
-
-Rails/ApplicationRecord:
-  Exclude:
-    - "db/migrate/**"
-
-Rails/HasAndBelongsToMany:
-  Enabled: false
-
-Rails/RakeEnvironment:
-  Enabled: false
-
-Rails/OutputSafety:
-  Enabled: false

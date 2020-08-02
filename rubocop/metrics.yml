@@ -1,0 +1,22 @@
+Metrics/AbcSize:
+  Max: 35
+  Exclude:
+    - "spec/**/*"
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 50
+  Exclude:
+    - "config/**/*"
+    - "spec/**/*"
+
+Metrics/ClassLength:
+  Max: 250
+  Exclude:
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Max: 25
+  Exclude:
+    - "db/migrate/*"
+    - "spec/**/*"
