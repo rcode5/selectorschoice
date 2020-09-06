@@ -24,6 +24,7 @@ inherit_from:
 AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
+  NewCops: enable
   Exclude:
     - "bin/*"
     - "config/initializers/secret_token.rb"
