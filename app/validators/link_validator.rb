@@ -6,14 +6,14 @@
 class LinkValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     valid = begin
-              if /https?:/.match?(value)
-                URI.parse(value).is_a?(URI::HTTP)
-              else
-                %r{^/\S*$} =~ value
-              end
-            rescue URI::InvalidURIError
-              false
-            end
+      if /https?:/.match?(value)
+        URI.parse(value).is_a?(URI::HTTP)
+      else
+        %r{^/\S*$} =~ value
+      end
+    rescue URI::InvalidURIError
+      false
+    end
     return if valid
 
     msg = options[:message] || 'is an invalid link - if it starts with'\
