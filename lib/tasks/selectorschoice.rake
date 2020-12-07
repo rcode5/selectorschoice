@@ -3,13 +3,16 @@
 require 'uri'
 require_relative '../s3'
 
+S3_BUCKET_MATCHER = %r{^https?://.*amazonaws.com/#{SelectorsChoice::S3::BUCKET_NAME}/}
+S3_DOMAIN_MATCHER = %r{^https?://#{SelectorsChoice::S3::BUCKET_NAME}.*amazonaws.com/}
+
 namespace :sc do
   namespace :s3 do
     desc 'Migrate from s3 url to filename'
     task migrate_from_s3_url: [:environment] do
       Track.all.each do |track|
-        track.filename = track.url.sub(%r{^https?://.*amazonaws.com/#{SelectorsChoice::S3::BUCKET_NAME}/}, '')
-        track.filename = track.filename.sub(%r{^https?://#{SelectorsChoice::S3::BUCKET_NAME}.*amazonaws.com/}, '')
+        track.filename = track.url.sub(S3_BUCKET_REGEX, '')
+        track.filename = track.filename.sub(S3_DOMAIN_MATCHER, '')
 
         track.filename = CGI.unescape(track.filename)
         track.save!
