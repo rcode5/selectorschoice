@@ -11,3 +11,6 @@ Rails/RakeEnvironment:
 
 Rails/OutputSafety:
   Enabled: false
+
+Rails/EnvironmentVariableAccess:
+  Enabled: false
