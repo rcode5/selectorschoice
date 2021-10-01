@@ -12,9 +12,6 @@ describe SelectorsChoice::CloudFront do
     freeze_time
     allow(Aws::CloudFront::UrlSigner).to receive(:new).and_return(mock_signer)
   end
-  after do
-    travel_back
-  end
 
   it 'sets up the cloudfront signer with the right options' do
     with_modified_env(
