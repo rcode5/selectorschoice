@@ -6,9 +6,6 @@ describe Track do
   before do
     freeze_time
   end
-  after do
-    travel_back
-  end
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:filename) }
