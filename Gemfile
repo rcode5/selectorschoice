@@ -5,7 +5,7 @@ ruby '2.6.6'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
-gem 'aws-sdk-cloudfront', '~> 1.56'
+gem 'aws-sdk-cloudfront', '~> 1.57'
 gem 'aws-sdk-s3', '~> 1'
 gem 'clearance'
 gem 'coffee-rails'

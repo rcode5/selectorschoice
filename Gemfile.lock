@@ -69,13 +69,13 @@ GEM
       ffi-compiler (~> 1.0)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.510.0)
-    aws-sdk-cloudfront (1.56.0)
-      aws-sdk-core (~> 3, >= 3.120.0)
+    aws-partitions (1.521.0)
+    aws-sdk-cloudfront (1.57.0)
+      aws-sdk-core (~> 3, >= 3.121.2)
       aws-sigv4 (~> 1.1)
-    aws-sdk-core (3.121.1)
+    aws-sdk-core (3.121.5)
       aws-eventstream (~> 1, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
+      aws-partitions (~> 1, >= 1.520.1)
       aws-sigv4 (~> 1.1)
       jmespath (~> 1.0)
     aws-sdk-kms (1.48.0)
@@ -320,7 +320,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   addressable
-  aws-sdk-cloudfront (~> 1.56)
+  aws-sdk-cloudfront (~> 1.57)
   aws-sdk-s3 (~> 1)
   better_errors
   binding_of_caller
