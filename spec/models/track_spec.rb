@@ -24,7 +24,7 @@ describe Track do
     it 'builds a CloudFront signed url' do
       track.signed_url
       expect(mock_service).to have_received(:get_presigned_url).with(
-        track.filename, expires: Time.current + 250.seconds
+        track.filename, expires: 250.seconds.from_now
       )
     end
   end
