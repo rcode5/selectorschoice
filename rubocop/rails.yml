@@ -1,4 +1,3 @@
-
 Rails/ApplicationRecord:
   Exclude:
     - "db/migrate/**"
@@ -13,4 +12,7 @@ Rails/OutputSafety:
   Enabled: false
 
 Rails/EnvironmentVariableAccess:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
   Enabled: false
