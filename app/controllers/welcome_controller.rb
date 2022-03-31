@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
       @tracks = Track.published.tagged_with(@tags, any: true)
       if params[:search]
         flash.now[:notice] =
-          "We found #{@tracks.length} track#{'s' unless @tracks.length == 1} " \
+          "We found #{@tracks.length} #{'s' unless @tracks.length == 1} " \
           'that matched your search'
       end
     else
