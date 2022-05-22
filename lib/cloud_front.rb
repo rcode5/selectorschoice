@@ -10,9 +10,9 @@ module SelectorsChoice
 
     def initialize
       opts = {
-        key_pair_id: ENV['AWS_KEY_PAIR_ID'],
-        private_key_path: ENV['AWS_PRIVATE_KEY_PATH'],
-        private_key: unpack_key(ENV['AWS_PRIVATE_KEY']),
+        key_pair_id: ENV.fetch('AWS_KEY_PAIR_ID', nil),
+        private_key_path: ENV.fetch('AWS_PRIVATE_KEY_PATH', nil),
+        private_key: unpack_key(ENV.fetch('AWS_PRIVATE_KEY', nil)),
       }.compact
       @signer = Aws::CloudFront::UrlSigner.new(**opts)
     end

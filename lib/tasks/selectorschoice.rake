@@ -23,7 +23,7 @@ namespace :sc do
   namespace :db do
     desc 'Fetch the latest backup from heroku'
     task fetch: [:environment] do
-      app = ENV['app']
+      app = ENV.fetch('app', nil)
       if app.blank?
         puts 'You must specify the heroku app name to get its database (use app=<appname>)'
       else
@@ -37,7 +37,7 @@ namespace :sc do
 
     desc 'Import a dbfile into the development database on the local system'
     task import: [:environment] do
-      dbfile = ENV['dbfile']
+      dbfile = ENV.fetch('dbfile', nil)
       if dbfile.blank? || !File.exist?(dbfile)
         puts 'You need to specify the database file to import with dbfile=<filename>'
       else
