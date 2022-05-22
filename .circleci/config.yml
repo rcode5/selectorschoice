@@ -13,7 +13,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: ubuntu
           BUNDLER_VERSION: 2.1.3
-      - image: circleci/postgres:9.6-alpine
+      - image: cimg/postgres:14
         environment:
           POSTGRES_USER: ubuntu
           POSTGRES_DB: selectors_choice_test
