@@ -5,9 +5,9 @@ module SelectorsChoice
     BUCKET_NAME = ENV.fetch('AWS_S3_BUCKET', 'selectors_choice')
 
     def initialize
-      @client = Aws::S3::Client.new(access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-                                    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-                                    region: ENV['AWS_REGION'])
+      @client = Aws::S3::Client.new(access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID', nil),
+                                    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY', nil),
+                                    region: ENV.fetch('AWS_REGION', nil))
     end
 
     def update_content_type(object, ctype)
