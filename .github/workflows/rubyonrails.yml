@@ -50,3 +50,5 @@ jobs:
           bundler-cache: true
       - name: Lint Ruby files
         run: bundle exec rubocop --parallel
+      - name: Audit
+        run: bundle exec bundler-audit --update
