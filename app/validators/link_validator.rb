@@ -16,10 +16,10 @@ class LinkValidator < ActiveModel::EachValidator
     end
     return if valid
 
-    msg = options[:message] || 'is an invalid link - if it starts with'\
-                               ' http: it must be a valid url, otherwise'\
-                               " it should start with '/' because we will"\
-                               ' use a relative path'
+    msg = options[:message] || 'is an invalid link - if it starts with ' \
+                               'http: it must be a valid url, otherwise ' \
+                               "it should start with '/' because we will " \
+                               'use a relative path'
     record.errors.add(attribute, msg)
   end
 end
