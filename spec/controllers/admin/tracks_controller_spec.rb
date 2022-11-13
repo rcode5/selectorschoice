@@ -6,7 +6,7 @@ ATTRS = %w[id created_at updated_at].freeze
 
 describe Admin::TracksController do
   def valid_attributes(overrides = {})
-    FactoryBot.build(:track).attributes.reject { |k, _v| ATTRS.include? k }.merge(overrides)
+    FactoryBot.build(:track).attributes.except(*ATTRS).merge(overrides)
   end
 
   describe 'authorized' do
