@@ -244,7 +244,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    rdiscount (2.2.0.2)
+    rdiscount (2.2.7)
     regexp_parser (2.6.0)
     rexml (3.2.5)
     rspec-collection_matchers (1.2.0)
