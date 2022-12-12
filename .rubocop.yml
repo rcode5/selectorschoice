@@ -40,3 +40,4 @@ AllCops:
     - "tmp/**/*"
     - "vendor/**/*"
     - "log/**/*"
+    - config/deploy/
