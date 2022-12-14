@@ -11,15 +11,12 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "taggings", id: :serial, force: :cascade do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
+    t.string "taggable_type"
     t.integer "taggable_id"
-    t.string "taggable_type", limit: 255
+    t.string "tagger_type"
     t.integer "tagger_id"
-    t.string "tagger_type", limit: 255
     t.string "context", limit: 128
     t.datetime "created_at", precision: nil
     t.index ["context"], name: "index_taggings_on_context"
@@ -33,33 +30,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "tracks", id: :serial, force: :cascade do |t|
-    t.string "title", limit: 255
-    t.string "display_title", limit: 255
+  create_table "tracks", force: :cascade do |t|
+    t.string "title"
+    t.string "display_title"
     t.text "playlist"
     t.text "description"
     t.datetime "recorded_on", precision: nil
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "author", limit: 255
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
+    t.string "author"
     t.boolean "published"
     t.string "filename"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
-    t.string "email", limit: 255
+  create_table "users", force: :cascade do |t|
+    t.string "email"
     t.string "encrypted_password", limit: 128
     t.string "salt", limit: 128
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
-    t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

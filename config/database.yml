@@ -1,15 +1,12 @@
 common: &common
-  adapter: postgresql
+  adapter: sqlite3
   pool: 5
 
 development:
   <<: *common
-  username: <%= ENV['PG_USER'] || 'postgres' %>
-  database: selectors_choice_dev
+  database: selectors_choice_dev.sqlite3
 
 test:
   <<: *common
-  username: <%= ENV['PG_USER'] || 'postgres' %>
-  database: selectors_choice_test
+  database: selectors_choice_test.sqlite3
   min_messages: WARNING
-
