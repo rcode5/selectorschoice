@@ -1,3 +1,14 @@
+inherit_from:
+  - .rubocop_todo.yml
+  - rubocop/layout.yml
+  - rubocop/lint.yml
+  - rubocop/metrics.yml
+  - rubocop/naming.yml
+  - rubocop/performance.yml
+  - rubocop/rails.yml
+  - rubocop/security.yml
+  - rubocop/style.yml
+
 # Configuration hierarchy:
 #
 # 1. Rubocop defaults
@@ -11,15 +22,7 @@ require:
   - rubocop-performance
   - rubocop-rails
 
-inherit_from:
-  - rubocop/layout.yml
-  - rubocop/lint.yml
-  - rubocop/metrics.yml
-  - rubocop/naming.yml
-  - rubocop/performance.yml
-  - rubocop/rails.yml
-  - rubocop/security.yml
-  - rubocop/style.yml
+
 
 AllCops:
   DisplayCopNames: true
@@ -37,4 +40,3 @@ AllCops:
     - "tmp/**/*"
     - "vendor/**/*"
     - "log/**/*"
-

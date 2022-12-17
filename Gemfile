@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.7.6'
+ruby '3.1.3'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
@@ -15,6 +15,7 @@ gem 'journey'
 gem 'jquery-rails'
 gem 'listen'
 gem 'pg'
+gem 'puma'
 gem 'rails', '~> 7.0.3'
 gem 'rdiscount'
 gem 'sassc-rails'
