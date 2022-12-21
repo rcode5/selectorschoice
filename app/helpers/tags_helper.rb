@@ -2,7 +2,7 @@
 
 module TagsHelper
   def render_tag(tag_contents, html_opts = {})
-    tag.span tag_contents, html_opts
+    tag.span tag_contents, **html_opts
   end
 
   def render_tag_link(tag_contents, anchor_html_opts = {}, span_html_opts = {})

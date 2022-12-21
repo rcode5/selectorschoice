@@ -15,7 +15,7 @@ module SelectorsChoice
     end
 
     def get_presigned_url(key, opts = {})
-      presigner.presigned_url(:get_object, opts.merge(bucket: BUCKET_NAME, key: key))
+      presigner.presigned_url(:get_object, opts.merge(bucket: BUCKET_NAME, key:))
     end
 
     def presigner
