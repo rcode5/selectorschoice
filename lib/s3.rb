@@ -2,12 +2,11 @@
 
 module SelectorsChoice
   class S3
-    BUCKET_NAME = ENV.fetch('AWS_S3_BUCKET', 'selectors_choice')
-
+    BUCKET_NAME = Rails.application.credentials.aws.s3_bucket
     def initialize
-      @client = Aws::S3::Client.new(access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID', nil),
-                                    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY', nil),
-                                    region: ENV.fetch('AWS_REGION', nil))
+      @client = Aws::S3::Client.new(access_key_id: Rails.application.credentials.aws.access_key_id,
+                                    secret_access_key: Rails.applcation.credentials.aws.secret_access_key,
+                                    region: Rails.application.credentials.aws.region)
     end
 
     def update_content_type(object, ctype)
