@@ -26,8 +26,8 @@ module SelectorsChoice
 
     private
 
-    def encode_s3_key(s)
-      s.tr(' ', '+')
+    def encode_s3_key(s3_key)
+      s3_key.tr(' ', '+')
     end
 
     def unpack_key(key)

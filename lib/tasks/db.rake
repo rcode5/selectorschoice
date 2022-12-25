@@ -15,7 +15,7 @@ if Rails.env.development?
     desc 'Drop the database, reload the schema, run seeds and sample data.'
     task recreate: [
       'db:drop', 'db:create', 'db:schema:load', 'db:seed', 'db:sample_data'
-         ]
+    ]
 
     desc 'Export tables to json'
     task export_to_json: :environment do
@@ -30,6 +30,5 @@ if Rails.env.development?
         ImportJsonToActiveRecord.new(model).import
       end
     end
-
   end
 end

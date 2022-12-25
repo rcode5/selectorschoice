@@ -13,28 +13,6 @@ describe SelectorsChoice::CloudFront do
     allow(Aws::CloudFront::UrlSigner).to receive(:new).and_return(mock_signer)
   end
 
-  it 'sets up the cloudfront signer with the right options' do
-    with_modified_env(
-      AWS_PRIVATE_KEY_PATH: 'the pk.pem path',
-      AWS_KEY_PAIR_ID: 'my key pair id',
-    ) do
-      described_class.new
-      expect(Aws::CloudFront::UrlSigner).to have_received(:new).with(key_pair_id: 'my key pair id',
-                                                                     private_key_path: 'the pk.pem path')
-    end
-  end
-
-  it 'unpacks the PRIVATE_KEY if that was provided' do
-    with_modified_env(
-      AWS_PRIVATE_KEY: 'abc\ndef rbg\n',
-      AWS_KEY_PAIR_ID: 'my key pair id',
-    ) do
-      described_class.new
-      expect(Aws::CloudFront::UrlSigner).to have_received(:new).with(key_pair_id: 'my key pair id',
-                                                                     private_key: "abc\ndef rbg\n")
-    end
-  end
-
   describe '.get_presigned_url' do
     it 'builds the cloudfront url and returns a signed version of that' do
       with_modified_env(
@@ -43,7 +21,7 @@ describe SelectorsChoice::CloudFront do
       ) do
         described_class.new.get_presigned_url('abc def.mp3', whatever: 'opts')
         expect(mock_signer).to have_received(:signed_url)
-          .with('https://my-cloudfront-domain.cloudfront.net/abc%20def.mp3',
+          .with('https://my-cloudfront-domain.cloudfront.net/abc+def.mp3',
                 expires: Time.current + (60 * 60 * 6).seconds, whatever: 'opts')
       end
     end
