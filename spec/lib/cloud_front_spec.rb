@@ -15,15 +15,10 @@ describe SelectorsChoice::CloudFront do
 
   describe '.get_presigned_url' do
     it 'builds the cloudfront url and returns a signed version of that' do
-      with_modified_env(
-        AWS_CLOUD_FRONT_DOMAIN: 'my-cloudfront-domain',
-        AWS_KEY_PAIR_ID: 'my key pair id',
-      ) do
-        described_class.new.get_presigned_url('abc def.mp3', whatever: 'opts')
-        expect(mock_signer).to have_received(:signed_url)
-          .with('https://my-cloudfront-domain.cloudfront.net/abc+def.mp3',
-                expires: Time.current + (60 * 60 * 6).seconds, whatever: 'opts')
-      end
+      described_class.new.get_presigned_url('abc def.mp3', whatever: 'opts')
+      expect(mock_signer).to have_received(:signed_url)
+        .with("https://#{Rails.application.credentials.aws.cloud_front_domain}.cloudfront.net/abc+def.mp3",
+              expires: Time.current + (60 * 60 * 6).seconds, whatever: 'opts')
     end
   end
 end
