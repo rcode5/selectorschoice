@@ -4,12 +4,12 @@ module SelectorsChoice
   class CloudFront
     attr_reader :signer
 
-    BUCKET_NAME = Rails.application.credentials.aws.s3_bucket
-    CF_DOMAIN = "#{Rails.application.credentials.aws.cloud_front_domain}.cloudfront.net".freeze
-
     EXPIRY_IN_SECONDS = (60 * 60 * 6).seconds # 6hours - long enough for a whole track
 
-    def initialize
+    def initialize(cloud_front_domain: nil)
+      @cloud_front_domain = cloud_front_domain ||
+                            "#{Rails.application.credentials.aws.cloud_front_domain}.cloudfront.net"
+
       opts = {
         key_pair_id: Rails.application.credentials.aws.key_pair_id,
         private_key_path: Rails.application.credentials.aws.private_key_path,
@@ -19,7 +19,7 @@ module SelectorsChoice
     end
 
     def get_presigned_url(filename, opts = {})
-      url = Addressable::URI.parse("https://#{CF_DOMAIN}/#{encode_s3_key(filename)}")
+      url = Addressable::URI.parse("https://#{@cloud_front_domain}/#{encode_s3_key(filename)}")
       opts[:expires] = Time.current + EXPIRY_IN_SECONDS
       signer.signed_url(url.to_s, opts)
     end
