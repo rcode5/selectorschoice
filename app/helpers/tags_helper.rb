@@ -12,7 +12,7 @@ module TagsHelper
     anchor_html_opts[:href] = root_path(tags: tags.join(',')) if anchor_html_opts[:href].blank?
     anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].flatten.join(' ')
     if anchor_html_opts[:href].present?
-      tag.a anchor_html_opts do
+      tag.a(**anchor_html_opts) do
         render_tag(tag_contents, span_html_opts)
       end
     else

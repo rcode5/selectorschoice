@@ -17,3 +17,5 @@ coverage/
 .byebug_history
 .env*
 *.pem
+
+/config/master.key
