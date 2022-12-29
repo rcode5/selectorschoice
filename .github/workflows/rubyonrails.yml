@@ -30,6 +30,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Binstubs
+        run: bundle install --binstubs
       - name: Set up database schema
         run: bin/rake db:drop db:create db:schema:load db:seed
       - name: Run tests
@@ -46,7 +48,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Binstubs
+        run: bundle install --binstubs
       - name: Lint Ruby files
-        run: bundle exec rubocop --parallel
+        run: bin/rubocop --parallel
       - name: Audit
-        run: bundle exec bundler-audit --update
+        run: bin/bundler-audit --update
