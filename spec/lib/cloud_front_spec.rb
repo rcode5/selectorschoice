@@ -9,6 +9,7 @@ describe SelectorsChoice::CloudFront do
   end
 
   before do
+    stub_credentials(aws: { cloud_front_domain: 'the.cf.domain' })
     freeze_time
     allow(Aws::CloudFront::UrlSigner).to receive(:new).and_return(mock_signer)
   end

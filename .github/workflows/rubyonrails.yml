@@ -35,7 +35,7 @@ jobs:
       - name: Set up database schema
         run: bin/rake db:drop db:create db:schema:load db:seed
       - name: Run tests
-        run: bin/rake spec
+        run: bin/rspec spec
       - name: Build assets
         run: bin/rails assets:precompile
 
