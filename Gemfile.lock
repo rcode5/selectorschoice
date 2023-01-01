@@ -77,8 +77,8 @@ GEM
       ffi-compiler (~> 1.0)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.679.0)
-    aws-sdk-cloudfront (1.72.0)
+    aws-partitions (1.686.0)
+    aws-sdk-cloudfront (1.73.0)
       aws-sdk-core (~> 3, >= 3.165.0)
       aws-sigv4 (~> 1.1)
     aws-sdk-core (3.168.4)
@@ -369,7 +369,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   addressable
-  aws-sdk-cloudfront (~> 1.64)
+  aws-sdk-cloudfront (~> 1.73)
   aws-sdk-s3 (~> 1)
   better_errors
   binding_of_caller
