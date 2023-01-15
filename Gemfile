@@ -30,6 +30,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capistrano', require: false
+  gem 'capistrano-rbenv', require: false
   gem 'capistrano-rails', require: false
 end
 
