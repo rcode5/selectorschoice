@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name:
+        run: cat config/database.yml
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
