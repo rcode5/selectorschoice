@@ -6,6 +6,7 @@ development:
   <<: *common
   database: selectors_choice_dev.sqlite3
 
+
 test:
   <<: *common
   database: selectors_choice_test.sqlite3

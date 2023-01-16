@@ -14,7 +14,6 @@ gem 'fast_jsonapi'
 gem 'journey'
 gem 'jquery-rails'
 gem 'listen'
-gem 'pg'
 gem 'puma'
 gem 'rails', '~> 7.0.3'
 gem 'rdiscount'
@@ -29,6 +28,9 @@ gem 'will_paginate'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
 end
 
 group :development, :test do
@@ -49,4 +51,5 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'pg' # for some reason on github ci, the test env seems to want pg for something.
 end
