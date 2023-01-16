@@ -22,5 +22,7 @@ module SelectorsChoice
     # config.eager_load_paths << Rails.root.join("extras")
     config.track_expiry_in_seconds = ENV.fetch('TRACK_EXPIRY_IN_SECONDS', 60 * 60)
     config.shutdown_active = ENV['SHUTDOWN_ACTIVE'].present?
+
+     config.active_record.legacy_connection_handling=false
   end
 end
