@@ -41,8 +41,13 @@ describe WelcomeController, type: :controller do
       expect(assigns(:tracks).count).to eql 1
     end
 
-    it 'searchs tags and styles equally' do
+    it 'searches tags and styles equally' do
       get :index, params: { tags: 'tag02, style02' }
+      expect(assigns(:tracks).count).to eql 1
+    end
+
+    it 'works with the `search` param' do
+      get :index, params: { tags: 'tag02, style02', search: 'whatever' }
       expect(assigns(:tracks).count).to eql 1
     end
   end
