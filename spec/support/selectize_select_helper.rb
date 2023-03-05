@@ -46,7 +46,12 @@ module SelectizeSelectHelper
       page.execute_script "#{find_selectized_control_js(key)}.click();"
       page.execute_script("#{find_selectized_input(key)}.value = '#{tag}';")
       page.execute_script("$(#{find_selectized_input(key)}).keyup().focus()")
-      page.execute_script %Q{ $(#{find_selectized_input(key)}).closest('.selectize-control').find(' .selectize-dropdown-content').children("div:contains('#{tag}')").click(); }
+      page.execute_script %Q{
+      $(#{find_selectized_input(key)}).
+        closest('.selectize-control').
+        find(' .selectize-dropdown-content').
+        children("div:contains('#{tag}')").click();
+      }
       page.execute_script "$('body').mousedown()"
     end
   end
