@@ -153,9 +153,8 @@ describe Admin::TracksController do
           clock_time = "#{hr}:00#{sfx}"
           it "computes the proper time given recorded on date and time (given #{clock_time})" do
             track = Track.create! valid_attributes
-            put :update, params: { id: track.to_param, track: {
-              recorded_on_day: '01 Mar, 2013', recorded_on_time: clock_time
-            } }
+            put :update, params: { id: track.to_param, track: { title: track.title },
+              recorded_on_day: '01 Mar, 2013', recorded_on_time: clock_time }
             r = Track.find(track.id).recorded_on
             expect(r.month).to eql 3
             expect(r.day).to eql 1
