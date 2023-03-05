@@ -10,16 +10,17 @@ feature 'Admin' do
 
   context 'when there are a few tracks' do
     before do
-      FactoryBot.create(:track)
-      FactoryBot.create(:track, :published)
+      FactoryBot.create(:track, title: 'not ready for the world yet')
+      FactoryBot.create(:track, :published, title: 'My Public Work')
+      FactoryBot.create(:track, :with_tags, title: 'track with tags', recorded_on: 2.years.ago)
       visit admin_index_path
     end
 
     scenario 'can see state of the db' do
       expect(page).to have_content 'Tracks'
-      expect(page).to have_content 'Total:2'
+      expect(page).to have_content 'Total:3'
       expect(page).to have_content 'Published:1'
-      expect(page).to have_content 'In the wings:1'
+      expect(page).to have_content 'In the wings:2'
     end
 
     scenario 'can add a track', js: true do
@@ -68,6 +69,25 @@ feature 'Admin' do
       expect(page).to have_content 'track with tags and style(published)'
       expect(page).to have_content 'my tag'
       expect(page).to have_content 'my style'
+    end
+
+    scenario 'can update a track', js: true do
+      click_on 'tracks'
+
+      click_on_last 'Show'
+
+      expect(page).to have_content 'tag1, tag2'
+      expect(page).to have_content 'style1, style2'
+
+      click_on_first 'Edit'
+
+      fill_in :title, with: 'tagtrack with new title'
+      click_on 'Update Track'
+
+      expect(page).to have_content 'tagtrack with new title'
+
+      expect(page).to have_content 'tag1, tag2'
+      expect(page).to have_content 'style1, style2'
     end
   end
 end

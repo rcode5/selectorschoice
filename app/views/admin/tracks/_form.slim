@@ -1,3 +1,8 @@
+ruby:
+  all_tags = @track.tags
+  existing_styles = @track.styles
+  existing_tags = all_tags - existing_styles
+
 = simple_form_for([:admin,@track]) do |f|
   - if @track.errors.any?
 
@@ -20,10 +25,10 @@
   .admin-track-form__flex-row
     .admin-track-form__flex-unit
       .input.string.optional.field_with_hint.tags
-        = f.input :tag_list, label: 'Tags', as: :text
+        = f.input :tag_list, label: 'Tags', as: :text, input_html: { value: existing_tags.join(",") }
     .admin-track-form__flex-unit
       .input.string.optional.field_with_hint.tags
-        = f.input :style_list, label: 'Styles', as: :text
+        = f.input :style_list, label: 'Styles', as: :text, input_html: { value: existing_styles.join(",") }
 
   .input.string.optional.field_with_hint.admin-track-form__recorded_on
     = f.label :recorded_on
