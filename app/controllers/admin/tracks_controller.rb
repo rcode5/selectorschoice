@@ -96,7 +96,7 @@ module Admin
     end
 
     def recorded_on_from_params
-      track_params = params[:track]
+      track_params = params.permit(:recorded_on_day, :recorded_on_time)
       recorded_on = [track_params[:recorded_on_day], track_params[:recorded_on_time]].compact(&:present?).join(' ')
       Time.zone.parse(recorded_on)
     end

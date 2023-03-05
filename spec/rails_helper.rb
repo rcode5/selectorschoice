@@ -27,7 +27,11 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
+
 require 'factory_bot'
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+
 Dir[Rails.root.join('spec/factories/**/*.rb')].each { |f| require f }
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
@@ -64,3 +68,4 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+Capybara::Screenshot.autosave_on_failure = true
