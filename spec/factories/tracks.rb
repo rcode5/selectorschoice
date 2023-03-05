@@ -14,5 +14,16 @@ FactoryBot.define do
     trait(:published) do
       published { true }
     end
+
+    trait(:with_tags) do
+      after(:create) do |track, _evaluator|
+        %w[tag1 tag2].each do |t|
+          track.tags.create(name: t)
+        end
+        %w[style1 style2].each do |t|
+          track.styles.create(name: t)
+        end
+      end
+    end
   end
 end
