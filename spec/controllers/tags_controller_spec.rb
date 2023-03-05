@@ -22,7 +22,7 @@ describe TagsController do
     end
 
     it 'returns tags and styles (downcased)' do
-      resp = JSON.parse(response.body)
+      resp = response.parsed_body
       expect(resp).to include 'common_style'
       expect(resp).to include 'common_tag'
       expect(resp).to include 'tag02'
