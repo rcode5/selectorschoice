@@ -5,9 +5,9 @@ class WelcomeController < ApplicationController
     if tags_params.present?
       @tags = tags_params
       @tracks = Track.published.tagged_with(@tags, any: true)
-      if params[:search]
+      if params[:search].present?
         flash.now[:notice] =
-          "We found #{pluralize(@tracks.length, 'track')} " \
+          "We found #{'track'.pluralize(@tracks.length)} " \
           'that matched your search'
       end
     else
