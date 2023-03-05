@@ -20,12 +20,10 @@
   .admin-track-form__flex-row
     .admin-track-form__flex-unit
       .input.string.optional.field_with_hint.tags
-        = f.label :tags
-        = f.text_field :tag_list
+        = f.input :tag_list, label: 'Tags', as: :text
     .admin-track-form__flex-unit
       .input.string.optional.field_with_hint.tags
-        = f.label :styles
-        = f.text_field :style_list
+        = f.input :style_list, label: 'Styles', as: :text
 
   .input.string.optional.field_with_hint.admin-track-form__recorded_on
     = f.label :recorded_on
