@@ -51,5 +51,8 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'selenium'
+  gem 'webdrivers', require: false
   gem 'pg' # for some reason on github ci, the test env seems to want pg for something.
 end
