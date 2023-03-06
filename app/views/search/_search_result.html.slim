@@ -1,5 +1,9 @@
 -# expects track
 - track ||= track
 .search-result
-  .track
-    .track--title = track.title
+
+  a.search-result--track href=track_path(track)
+
+      .search-result--track--recorded-on = track.recorded_on.present? ? track.recorded_on.strftime("%-d %b %g") : ''
+      .search-result--track--title = track.title
+      .search-result--track--dj = track.author

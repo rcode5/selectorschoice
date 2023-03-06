@@ -7,8 +7,12 @@ class SearchService
   end
 
   def search
+    return Track.none if query.blank?
+
     track_ids = TrackSearch.where(query_clause).map { |t| t.track_id }
     Track.published.where(id: track_ids)
+  rescue ActiveRecord::StatementInvalid
+    Track.none
   end
 
   private

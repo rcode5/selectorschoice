@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   def show
     @query = search_params[:search]
-    @tracks = SearchService.new(@query).search.paginate(page: params[:page], per_page: 40)
+    @tracks = SearchService.new(@query).search.by_recency.paginate(page: params[:page], per_page: 40)
   end
 
   private
