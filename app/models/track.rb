@@ -8,6 +8,8 @@ class Track < ApplicationRecord
   acts_as_taggable
   acts_as_taggable_on :styles
 
+  has_many :track_search, dependent: :destroy
+
   def pretty_title
     display_title.presence || title
   end
@@ -19,17 +21,19 @@ class Track < ApplicationRecord
     )
   end
 
-  class << self
-    def by_recency
-      order('recorded_on desc, updated_at desc')
-    end
+  scope :by_recency, -> { order('recorded_on desc, updated_at desc') }
+  scope :published, -> { where(published: true) }
+  scope :unpublished, -> { where(published: [nil, false]) }
 
-    def published
-      where(published: true)
-    end
-
-    def unpublished
-      where(published: [false, nil])
-    end
+  def reindex
+    self.class.connection.execute self.class.sanitize_sql_for_conditions([
+      'delete from track_search where track_id = ?', id
+    ])
+    self.class.connection.execute self.class.sanitize_sql(
+      [
+        'insert into track_search(track_id, title, description, tracklist, tags) values (?,?,?,?,?)', id,
+        title, description, playlist, tags.join(' ')
+      ],
+    )
   end
 end

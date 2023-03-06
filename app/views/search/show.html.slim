@@ -1,0 +1,18 @@
+.search_row
+  form.search
+    input name="search" placeholder="search" value=@query
+    i class=('icon black icon-search') title='search'
+  ul.tracks
+    - @tracks.each do |track|
+      = render 'search_result', track: track
+  - if @tracks.total_entries >= @tracks.per_page
+    .apple_pagination
+      = will_paginate @tracks,previous_label: '&laquo; newer', next_label: 'older &raquo;'
+  - else
+    .nothing
+      p.oops
+        = ":( oops"
+      p
+        | We couldn't find anything that matched your request.  Click
+        a href=root_path  here
+        | to start at the beginning.
