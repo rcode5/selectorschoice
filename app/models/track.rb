@@ -34,7 +34,7 @@ class Track < ApplicationRecord
     ])
 
     self.class.connection.execute(
-      "insert into track_searches(#{self.class.search_fields.join(',')})" \
+      "insert into track_searches(#{self.class.send(:search_fields).join(',')})" \
       "values #{to_search_values}",
     )
   end
@@ -70,7 +70,7 @@ class Track < ApplicationRecord
   }.freeze
 
   def map_search_values
-    self.class.track_fields.map do |field|
+    self.class.send(:track_fields).map do |field|
       if field == :tags
         tag_list.map { |t| "\"#{t}\"" }.join(' ')
       else
@@ -80,7 +80,7 @@ class Track < ApplicationRecord
   end
 
   def to_search_values
-    template = "(#{Array.new(self.class.search_fields.count) { '?' }.join(',')})"
+    template = "(#{Array.new(self.class.send(:search_fields).count) { '?' }.join(',')})"
     self.class.sanitize_sql([template, *map_search_values])
   end
 end
