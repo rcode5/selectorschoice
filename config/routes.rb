@@ -29,6 +29,7 @@ Rails.application.routes.draw do
                         only: %i[create edit update]
   end
 
+  resource :search, only: :show, controller: 'search'
   # clearance routes define sign_in and sign_out
 
   root to: 'welcome#index'
