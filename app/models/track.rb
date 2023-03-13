@@ -8,7 +8,13 @@ class Track < ApplicationRecord
   acts_as_taggable
   acts_as_taggable_on :styles
 
-  has_many :track_search, dependent: :destroy
+  after_commit :reindex
+
+  scope :by_recency, -> { order('recorded_on desc, updated_at desc') }
+  scope :published, -> { where(published: true) }
+  scope :unpublished, -> { where(published: [nil, false]) }
+
+  has_many :track_searches, dependent: :destroy
 
   def pretty_title
     display_title.presence || title
@@ -21,19 +27,52 @@ class Track < ApplicationRecord
     )
   end
 
-  scope :by_recency, -> { order('recorded_on desc, updated_at desc') }
-  scope :published, -> { where(published: true) }
-  scope :unpublished, -> { where(published: [nil, false]) }
-
+  # search releated
   def reindex
     self.class.connection.execute self.class.sanitize_sql_for_conditions([
-      'delete from track_search where track_id = ?', id
+      'delete from track_searches where track_id = ?', id
     ])
-    self.class.connection.execute self.class.sanitize_sql(
-      [
-        'insert into track_search(track_id, title, description, tracklist, tags) values (?,?,?,?,?)', id,
-        title, description, playlist, tags.join(' ')
-      ],
-    )
+
+    self.class.connection.execute "insert into track_searches(#{self.class.search_fields.join(',')}) values #{to_search_values}"
+  end
+
+  private
+
+  SEARCH_FIELDS_LUT = {
+    id: :track_id,
+     title: :title,
+     description: :description,
+     playlist: :playlist,
+     tags: :tags,
+  }.freeze
+
+  def self.track_fields
+    @track_fields ||= SEARCH_FIELDS_LUT.keys
+  end
+
+  def self.search_fields
+    @search_fields ||= SEARCH_FIELDS_LUT.values
+  end
+
+  def map_search_values
+    self.class.track_fields.map do |field|
+      if field == :tags
+        tag_list.map { |t| "\"#{t}\"" }.join(' ')
+      else
+        send(field)
+      end
+    end
+  end
+
+  def to_search_values
+    template = "(#{Array.new(self.class.search_fields.count) { '?' }.join(',')})"
+    self.class.sanitize_sql([template, *map_search_values])
+  end
+
+  def self.reindex_all
+    connection.execute 'delete from track_searches'
+
+    search_values = all.published.map { |t| t.send(:to_search_values) }
+    connection.execute "insert into track_searches(#{search_fields.join(',')}) values #{search_values.join(', ')}"
   end
 end

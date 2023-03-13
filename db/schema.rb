@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_231019) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -35,26 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_231019) do
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
-
-# Could not dump table "track_search" because of following StandardError
-#   Unknown type '' for column 'title'
-
-# Could not dump table "track_search_config" because of following StandardError
-#   Unknown type '' for column 'k'
-
-# Could not dump table "track_search_content" because of following StandardError
-#   Unknown type '' for column 'c0'
-
-  create_table "track_search_data", force: :cascade do |t|
-    t.binary "block"
-  end
-
-  create_table "track_search_docsize", force: :cascade do |t|
-    t.binary "sz"
-  end
-
-# Could not dump table "track_search_idx" because of following StandardError
-#   Unknown type '' for column 'segid'
 
   create_table "tracks", force: :cascade do |t|
     t.string "title"

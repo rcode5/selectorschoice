@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class SearchService
-  FIELDS = %w[title description tracklist tags]
+  FIELDS = %w[title description playlist tags]
   attr_reader :query
 
   def initialize(query)
@@ -9,9 +11,10 @@ class SearchService
   def search
     return Track.none if query.blank?
 
-    track_ids = TrackSearch.where(query_clause).map { |t| t.track_id }
+    track_ids = TrackSearch.where(query_clause).map(&:track_id)
     Track.published.where(id: track_ids)
-  rescue ActiveRecord::StatementInvalid
+  rescue ActiveRecord::StatementInvalid => e
+    Rails.logger.error("Failed to search #{e}")
     Track.none
   end
 
@@ -19,8 +22,8 @@ class SearchService
 
   def query_clause
     queries = FIELDS.map { |field|
-      "track_search.#{field} MATCH ?"
+      "#{TrackSearch.table_name}.#{field} MATCH ?"
     }.join(' OR ')
-    [queries, FIELDS.length.times.map { query }].flatten
+    [queries, Array.new(FIELDS.length) { query }].flatten
   end
 end
