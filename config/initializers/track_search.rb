@@ -9,5 +9,7 @@ Rails.application.config.after_initialize do
   statements.each do |stmt|
     ActiveRecord::Base.connection.execute stmt
   end
+
+  require Rails.root.join('app/models/track')
+  Track.reindex_all
 end
-# Track.reindex_all

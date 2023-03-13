@@ -33,7 +33,30 @@ class Track < ApplicationRecord
       'delete from track_searches where track_id = ?', id
     ])
 
-    self.class.connection.execute "insert into track_searches(#{self.class.search_fields.join(',')}) values #{to_search_values}"
+    self.class.connection.execute(
+      "insert into track_searches(#{self.class.search_fields.join(',')})" \
+      "values #{to_search_values}",
+    )
+  end
+
+  def self.reindex_all
+    connection.execute 'delete from track_searches'
+    return unless all.published.count.positive?
+
+    search_values = all.published.map { |t| t.send(:to_search_values) }
+
+    connection.execute(
+      "insert into track_searches(#{search_fields.join(',')}) " \
+      "values #{search_values.join(', ')}",
+    )
+  end
+
+  private_class_method def self.track_fields
+    @track_fields ||= SEARCH_FIELDS_LUT.keys
+  end
+
+  private_class_method def self.search_fields
+    @search_fields ||= SEARCH_FIELDS_LUT.values
   end
 
   private
@@ -45,14 +68,6 @@ class Track < ApplicationRecord
      playlist: :playlist,
      tags: :tags,
   }.freeze
-
-  def self.track_fields
-    @track_fields ||= SEARCH_FIELDS_LUT.keys
-  end
-
-  def self.search_fields
-    @search_fields ||= SEARCH_FIELDS_LUT.values
-  end
 
   def map_search_values
     self.class.track_fields.map do |field|
@@ -67,12 +82,5 @@ class Track < ApplicationRecord
   def to_search_values
     template = "(#{Array.new(self.class.search_fields.count) { '?' }.join(',')})"
     self.class.sanitize_sql([template, *map_search_values])
-  end
-
-  def self.reindex_all
-    connection.execute 'delete from track_searches'
-
-    search_values = all.published.map { |t| t.send(:to_search_values) }
-    connection.execute "insert into track_searches(#{search_fields.join(',')}) values #{search_values.join(', ')}"
   end
 end
