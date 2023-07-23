@@ -5,22 +5,25 @@ require 'selenium/webdriver'
 
 class CapybaraChromeConfig
   def self.chrome_capabilities(headless: false)
-    headless_chrome_args = %w[disable-popup-blocking] + ['window-size=1900,1200']
-    headless_chrome_args += %w[headless no-sandbox disable-gpu] if headless
-
-    Selenium::WebDriver::Remote::Capabilities.chrome(
-      'goog:chromeOptions': {
-        args: headless_chrome_args,
-        prefs: {
-          browser: { set_download_behavior: { behavior: 'allow' } },
-        },
-      },
-    )
+    Selenium::WebDriver::Chrome::Options.new.tap do |options|
+      options.add_argument('--disable-popup-blocking')
+      options.add_argument('--window-size=1900,1200')
+      if headless
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-gpu')
+      end
+    end
   end
 end
 
 Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: CapybaraChromeConfig.chrome_capabilities)
+  options = CapybaraChromeConfig.chrome_capabilities(headless: false)
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options:,
+  )
 end
 
 Capybara::Screenshot.register_driver :chrome do |driver, path|
@@ -28,8 +31,8 @@ Capybara::Screenshot.register_driver :chrome do |driver, path|
 end
 
 Capybara.register_driver :headless_chrome do |app|
-  capabilities = CapybaraChromeConfig.chrome_capabilities(headless: true)
-  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities:)
+  options = CapybaraChromeConfig.chrome_capabilities(headless: true)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options:)
 end
 
 Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
@@ -37,6 +40,7 @@ Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
 end
 
 Capybara.javascript_driver = ENV.fetch('ACTUAL_CHROME', nil) == 'true' ? :chrome : :headless_chrome
+
 Capybara.default_max_wait_time = 5
 
 RSpec.configure do |config|
