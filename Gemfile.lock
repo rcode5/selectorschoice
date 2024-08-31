@@ -207,7 +207,7 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.4)
+    mini_portile2 (2.8.7)
     minitest (5.18.1)
     net-imap (0.3.6)
       date
@@ -222,7 +222,7 @@ GEM
       net-protocol
     net-ssh (7.1.0)
     nio4r (2.5.9)
-    nokogiri (1.15.3)
+    nokogiri (1.16.7)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     parallel (1.23.0)
@@ -238,7 +238,7 @@ GEM
     public_suffix (5.0.3)
     puma (6.3.0)
       nio4r (~> 2.0)
-    racc (1.7.1)
+    racc (1.8.1)
     rack (2.2.7)
     rack-test (2.1.0)
       rack (>= 1.3)
@@ -281,7 +281,8 @@ GEM
       ffi (~> 1.0)
     rdiscount (2.2.7.1)
     regexp_parser (2.8.1)
-    rexml (3.2.5)
+    rexml (3.3.6)
+      strscan
     rouge (4.1.2)
     rspec-collection_matchers (1.2.0)
       rspec-expectations (>= 2.99.0.beta1)
@@ -365,6 +366,7 @@ GEM
     sshkit (1.21.5)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    strscan (3.1.0)
     temple (0.10.2)
     thor (1.2.2)
     tilt (2.2.0)
@@ -374,11 +376,11 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.4.2)
-    webdrivers (5.2.0)
+    webdrivers (5.3.1)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0)
-    websocket (1.2.9)
+      selenium-webdriver (~> 4.0, < 4.11)
+    websocket (1.2.11)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -440,4 +442,4 @@ RUBY VERSION
    ruby 3.1.3p185
 
 BUNDLED WITH
-   2.3.14
+   2.4.21
