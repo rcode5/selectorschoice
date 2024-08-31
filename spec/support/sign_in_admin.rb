@@ -2,7 +2,9 @@
 
 module SignInAdmin
   shared_context 'admin logged in' do
-    let(:admin) { FactoryBot.create(:user) }
+    let(:admin) do
+      FactoryBot.create(:user)
+    end
     before do
       visit sign_in_path
       fill_in :session_email, with: admin.email
