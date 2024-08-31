@@ -31,6 +31,7 @@ AllCops:
   Exclude:
     - "bin/*"
     - "config/initializers/secret_token.rb"
+    - config/initializers/new_framework_defaults_7_0.rb
     - "db/schema.rb"
     - "db/sample_data.rb"
     - "db/migrate/*.rb"
