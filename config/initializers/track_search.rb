@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.config.after_initialize do
-  require Rails.root.join('app/models/track')
   table_name = TrackSearch.table_name
   statements = [
     "drop table if exists #{table_name}",
@@ -11,5 +10,13 @@ Rails.application.config.after_initialize do
   statements.each do |stmt|
     ActiveRecord::Base.connection.execute stmt
   end
-  Track.reindex_all
+
+  begin
+    require Rails.root.join('app/models/track')
+
+    Track.reindex_all
+    Rails.logger.info('Reindexed tracks for search')
+  rescue ActiveRecord::StatementInvalid => e
+    Rails.logger.warn("Failed to reindex tracks - #{e}")
+  end
 end
