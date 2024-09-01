@@ -7,12 +7,9 @@ Rails.application.config.after_initialize do
     "drop table if exists #{table_name}",
     "create virtual table #{table_name} using fts5(title, description, playlist, tags, track_id)",
   ].freeze
-  begin
-    statements.each do |stmt|
-      ActiveRecord::Base.connection.execute stmt
-    end
-    Track.reindex_all
-  rescue ActiveRecord::StatementInvalid => e
-    Rails.logger.warn("Failed to execute initializer statement #{e} - ignoring this error")
+
+  statements.each do |stmt|
+    ActiveRecord::Base.connection.execute stmt
   end
+  Track.reindex_all
 end
