@@ -7,7 +7,7 @@ namespace :sc do
   namespace :db do
     desc 'Sanitize user data'
     task sanitize_user_data: [:environment] do
-      User.all.each do |u|
+      User.find_each do |u|
         u.password = 'monkey'
         u.save
       end
