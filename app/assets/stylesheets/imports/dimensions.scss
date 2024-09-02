@@ -6,3 +6,13 @@ $min-width: 500px;
 
 $block-margin: 20px;
 $block-padding: 20px;
+
+$screen-xs-max: 35.5em;
+$screen-sm-min: $screen-xs-max;
+$screen-sm-max: 48em;
+$screen-md-min: $screen-sm-max;
+$screen-md-max: 64em;
+$screen-lg-min: $screen-md-max;
+$screen-lg-max: 80em;
+$screen-xl-min: $screen-lg-max;
+
