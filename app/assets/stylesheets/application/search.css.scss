@@ -12,6 +12,25 @@
   }
 }
 .search-results {
+  .nothing {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      text-align: left;
+      margin-top: 0;
+    }
+    > * {
+
+      flex: 3
+    }
+    .oops {
+      flex: 1;
+      font-size: initial;
+    }
+    font-size: initial;
+    width: 100%;
+  }
 }
 
 .search-result {

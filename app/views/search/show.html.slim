@@ -4,7 +4,7 @@
     input name="search" value=@query placeholder='search by titles, bands, songs...'
   .instructions
     p
-      span Type in the search box to find tracks that have matches in their playlist (song/band) or by tags or by their description.  Here are a couple things to try if you don't know where to start:
+      span Type in the search box (and hit enter) to find tracks that have matches in their playlist (song/band) or by tags or by their description.  Here are a couple things to try if you don't know where to start:
       = " "
       - example_searches.each.with_index do |qq, idx|
         a href="?search=#{qq}" = "\"#{qq}\""
@@ -25,8 +25,6 @@
     - else
       .nothing
         p.oops
-          = ":( oops"
+          = ":( well, hmm..."
         p
-          | We couldn't find anything that matched your request.  Click
-          a href=root_path  here
-          | to start at the beginning.
+          | We couldn't find anything that matched your request.  We're not super good with mis-spellings.
