@@ -20,6 +20,8 @@ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 # set :branch, 'main'
 
 set :deploy_to, '/home/deploy/deployed/selectorschoice'
+set :puma_systemctl_user, :system # For capistrano-puma - should force sudo
+set :puma_service_unit_name, 'puma-selectorschoice'
 
 # role-based syntax
 # ==================

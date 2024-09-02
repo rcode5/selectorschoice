@@ -29,6 +29,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capistrano', require: false
+  gem 'capistrano3-puma', '6.0.0.beta.1', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
 end
