@@ -25,7 +25,7 @@ jobs:
       - name: Binstubs
         run: bundle install --binstubs
       - name: Set up database schema
-        run: bin/rake db:create db:prepare db:seed
+        run: bin/rake db:prepare db:seed
       - name: Run tests
         run: bin/rspec spec
       - name: Build assets
