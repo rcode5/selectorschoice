@@ -21,7 +21,7 @@ gem 'sassc-rails'
 gem 'selectize-rails'
 gem 'simple_form'
 gem 'slim'
-gem 'sqlite3', '~> 1.7.x'
+gem 'sqlite3', '1.6.3'
 gem 'uglifier'
 gem 'will_paginate'
 
