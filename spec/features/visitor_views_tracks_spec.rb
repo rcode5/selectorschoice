@@ -28,10 +28,16 @@ playlist: "** bootylicious - Destiny's Child"),
   scenario 'can search', js: true do
     visit root_path
     expect(page).to have_css('.tracks .track', count: 3)
+
     click_on 'search'
+
     fill_in 'search', with: "bootylicious\n"
     expect(page).to have_content 'the first mix today'
+
     fill_in 'search', with: "james brown\n"
     expect(page).to have_content 'the second mix today'
+
+    fill_in 'search', with: "this garbage is not in the system\n"
+    expect(page).to have_content 'well, hmm...'
   end
 end
