@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # config valid for current version and patch releases of Capistrano
-lock '~> 3.17.1'
+lock '~> 3.19.1'
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, File.read('.ruby-version').strip
