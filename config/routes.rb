@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   end
 
   resource :search, only: :show, controller: 'search'
+  resource :feed, only: :show, controller: 'feed', defaults: { format: :xml }
+
   # clearance routes define sign_in and sign_out
 
   root to: 'welcome#index'

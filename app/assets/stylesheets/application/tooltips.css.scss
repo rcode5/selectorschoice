@@ -3,22 +3,28 @@
 @import "../imports/dimensions";
 
 a.tooltip {
-  outline:none; 
+  outline:none;
   display: inline;
   position: relative;
 }
+a.tooltip:after {
+  bottom: 36px;
+  left: -40px;
+}
 a.tooltip:hover {
   text-decoration:none;
-} 
+}
 a.tooltip:hover:after {
   background: $medium_dark_gray;
   @include border-radius(4px);
-  @include drop-shadow(1px 1px 1px $medium_gray);
-  bottom: 36px;
-  left: -40px;
+  @include drop-shadow(0, 0, 2px, 1px, $medium_dark_gray);
   color: #fff;
   content: attr(title);
   padding: 5px 15px;
   position: absolute;
   z-index: 10;
+  display: block;
+}
+a.tooltip.tooltip--under:after {
+  bottom: -80px;
 }
