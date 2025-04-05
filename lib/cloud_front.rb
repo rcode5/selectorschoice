@@ -4,7 +4,7 @@ module SelectorsChoice
   class CloudFront
     attr_reader :signer
 
-    EXPIRY_IN_SECONDS = (60 * 60 * 6).seconds # 6hours - long enough for a whole track
+    EXPIRY_IN_SECONDS = (60 * 60 * 6) # 6hours - long enough for a whole track
 
     def initialize(cloud_front_domain: nil)
       @cloud_front_domain = cloud_front_domain ||
@@ -20,7 +20,7 @@ module SelectorsChoice
 
     def get_presigned_url(filename, opts = {})
       url = Addressable::URI.parse("https://#{@cloud_front_domain}/#{encode_s3_key(filename)}")
-      opts[:expires] = Time.current + EXPIRY_IN_SECONDS
+      opts[:expires] = Time.current + EXPIRY_IN_SECONDS.seconds
       signer.signed_url(url.to_s, opts)
     end
 

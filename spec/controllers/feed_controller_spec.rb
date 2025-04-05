@@ -5,6 +5,11 @@ require 'rails_helper'
 describe FeedController do
   render_views
 
+  before do
+    allow(SelectorsChoice::CloudFront).to receive(:new).and_return(
+      instance_double(SelectorsChoice::CloudFront, get_presigned_url: "https://the-signed-url.com/")
+    )
+  end
   describe '#show.xml' do
     let(:published_tracks) do
       [
