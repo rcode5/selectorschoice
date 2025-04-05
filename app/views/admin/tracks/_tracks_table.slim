@@ -1,4 +1,4 @@
-table.admin-tracks__table
+table.admin-tracks__table.striped
   thead
     tr
       th.admin-track__recorded_on Date
@@ -25,11 +25,11 @@ table.admin-tracks__table
           .admin-track__url
             input readonly="readonly" class='admin-track__url--input' value=track.signed_url
         td.admin-track__download
-          = link_to_icon 'external-url', track.signed_url, target: "_blank", title: 'download mp3'
+          = link_to_dark_icon 'external-url', track.signed_url, target: "_blank", title: 'download mp3'
         td.admin-track__published
-          = track.published? ? (link_to_icon 'check', nil) :''
+          = track.published? ? (link_to_dark_icon 'check', nil) :''
         td.admin-track__edit-controls
-          = link_to_icon 'show', admin_track_path(track)
-          = link_to_icon 'edit', edit_admin_track_path(track)
-          = link_to_icon 'clone', clone_admin_track_path(track)
-          = link_to_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to_dark_icon 'show', admin_track_path(track)
+          = link_to_dark_icon 'edit', edit_admin_track_path(track)
+          = link_to_dark_icon 'clone', clone_admin_track_path(track)
+          = link_to_dark_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }

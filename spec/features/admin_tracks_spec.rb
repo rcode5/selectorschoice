@@ -9,10 +9,16 @@ feature 'Admin' do
   end
 
   context 'when there are a few tracks' do
+    let(:tracks) do
+      [
+        FactoryBot.create(:track, title: 'not ready for the world yet'),
+        FactoryBot.create(:track, :published, title: 'My Public Work'),
+        FactoryBot.create(:track, :with_tags, title: 'track with tags', recorded_on: 2.years.ago),
+      ]
+    end
+    let(:track_with_tags) { tracks.last }
     before do
-      FactoryBot.create(:track, title: 'not ready for the world yet')
-      FactoryBot.create(:track, :published, title: 'My Public Work')
-      FactoryBot.create(:track, :with_tags, title: 'track with tags', recorded_on: 2.years.ago)
+      tracks
       visit admin_index_path
     end
 
@@ -72,23 +78,27 @@ feature 'Admin' do
       expect(page).to have_content 'my style'
     end
 
-    scenario 'can update a track', js: true do
-      click_on 'tracks'
+    context 'with custom tags' do
+      scenario 'can update a track', js: true do
+        click_on 'tracks'
 
-      click_on_last 'Show'
+        within table_row_matching('track with tags') do
+          click_on 'Show'
+        end
 
-      expect(page).to have_content 'tag1, tag2'
-      expect(page).to have_content 'style1, style2'
+        expect(page).to have_content 'tag1, tag2'
+        expect(page).to have_content 'style1, style2'
 
-      click_on_first 'Edit'
+        click_on_first 'Edit'
 
-      fill_in :title, with: 'tagtrack with new title'
-      click_on 'Update Track'
+        fill_in :title, with: 'tagtrack with new title'
+        click_on 'Update Track'
 
-      expect(page).to have_content 'tagtrack with new title'
+        expect(page).to have_content 'tagtrack with new title'
 
-      expect(page).to have_content 'tag1, tag2'
-      expect(page).to have_content 'style1, style2'
+        expect(page).to have_content 'tag1, tag2'
+        expect(page).to have_content 'style1, style2'
+      end
     end
   end
 end

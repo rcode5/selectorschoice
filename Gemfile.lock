@@ -259,6 +259,8 @@ GEM
     parser (3.3.7.4)
       ast (~> 2.4.1)
       racc
+    pico-rails (1.5.3)
+      sassc (~> 2.0)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -476,6 +478,7 @@ DEPENDENCIES
   journey
   jquery-rails
   listen
+  pico-rails
   pry-byebug
   puma
   rails (~> 7.1.x)

@@ -1,9 +1,13 @@
 nav.admin-site-nav
+
   - if signed_in?
-    - links = [['dashboard', admin_index_path], ['tracks', admin_tracks_path]]
-    - links.each do |name, path|
-      - selected = (request.path == path) ? 'selected' : nil
-      .admin-site-nav__item  class=selected
-        = link_to name, path
-    .admin-site-nav__item
-      = link_to 'sign out', sign_out_path, method: :delete
+    ul
+      li.admin-site-nav__item
+        a href=root_path = "site"
+      - links = [['dashboard', admin_index_path], ['tracks', admin_tracks_path]]
+      - links.each do |name, path|
+        - selected = (request.path == path) ? 'selected' : nil
+        li.admin-site-nav__item  class=selected
+          = link_to name, path
+      li.admin-site-nav__item
+        = link_to 'sign out', sign_out_path, method: :delete

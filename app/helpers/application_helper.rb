@@ -15,6 +15,11 @@ module ApplicationHelper
     end
   end
 
+  def link_to_dark_icon(icon, link, opts = {})
+    icon_classes = (opts.delete :icon_classes) || []
+    link_to_icon icon, link, opts.merge(icon_classes: icon_classes + ['black'])
+  end
+
   def link_to_text(txt, link, opts = {})
     if link.present?
       link_to txt, link, opts
