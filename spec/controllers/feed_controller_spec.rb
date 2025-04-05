@@ -6,11 +6,13 @@ describe FeedController do
   render_views
 
   describe '#show.xml' do
-    let(:published_tracks) { [
-      FactoryBot.create(:track, recorded_on: 10.days.ago, published: true),
-      FactoryBot.create(:track, recorded_on: 20.days.ago, published: true),
-    ]}
-    let(:unpublished_track) { FactoryBot.create(:track, title: 'not here')}
+    let(:published_tracks) do
+      [
+        FactoryBot.create(:track, recorded_on: 10.days.ago, published: true),
+        FactoryBot.create(:track, recorded_on: 20.days.ago, published: true),
+      ]
+    end
+    let(:unpublished_track) { FactoryBot.create(:track, title: 'not here') }
     before do
       freeze_time do
         travel_to Time.zone.local(2025, 4, 2, 0, 0, 0, 0)
@@ -26,19 +28,19 @@ describe FeedController do
 
     context 'with the xml response' do
       it 'returns the items' do
-          get :show, format: :xml
-          xml_response = Nokogiri::XML(response.body)
+        get :show, format: :xml
+        xml_response = Nokogiri::XML(response.body)
 
-          expect(xml_response.xpath('//channel/title').text).to match 'Selectors Choice'
-          expect(xml_response.xpath('(//channel/item/title)[1]').text).to match published_tracks.first.title
-          expect(xml_response.xpath('(//channel/item/title)[2]').text).to match published_tracks.last.title
-          expect(xml_response.text).to_not include 'not here'
+        expect(xml_response.xpath('//channel/title').text).to match 'Selectors Choice'
+        expect(xml_response.xpath('(//channel/item/title)[1]').text).to match published_tracks.first.title
+        expect(xml_response.xpath('(//channel/item/title)[2]').text).to match published_tracks.last.title
+        expect(xml_response.text).to_not include 'not here'
 
-          expect(xml_response.xpath('//channel/pubDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
-          expect(xml_response.xpath('//channel/lastBuildDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
+        expect(xml_response.xpath('//channel/pubDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
+        expect(xml_response.xpath('//channel/lastBuildDate').text).to eq 'Wed, 02 Apr 2025 00:00:00 +0000'
 
-          expect(xml_response.xpath('(//channel/item/pubDate)[1]').text).to eq 'Sun, 23 Mar 2025 00:00:00 +0000'
-          expect(xml_response.xpath('(//channel/item/pubDate)[2]').text).to eq 'Thu, 13 Mar 2025 00:00:00 +0000'
+        expect(xml_response.xpath('(//channel/item/pubDate)[1]').text).to eq 'Sun, 23 Mar 2025 00:00:00 +0000'
+        expect(xml_response.xpath('(//channel/item/pubDate)[2]').text).to eq 'Thu, 13 Mar 2025 00:00:00 +0000'
       end
     end
   end
