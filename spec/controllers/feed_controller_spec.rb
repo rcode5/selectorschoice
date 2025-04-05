@@ -7,7 +7,7 @@ describe FeedController do
 
   before do
     allow(SelectorsChoice::CloudFront).to receive(:new).and_return(
-      instance_double(SelectorsChoice::CloudFront, get_presigned_url: "https://the-signed-url.com/")
+      instance_double(SelectorsChoice::CloudFront, get_presigned_url: 'https://the-signed-url.com/'),
     )
   end
   describe '#show.xml' do

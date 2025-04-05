@@ -40,6 +40,7 @@ feature 'Admin' do
       fill_in :recorded_on_time, with: '2:00pm'
       fill_in :track_filename, with: 'the_dir/the_file.mp3'
 
+      #      sleep 1
       click_on 'Create Track'
 
       expect(page).to have_content 'track with recorded time(draft)'
