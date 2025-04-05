@@ -12,12 +12,13 @@ xml.rss('version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/',
     xml.lastBuildDate @last_build_date.rfc822
     xml.itunes :author, 'Selectors Choice'
     xml.itunes :explicit, 'clean'
-    # xml.itunes :image, :href => image_url('cover.jpg')
+    xml.itunes :image, href: image_url('podcast_image.png')
     xml.itunes :owner do
       xml.itunes :name, 'Selectors Choice'
     end
     xml.itunes :block, 'no'
     xml.itunes :category, text: 'Music'
+    xml.itunes :summary, "This is a collection of recordings by dj's Disco Nap and Mr Rogers. Enjoy"
 
     @tracks.each do |track|
       xml.item do
