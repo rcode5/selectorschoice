@@ -51,6 +51,14 @@ class Track < ApplicationRecord
     )
   end
 
+  SEARCH_FIELDS_LUT = {
+    id: :track_id,
+    title: :title,
+    description: :description,
+    playlist: :playlist,
+    tags: :tags,
+  }.freeze
+
   private_class_method def self.track_fields
     @track_fields ||= SEARCH_FIELDS_LUT.keys
   end
@@ -60,14 +68,6 @@ class Track < ApplicationRecord
   end
 
   private
-
-  SEARCH_FIELDS_LUT = {
-    id: :track_id,
-     title: :title,
-     description: :description,
-     playlist: :playlist,
-     tags: :tags,
-  }.freeze
 
   def map_search_values
     self.class.send(:track_fields).map do |field|

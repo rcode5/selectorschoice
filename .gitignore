@@ -19,3 +19,5 @@ coverage/
 *.pem
 
 /config/master.key
+
+/config/credentials/test.key

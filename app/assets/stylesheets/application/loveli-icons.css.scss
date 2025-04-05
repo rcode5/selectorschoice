@@ -68,3 +68,6 @@ $column_size: -35px;
 .icon.icon-sign-out {
   @include icon_position(2,4);
 }
+.icon.icon-feed {
+  @include icon_position(3,5);
+}

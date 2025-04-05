@@ -39,9 +39,12 @@ A:hover {text-decoration: underline; color: $light_pink;}
 
 footer, .container {
   width: $width;
-  max-width: $max-width;
-  min-width: $min-width;
+  max-width: 95%;
   margin: auto;
+  @media screen and (min-width: $screen-md-max) {
+    max-width: $max-width;
+    min-width: $min-width;
+  }
 }
 footer {
   margin-top: 40px;
@@ -98,6 +101,11 @@ nav.site-nav {
     justify-content: center;
   }
 }
+
+button.podcast-rss-feed-button {
+  border-radius: 8px;
+}
+
 .nothing {
   .oops {
     text-align:center;
