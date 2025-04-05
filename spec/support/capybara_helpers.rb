@@ -102,7 +102,9 @@ module CapybaraHelpers
   def output_console_log(example)
     return unless example.metadata[:js]
 
+    # rubocop:disable Style/SafeNavigationChainLength
     logs = page.driver.browser&.manage&.logs&.get(:browser) || []
+    # rubocop:enable Style/SafeNavigationChainLength
     puts(logs.map { |line| "[JSLOG]: #{line}" }.join("\n"))
   end
 end

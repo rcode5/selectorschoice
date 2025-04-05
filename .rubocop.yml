@@ -18,7 +18,7 @@ inherit_from:
 # See http://rubocop.readthedocs.io/en/latest/configuration/#inheriting-configuration-from-a-remote-url for details.
 #
 
-require:
+plugins:
   - rubocop-performance
   - rubocop-rails
 
