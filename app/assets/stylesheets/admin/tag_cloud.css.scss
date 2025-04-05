@@ -1,0 +1,23 @@
+
+@import '../imports/mixins';
+@import '../imports/colors';
+@import '../imports/dimensions';
+
+.tag_cloud {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  line-height: 2.5em;
+  .css1 { font-size: 1.0em; }
+  .css2 { font-size: 1.2em; }
+  .css3 { font-size: 1.4em; }
+  .css4 { font-size: 1.6em; }
+  .tag {
+    @include border-radius(4px);
+    white-space: nowrap;
+    padding: 5px 7px;
+    margin: 5px;
+    border: 1px solid $pink;
+    background-color: $light_pink;
+  }
+}

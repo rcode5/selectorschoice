@@ -8,20 +8,16 @@ html
     link rel="icon" href="/favicon.png" type='image/png'
     title = @title
     = csrf_meta_tag
-    = stylesheet_link_tag :application, media: :all
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     = stylesheet_link_tag :admin, media: :all
     = javascript_include_tag :application
 
   - clz = [@current_section, controller.class.name.gsub(/.*::/,'').gsub(/Controller$/,'').tableize].join(' ')
   body.admin class=clz
-    .container
-      header
-        .site-name
-          a href=root_path = "selectors choice"
-        = render 'admin/common/nav'
-
-      .main id=@current_section
-        = render '/admin/common/flash'
-        = yield
-        .bottom_spacer
+    header.container-fluid
+      = render 'admin/common/nav'
+    main.container-fluid id=@current_section
+      = render '/admin/common/flash'
+      = yield
+      .bottom_spacer
     = render '/common/footer'

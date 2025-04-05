@@ -5,16 +5,13 @@ h1
 
 
 - if @published.empty? && @unpublished.empty?
-  .empty Maybe you ought to add some tracks!
+  section.empty Maybe you ought to add some tracks!
 - else
-  .tabs
-    - if @unpublished.present?
-      a href='#unpublished' class="current"  unpublished
-    - if @published.present?
-      a href='#published' published
-  - if @published.present?
-    .tab_content#published
-      = render 'tracks_table', tracks: @published
   - if @unpublished.present?
-    .tab_content#unpublished
+    section
+      h2 Unpublished
       = render 'tracks_table', tracks: @unpublished
+  - if @published.present?
+    section
+      h2 Published
+      = render 'tracks_table', tracks: @published

@@ -1,52 +1,52 @@
 .controls
   = link_to_icon :edit, edit_admin_track_path(@track)
   = link_to_icon :list, admin_tracks_path
-ul.admin-track-info
-  li
-    .label Title
-    .value
+.admin-track-info
+  dl
+    dt.label Title
+    dd.value
       = @track.title
       = @track.published? ? "(published)" : "(draft)"
 
-  li
-    .label Display Title
-    .value
+  dl
+    dt.label Display Title
+    dd.value
       = @track.display_title
 
-  li
-    .label Author
-    .value
+  dl
+    dt.label Author
+    dd.value
       = @track.author
 
-  li
-    .label Recorded on
-    .value
+  dl
+    dt.label Recorded on
+    dd.value
       = @track.recorded_on unless @track.recorded_on.blank?
 
-  li
-    .label Filename
-    .value = @track.filename
+  dl
+    dt.label Filename
+    dd.value = @track.filename
 
-  li
-    .label Signed URL
-    .value = @track.signed_url
+  dl
+    dt.label Signed URL
+    dd.value = @track.signed_url
 
-  li
-    .label Tags
-    .value = @track.tag_list.join(", ")
+  dl
+    dt.label Tags
+    dd.value = @track.tag_list.join(", ")
 
-  li
-    .label Styles
-    .value = @track.style_list.join(", ")
+  dl
+    dt.label Styles
+    dd.value = @track.style_list.join(", ")
 
-  li
-    .label Playlist:
-    .value.content.markup
+  dl
+    dt.label Playlist:
+    dd.value.content.markup
       = markup (@track.playlist || '')
 
-  li
-    .label Description:
-    .value.content.markup
+  dl
+    dt.label Description:
+    dd.value.content.markup
       = markup (@track.description || '')
 
 .controls.bottom
