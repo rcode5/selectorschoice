@@ -1,2 +1,2 @@
-- [:notice, :warning, :error].map{|k| [k, flash && flash[k]] }.reject{|k,v| v.nil? || v.empty?}.each do |k,v|
+- [:notice, :warning, :error, :alert].map{|k| [k, flash && flash[k]] }.reject{|k,v| v.nil? || v.empty?}.each do |k,v|
   div class="admin flash #{k}" = v

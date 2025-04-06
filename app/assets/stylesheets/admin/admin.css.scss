@@ -13,3 +13,10 @@ footer {
   gap: 20px;
   justify-content: flex-end;
 }
+
+.flash {
+  &.error, &.alert {
+    color: $dark-red;
+  }
+}
+
