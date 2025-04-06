@@ -5,3 +5,8 @@ Clearance.configure do |config|
   config.allow_sign_up = false
   config.rotate_csrf_on_sign_in = true
 end
+
+Rails.application.config.to_prepare do
+  Clearance::PasswordsController.layout 'admin'
+  Clearance::SessionsController.layout 'admin'
+end
