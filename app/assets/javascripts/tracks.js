@@ -4,7 +4,6 @@
 //
 $(function() {
   var getPlaylistStatus, getTrackTitle;
-  //b = new BrowserSniffer();
 
   var getDownloadLink = function(el, trackId) {
     return $.ajax({
