@@ -1,0 +1,47 @@
+/* mixins */
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+};
+
+$default-border-radius: 5px;
+
+@mixin border-radius($radius: $default-border-radius) {
+  border-radius: $radius;
+};
+
+@mixin border-radius-top($radius: $default-border-radius) {
+  @include border-radius-top-left($radius);
+  @include border-radius-top-right($radius);
+};
+
+@mixin border-radius-top-left($radius: $default-border-radius) {
+  border-top-left-radius: $radius;
+};
+
+@mixin border-radius-top-right($radius: $default-border-radius) {
+  border-top-right-radius: $radius;
+};
+
+@mixin gradient($from, $to) {
+  /* fallback/image non-cover color */
+  background-color: $from;
+  background: linear-gradient(90deg, $from 0%, $to 100%);
+
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient($from, $to);
+
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient($from, $to);
+
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from, $to);
+}
+
+@mixin drop-shadow ($x: 1px, $y: 1px, $blur: 2px, $spread: 0, $color: rgba(0,0,0,0.25)) {
+  box-shadow:         $x $y $blur $spread $color;
+}
+

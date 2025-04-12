@@ -4,7 +4,7 @@ http://jonthornton.github.com/jquery-timepicker/
 
 requires jQuery 1.7+
 ************************/
-
+import jQuery from 'jquery';
 
 (function (factory) {
     if (typeof define === 'function' && define.amd) {

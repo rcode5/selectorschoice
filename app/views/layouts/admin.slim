@@ -9,8 +9,8 @@ html
     title = @title
     = csrf_meta_tag
     link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    = stylesheet_link_tag :admin, media: :all
-    = javascript_include_tag :application
+    = vite_client_tag
+    = vite_javascript_tag 'admin'
 
   - clz = [@current_section, controller.class.name.gsub(/.*::/,'').gsub(/Controller$/,'').tableize].join(' ')
   body.admin class=clz

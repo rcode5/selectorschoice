@@ -1,0 +1,22 @@
+// /* admin */
+@use '../imports/mixins';
+@use '../imports/colors';
+@use '../imports/dimensions';
+@use '../application/loveli-icons.css.scss';
+
+header.container-fluid {
+  border-bottom: 1px solid colors.$light-gray;
+}
+
+footer {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}
+
+.flash {
+  &.error, &.alert {
+    color: colors.$dark-red;
+  }
+}
+

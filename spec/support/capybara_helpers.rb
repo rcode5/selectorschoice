@@ -80,10 +80,6 @@ module CapybaraHelpers
     end
   end
 
-  def fill_in_datepicker(id, with:)
-    page.execute_script("$('##{id}').val('#{with}')")
-  end
-
   ##
   #
   # This helper, appropriately placed in a JS feature spec, will allow you to output any logging that occurred in the

@@ -1,0 +1,16 @@
+
+@use '../imports/mixins';
+@use '../imports/colors';
+@use '../imports/dimensions';
+
+.simple_form, form {
+  span.hint {
+    margin-top: 4px;
+    display: block;
+    color: colors.$medium_gray;
+    font-size: small;
+  }
+  .input {
+    margin-bottom: 20px;
+  }
+}

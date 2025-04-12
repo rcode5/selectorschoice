@@ -17,8 +17,7 @@
 - if !@query.blank?
   .search-results
     - if @tracks.total_entries > 0
-      - @tracks.each do |track|
-        = render 'search_result', track: track
+      = render partial: 'search_result', collection: @tracks, as: :track
       - if @tracks.total_entries >= @tracks.per_page
         .apple_pagination
           = will_paginate @tracks,previous_label: '&laquo; newer', next_label: 'older &raquo;'

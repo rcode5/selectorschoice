@@ -39,7 +39,7 @@ Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
   driver.browser.save_screenshot(path)
 end
 
-Capybara.javascript_driver = %w[1 true on].include?(ENV.fetch('ACTUAL_CHROME', nil)) ? :chrome : :headless_chrome
+Capybara.javascript_driver = %w[0 false off].include?(ENV.fetch('HEADLESS', nil)) ? :chrome : :headless_chrome
 
 Capybara.default_max_wait_time = 5
 

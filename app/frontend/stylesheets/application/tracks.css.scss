@@ -1,0 +1,239 @@
+@use 'sass:color';
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
+
+h3 .author {
+  letter-spacing: 0px;
+}
+.tagged, .apple_pagination {
+  padding: dimensions.$block-padding;
+  margin-top: 8px;
+  margin-bottom: 0;
+  cursor: default;
+}
+
+.tagged, .apple_pagination {
+  border: 1px solid colors.$dark_gray;
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius(15px);
+  background-color: rgba(30, 0, 30, 0.8);
+  text-align: center;
+}
+.apple_pagination {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search_row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0;
+  width: 100%;
+  @include mixins.opacity(0.8);
+    z-index: 10001;
+  form.search {
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+  }
+  .selectize-control {
+    width:100%;
+  }
+  .selectize-control.multi .selectize-input.has-items {
+    padding-right: 30px;
+  }
+  .search {
+    position: relative;
+  }
+  .icon-search {
+    position: absolute;
+    right: 5px;
+    z-index: 20;
+    cursor: pointer;
+  }
+}
+.tagged {
+  .label {
+    color: colors.$gray_pink;
+    text-transform: uppercase;
+  }
+  .icon.icon-delete {
+    opacity: 0.7;
+    float: right;
+  }
+
+}
+.apple_pagination {
+  a, span {
+    padding: 0.2em 0.3em;
+  }
+  .disabled {
+    color: #aaaaaa;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: color.scale(colors.$xlight_gray, $lightness: -20%);
+    display: inline-block;
+    color: black;
+    width: 1.4em;
+    height: 1.4em;
+    line-height: 1.5;
+    @include mixins.border-radius(0.2em);
+    text-shadow: rgba(colors.$light_gray, .8) 0px 1px 1px;
+  }
+  a {
+    color: colors.$medium_gray;
+    text-decoration: none;
+    &:hover, &:focus {
+      text-decoration: underline
+    }
+  }
+}
+
+ul .track {
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius(15px);
+  background-color: rgba(30, 0, 30, 0.8);
+  display:block;
+  padding: 0 dimensions.$block-padding;
+  margin-top: dimensions.$block-margin;
+  margin-bottom: dimensions.$block-margin;
+  border: 1px solid colors.$dark_gray;
+  .hd {
+    .title {
+      padding: 8px 12px;
+      background-color: colors.$purple_background;
+      @include mixins.border-radius(4px);
+      margin-top: 18px;
+      font-size: 180%;
+      text-transform: uppercase;
+    }
+  }
+  .bd, .ft {
+    position: relative;
+    margin-top: 10px;
+  }
+  .ft {
+  }
+  .description, .tracklist {
+    margin-top: 10px;
+    color: colors.$pink_gray;
+    h3 {
+      color: colors.$dark_pink;
+    }
+  }
+  .description-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .description-header__title, .description-header__author {
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: colors.$dark_pink;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    h5 {
+      margin: 7px 10px 15px 0;
+    }
+  }
+  .tags, .styles {
+    line-height: 1.5em;
+    margin-bottom: 10px;
+    h5 {
+      color: colors.$dark_pink;
+    }
+    a.tag {
+      font-size: 80%;
+      color: colors.$xlight_gray;
+    }
+  }
+  .load-audio {
+    cursor: pointer;
+  }
+  h5, h6 { display:inline-block}
+  .download, .load-audio {
+    font-size: 18px;
+  }
+  .download {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+
+    .icon {
+      text-align: bottom;
+    }
+  }
+}
+.track, .tagged {
+  a:first-of-type {
+      margin-left: 0
+    }
+  .tag {
+    @include mixins.border-radius(4px);
+    font-size: 14px;
+    padding: 4px 9px;
+    margin: 5px;
+    border: 1px solid colors.$dark_gray;
+    background-color: colors.$purple_background;
+    display: inline-block;
+  }
+
+}
+
+.audio .pre-audio {
+  width: 400px;
+}
+
+.audiojs {
+  @include mixins.border-radius(10px);
+  @include mixins.opacity(0.9);
+  @include mixins.drop-shadow(0, 0, 3px, 1px, #646);
+  width: 350px;
+  .scrubber {
+    width: 180px;
+    @include mixins.border-radius(3px);
+    .progress {
+      @include mixins.gradient(#969, #747);
+    }
+  }
+  @include mixins.gradient(#202, #504);
+  .time {
+    em, strong {
+      font-family: helvetica, sans-serif;
+    }
+  }
+}
+
+.compactible {
+  overflow:hidden;
+  position: relative;
+  .open-close {
+    display: block;
+    font-size:24px;
+    cursor: pointer;
+    position: absolute;
+    left: 100px;
+    top: 0px;
+    color: colors.$gray_pink;
+  }
+}
+.compactible_tracklist {
+  display:none;
+}
+
+.markup {
+  line-height: 1.3em;
+  li {
+    line-height: 1.6em;
+  }
+  ul li:nth-child(2n) {
+    background-color: rgba(255,240,240,0.1);
+  }
+}
