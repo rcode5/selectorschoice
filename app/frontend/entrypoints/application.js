@@ -31,7 +31,6 @@ import Rails from '@rails/ujs';
 Rails.start();
 
 import 'jquery'
-import 'jquery-ujs'
 import 'selectize'
 import '../javascripts/onload'
 import '../javascripts/podcastButton'
