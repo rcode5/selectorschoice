@@ -1,0 +1,73 @@
+.icon {
+   display: inline-block;
+   width: 23px;
+   height: 23px;
+   overflow: hidden;
+   background-repeat: no-repeat;
+   background-color: transparent;
+   background-image: url("../../images/loveli-icons.png");
+}
+.icon.black {
+   background-image: url("../../images/loveli-icons-black.png");
+}
+
+$row_offset: -41px;
+$row_size: -35px;
+$column_offset: -40px;
+$column_size: -35px;
+
+@mixin icon_position($column, $row) {
+  background-position: ($column * $column_size + $column_offset) ($row * $row_size + $row_offset);
+}
+.icon.icon-search {
+  @include icon_position(7,3);
+}
+.icon.icon-add,
+.icon.icon-open {
+  @include icon_position(0,2);
+}
+.icon.icon-close,
+.icon.icon-minus {
+  @include icon_position(1,2);
+}
+.icon.icon-show {
+  @include icon_position(6,3);
+}
+.icon.icon-play {
+  @include icon_position(7,0);
+}
+.icon.icon-download, .icon.icon-external-url {
+  @include icon_position(0,3);
+}
+.icon.icon-edit {
+  @include icon_position(11,5);
+}
+.icon.icon-delete {
+  @include icon_position(3,2);
+}
+.icon.icon-list {
+  @include icon_position(0,2);
+}
+.icon.icon-check {
+  @include icon_position(2,2);
+}
+.icon.icon-clone {
+  @include icon_position(2,0);
+}
+.icon.icon-home {
+  @include icon_position(7,5);
+}
+.icon.icon-info,
+.icon.icon-about {
+  @include icon_position(1,4);
+}
+.icon.icon-dashboard,
+.icon.icon-settings {
+  @include icon_position(0,6);
+}
+.icon.icon-sign-out {
+  @include icon_position(2,4);
+}
+.icon.icon-feed {
+  @include icon_position(3,5);
+}

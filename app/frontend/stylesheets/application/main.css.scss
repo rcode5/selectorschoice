@@ -1,0 +1,139 @@
+@use "../imports/mixins";
+@use "../imports/colors";
+@use "../imports/dimensions";
+
+html, body {
+  background-color: colors.$black;
+  color: colors.$pink;
+  font-family: 'Montserrat', sans-serif, verdana;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url("/images/selectorschoice_webmain.png");
+  background-position: center 10px;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: dimensions.$screen-lg-max) {
+    background-size: initial;
+  }
+  @media screen and (max-width: dimensions.$screen-sm-max) {
+    background-size: 90vw;
+  }
+
+}
+
+ol, ul {
+  list-style: none;
+  margin:0;
+  padding: 0;
+  li {
+    margin:0;
+    padding: 0;
+  }
+}
+
+A:link, a:visited {text-decoration: none; color: colors.$gray_pink;}
+A:active {text-decoration: none}
+A:hover {text-decoration: underline; color: colors.$light_pink;}
+
+footer, .container {
+  width: dimensions.$width;
+  max-width: 95%;
+  margin: auto;
+  @media screen and (min-width: dimensions.$screen-md-max) {
+    max-width: dimensions.$max-width;
+    min-width: dimensions.$min-width;
+  }
+}
+footer {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align:right;
+  span {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: x-small;
+    border-left: 1px solid colors.$light_gray;
+  }
+  span:last-child {
+    margin-right:10px;
+  }
+  span:first-child {
+    border-left: 0;
+  }
+}
+body, .container {
+  min-height: 570px;
+}
+.container {
+  min-height: 570px;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .home {
+    height: dimensions.$header_offset;
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  color: colors.$gray_pink;
+}
+h4, h5, h6 {
+  letter-spacing: inherit;
+}
+
+nav.site-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .site-nav__entry {
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+button.podcast-rss-feed-button {
+  border-radius: 8px;
+}
+
+.nothing {
+  .oops {
+    text-align:center;
+    font-size: 400%;
+    color: white;
+    white-space: nowrap;
+  }
+  font-size: 200%;
+  color: colors.$xlight_gray;
+  width: 40%;
+  margin: auto;
+}
+
+.flash {
+  position: fixed;
+  width: dimensions.$max-width;
+  padding: dimensions.$block-padding;
+  margin: dimensions.$block-margin;
+  cursor: default;
+  border: 1px solid colors.$dark_gray;
+  @include mixins.drop-shadow(0, 0, 2px, 1px, colors.$medium_dark_gray);
+  @include mixins.border-radius(15px);
+  background-color: rgba(0,0,0,.6);
+  @include mixins.opacity(1);
+  text-align: center;
+  z-index: 20;
+}
+
+.ie {
+  display: none;
+}

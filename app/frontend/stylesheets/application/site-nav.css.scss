@@ -1,0 +1,7 @@
+@use "../imports/colors";
+
+.site-nav__item + .site-nav__item {
+  margin-left: 4px;
+  padding-left: 4px;
+  border-left: 1px solid colors.$light_gray;
+}

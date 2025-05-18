@@ -18,6 +18,12 @@ jobs:
         uses: actions/checkout@v3
       - name:
         run: cat config/database.yml
+      - name: Node setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'yarn'
+      - run: yarn install
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:

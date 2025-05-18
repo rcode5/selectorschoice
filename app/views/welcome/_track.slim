@@ -8,7 +8,7 @@ li.track
         = track.pretty_title
   .bd
     .audio
-      img.js-pre-audio.pre-audio track_id=track.id src=image_url('dummy_media_player.png')
+      img.js-pre-audio.pre-audio src='/images/dummy_media_player.png' track_id=track.id
 
     - if track.description.present?
       .description.markup
