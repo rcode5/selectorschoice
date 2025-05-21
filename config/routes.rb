@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :tracks do
       member do
         get :clone
+        post :publish
       end
     end
   end

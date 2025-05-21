@@ -183,6 +183,27 @@ describe Admin::TracksController do
       end
     end
 
+    describe 'POST publish' do
+      let(:unpublished_track) { FactoryBot.create(:track, updated_at: 1.year.ago.to_date) }
+
+      it 'marks a track published' do
+        expect {
+          post :publish, params: { id: unpublished_track.id }
+        }.to change { unpublished_track.reload.published }.from(nil).to(true)
+        expect(unpublished_track.updated_at).to be_within(1.day).of(Time.current)
+      end
+
+      context 'if the track was already published' do
+        let(:published_track) { FactoryBot.create(:track, :published, updated_at: 1.year.ago) }
+        it 'does nothing' do
+          expect {
+            post :publish, params: { id: published_track.id }
+          }.not_to change { published_track.reload.published }
+          expect(published_track.updated_at.to_date).to eq 1.year.ago.to_date
+        end
+      end
+    end
+
     describe 'DELETE destroy' do
       before do
         @track = Track.create! valid_attributes

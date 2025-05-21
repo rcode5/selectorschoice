@@ -32,4 +32,5 @@ table.admin-tracks__table.striped
           = link_to_dark_icon 'show', admin_track_path(track)
           = link_to_dark_icon 'edit', edit_admin_track_path(track)
           = link_to_dark_icon 'clone', clone_admin_track_path(track)
+          = link_to_dark_icon 'lightning', publish_admin_track_path(track), method: :post, title: 'publish' unless track.published
           = link_to_dark_icon 'delete', admin_track_path(track), method: :delete, data: { confirm: 'Are you sure?' }

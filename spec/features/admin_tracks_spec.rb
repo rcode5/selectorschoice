@@ -29,7 +29,7 @@ feature 'Admin' do
       expect(page).to have_content 'In the wings:2'
     end
 
-    scenario 'can add a track', js: true do
+    scenario 'can add a track and publish it', js: true do
       click_on 'tracks'
 
       click_on 'add new track'
@@ -46,11 +46,14 @@ feature 'Admin' do
       fill_in :recorded_on_time, with: '2:00pm'
       fill_in :track_filename, with: 'the_dir/the_file.mp3'
 
-      #      sleep 1
       click_on 'Create Track'
 
       expect(page).to have_content 'track with recorded time(draft)'
       expect(page).to have_content '2020-10-02'
+
+      visit admin_tracks_path
+      click_on_last 'publish'
+      expect(page).to have_content 'track with recorded time has been published!'
     end
 
     scenario 'can add a track with tags', js: true do

@@ -31,6 +31,7 @@ require 'rspec/rails'
 require 'factory_bot'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
+require 'rspec/retry'
 
 Rails.root.glob('spec/factories/**/*.rb').each { |f| require f }
 Rails.root.glob('spec/support/**/*.rb').each { |f| require f }
@@ -69,5 +70,21 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.example_status_persistence_file_path = 'tmp/rspec'
+
+  # show retry status in spec process
+  config.verbose_retry = true
+  # show exception that triggers a retry if verbose_retry is set to true
+  config.display_try_failure_messages = true
+
+  # run retry only on features
+  config.around :each, :js do |ex|
+    ex.run_with_retry retry: ENV['CI'] ? 2 : 1
+  end
+
+  # callback to be run between retries
+  config.retry_callback = proc do |ex|
+    # run some additional clean up task - can be filtered by example metadata
+    Capybara.reset! if ex.metadata[:js]
+  end
 end
 Capybara::Screenshot.autosave_on_failure = true
