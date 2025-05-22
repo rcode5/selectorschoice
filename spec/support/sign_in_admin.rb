@@ -9,6 +9,7 @@ module SignInAdmin
       fill_in :session_email, with: admin.email
       fill_in :session_password, with: password
       click_on 'Sign in'
+      expect(page).to have_current_path(admin_index_path)
     end
   end
 end

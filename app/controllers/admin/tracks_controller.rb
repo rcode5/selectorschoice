@@ -66,6 +66,12 @@ module Admin
       end
     end
 
+    def publish
+      track = Track.find(params[:id])
+      track.update!(published: true) unless track.published
+      redirect_to admin_tracks_path, notice: "#{track.title} has been published!"
+    end
+
     def destroy
       @track = Track.find(params[:id])
       @track.destroy
