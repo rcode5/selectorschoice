@@ -1,21 +1,20 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.1.3'
+ruby '3.3.6'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
 gem 'aws-sdk-cloudfront', '~> 1.118'
 gem 'aws-sdk-s3', '~> 1'
 gem 'clearance'
-gem 'coffee-rails'
 gem 'dotenv-rails'
 gem 'fast_jsonapi'
 gem 'journey'
 gem 'jquery-rails'
 gem 'listen'
 gem 'puma'
-gem 'rails', '~> 7.1.x'
+gem 'rails', '~> 8.0.x'
 gem 'rdiscount'
 gem 'simple_form'
 gem 'slim'
