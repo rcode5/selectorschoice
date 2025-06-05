@@ -86,9 +86,9 @@ module Admin
 
     def track_params
       recorded_on = recorded_on_from_params
-      attrs = params.require(:track).permit(:description, :display_title,
-                                            :playlist, :title, :filename, :recorded_on,
-                                            :tag_list, :style_list, :author, :published)
+      attrs = params.expect(track: %i[description display_title
+                                      playlist title filename recorded_on
+                                      tag_list style_list author published])
       attrs[:tag_list] = process_tag_params(attrs[:tag_list])
       attrs[:style_list] = process_tag_params(attrs[:style_list])
       attrs[:recorded_on] = recorded_on if recorded_on

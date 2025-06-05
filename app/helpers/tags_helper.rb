@@ -10,7 +10,7 @@ module TagsHelper
     tags << tag_contents
     tags = tags.uniq.compact.sort
     anchor_html_opts[:href] = root_path(tags: tags.join(',')) if anchor_html_opts[:href].blank?
-    anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].flatten.join(' ')
+    anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].join(' ')
     if anchor_html_opts[:href].present?
       tag.a(**anchor_html_opts) do
         render_tag(tag_contents, span_html_opts)
@@ -29,7 +29,7 @@ module TagsHelper
       opts = { tags: tags.join(',') } if tags.present?
       anchor_html_opts[:href] = root_path(opts)
     end
-    anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].flatten.join(' ')
+    anchor_html_opts[:class] = [[anchor_html_opts[:class] || ''], 'tag'].join(' ')
     if anchor_html_opts[:href].present?
       tag.a anchor_html_opts do
         render_tag(tag_contents, span_html_opts)
