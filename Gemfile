@@ -5,7 +5,7 @@ ruby '3.3.6'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
-gem 'aws-sdk-cloudfront', '~> 1.118'
+gem 'aws-sdk-cloudfront', '~> 1.127'
 gem 'aws-sdk-s3', '~> 1'
 gem 'clearance'
 gem 'dotenv-rails'
