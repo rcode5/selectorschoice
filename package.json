@@ -12,7 +12,7 @@
     "mediaelement": "^7.0.7",
     "sass-embedded": "^1.86.3",
     "selectize": "^0.12.6",
-    "vite": "^5.0.0",
+    "vite": "^5.4.20",
     "vite-plugin-ruby": "^5.1.0"
   },
   "dependencies": {}
