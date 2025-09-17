@@ -329,7 +329,7 @@ GEM
     regexp_parser (2.10.0)
     reline (0.6.1)
       io-console (~> 0.5)
-    rexml (3.4.1)
+    rexml (3.4.2)
     rouge (4.5.2)
     rspec-collection_matchers (1.2.1)
       rspec-expectations (>= 2.99.0.beta1)
