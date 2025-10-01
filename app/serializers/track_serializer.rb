@@ -2,5 +2,6 @@
 
 class TrackSerializer
   include FastJsonapi::ObjectSerializer
+
   attributes :signed_url
 end
