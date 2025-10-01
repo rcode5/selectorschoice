@@ -3,6 +3,7 @@
 module MockCredentials
   class MockAws
     include ActiveModel::Model
+
     attr_accessor :access_key,
                   :cloud_front_domain,
                   :key_pair_id,
