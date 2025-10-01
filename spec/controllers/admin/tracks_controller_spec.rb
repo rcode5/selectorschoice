@@ -136,14 +136,14 @@ describe Admin::TracksController do
         it 'properly updates tags' do
           track = Track.create! valid_attributes
           put :update, params: { id: track.to_param, track: { tag_list: 'tag1,tag2' } }
-          expect(Track.find(track.id).tag_list).to match_array %w[tag2 tag1]
+          expect(Track.friendly.find(track.id).tag_list).to match_array %w[tag2 tag1]
         end
 
         it 'properly updates tags' do
           track = Track.create! valid_attributes(tag_list: %w[this that])
-          expect(Track.find(track.id).tag_list).to match_array %w[that this]
+          expect(Track.friendly.find(track.id).tag_list).to match_array %w[that this]
           put :update, params: { id: track.to_param, track: { tag_list: 'this' } }
-          expect(Track.find(track.id).tag_list).to match_array ['this']
+          expect(Track.friendly.find(track.id).tag_list).to match_array ['this']
         end
 
         12.times do |hr|
@@ -155,7 +155,7 @@ describe Admin::TracksController do
             track = Track.create! valid_attributes
             put :update, params: { id: track.to_param, track: { title: track.title },
               recorded_on_day: '01 Mar, 2013', recorded_on_time: clock_time }
-            r = Track.find(track.id).recorded_on
+            r = Track.friendly.find(track.id).recorded_on
             expect(r.month).to eql 3
             expect(r.day).to eql 1
             expect(r.year).to eql 2013

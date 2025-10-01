@@ -189,6 +189,8 @@ GEM
     ffi-compiler (1.3.2)
       ffi (>= 1.15.5)
       rake
+    friendly_id (5.5.1)
+      activerecord (>= 4.0.0)
     fuubar (2.5.1)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -471,6 +473,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot
   fast_jsonapi
+  friendly_id
   fuubar
   journey
   jquery-rails

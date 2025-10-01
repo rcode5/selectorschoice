@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_01_060421) do
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -47,6 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
     t.string "author"
     t.boolean "published"
     t.string "filename"
+    t.string "slug"
+    t.index ["slug"], name: "index_tracks_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,4 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_152546) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  # Virtual tables defined in this database.
+  # Note that virtual tables may not work with other database engines. Be careful if changing database.
+  create_virtual_table "track_search", "fts5", ["title", "description", "tracklist", "tags", "track_id"]
+  create_virtual_table "track_searches", "fts5", ["title", "description", "playlist", "tags", "track_id"]
 end

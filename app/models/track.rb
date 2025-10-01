@@ -3,6 +3,8 @@
 require Rails.root.join('lib/cloud_front')
 
 class Track < ApplicationRecord
+  extend FriendlyId
+
   validates :title, presence: true
   validates :filename, presence: true
   acts_as_taggable
@@ -15,6 +17,8 @@ class Track < ApplicationRecord
   scope :unpublished, -> { where(published: [nil, false]) }
 
   has_many :track_searches, dependent: :destroy
+
+  friendly_id :title, use: :slugged
 
   def pretty_title
     display_title.presence || title
