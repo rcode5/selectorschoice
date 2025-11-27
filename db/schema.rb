@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_01_060421) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_01_060421) do
   create_table "taggings", force: :cascade do |t|
-    t.integer "tag_id"
-    t.string "taggable_type"
-    t.integer "taggable_id"
-    t.string "tagger_type"
-    t.integer "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at", precision: nil
+    t.integer "tag_id"
+    t.integer "taggable_id"
+    t.string "taggable_type"
+    t.integer "tagger_id"
+    t.string "tagger_type"
     t.index ["context"], name: "index_taggings_on_context"
     t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
@@ -37,27 +37,27 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_01_060421) do
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.string "title"
-    t.string "display_title"
-    t.text "playlist"
-    t.text "description"
-    t.datetime "recorded_on", precision: nil
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
     t.string "author"
-    t.boolean "published"
+    t.datetime "created_at", precision: nil
+    t.text "description"
+    t.string "display_title"
     t.string "filename"
+    t.text "playlist"
+    t.boolean "published"
+    t.datetime "recorded_on", precision: nil
     t.string "slug"
+    t.string "title"
+    t.datetime "updated_at", precision: nil
     t.index ["slug"], name: "index_tracks_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "confirmation_token", limit: 128
+    t.datetime "created_at", precision: nil
     t.string "email"
     t.string "encrypted_password", limit: 128
-    t.string "salt", limit: 128
-    t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
-    t.datetime "created_at", precision: nil
+    t.string "salt", limit: 128
     t.datetime "updated_at", precision: nil
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
