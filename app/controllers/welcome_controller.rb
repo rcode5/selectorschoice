@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
   def index
     if tags_params.present?
       @tags = tags_params
-      @tracks = Track.published.tagged_with(@tags, any: true)
+      @tracks = Track.published.tagged_with(@tags, any: true).distinct
       if params[:search].present?
         flash.now[:notice] =
           "We found #{'track'.pluralize(@tracks.length)} " \
