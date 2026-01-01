@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '3.3.6'
+ruby '3.4.8'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'ruby_audit'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
