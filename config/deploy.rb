@@ -31,8 +31,8 @@ set :repo_url, 'git@github.com:rcode5/selectorschoice.git' # 'git@example.com:me
 
 # Default value for :linked_files is []
 append :linked_files, 'config/database.yml',
-       'config/credentials.yml.enc',
-       'config/master.key',
+       'config/credentials/production.key',
+       'config/credentials/production.yml.enc',
        'config/puma.rb',
        'selectors_choice_production.sqlite3',
        'aws_cf_private_key.pem'
