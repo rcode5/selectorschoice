@@ -5,8 +5,8 @@ lock '~> 3.20.0'
 
 set :nvm_type, :user # or :system, depends on your nvm setup
 set :nvm_node, 'v24.13.1'
-set :nvm_prefix, "/home/deploy/.nvm/nvm.sh"
-set :nvm_map_bins, %w{node npm yarn bundle}
+set :nvm_prefix, '/home/deploy/.nvm/nvm.sh'
+set :nvm_map_bins, %w[node npm yarn bundle]
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, File.read('.ruby-version').strip
@@ -18,7 +18,6 @@ set :rbenv_roles, :all # default value
 
 set :application, 'selectors_choice'
 set :repo_url, 'git@github.com:rcode5/selectorschoice.git' # 'git@example.com:me/my_repo.git'
-
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

@@ -30,9 +30,9 @@ group :development do
   gem 'binding_of_caller'
   gem 'capistrano', require: false
   gem 'capistrano3-puma', require: false
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
-  gem 'capistrano-nvm', require: false
 end
 
 group :development, :test do
