@@ -31,14 +31,14 @@ import Rails from '@rails/ujs';
 Rails.start();
 
 import 'jquery'
-import 'selectize'
+import '@selectize/selectize'
 import '../javascripts/onload'
 import '../javascripts/podcastButton'
 import '../javascripts/tracks'
 import 'mediaelement'
 
 // css
-import 'selectize/dist/css/selectize.default.css';
+import '@selectize/selectize/dist/css/selectize.default.css';
 import '../stylesheets/application/about.css.scss';
 import '../stylesheets/application/loveli-icons.css.scss';
 import '../stylesheets/application/main.css.scss';
