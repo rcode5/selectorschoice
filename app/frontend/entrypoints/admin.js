@@ -24,7 +24,7 @@ window.jQuery = jQuery
 import '../javascripts/admin'
 
 // stylesheets
-import 'selectize/dist/css/selectize.default.css';
+import '@selectize/selectize/dist/css/selectize.default.css';
 import '../../../vendor/assets/stylesheets/jquery.timepicker.css';
 import '../stylesheets/admin/admin.css.scss';
 import '../stylesheets/admin/admin_forms.css.scss';

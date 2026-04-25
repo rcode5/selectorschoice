@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import '../../../vendor/assets/javascripts/jquery.timepicker';
-import 'selectize';
+import '@selectize/selectize'
 
 $(function() {
   $('.timepicker').timepicker()
