@@ -4,6 +4,7 @@
 require 'capistrano/setup'
 require 'capistrano/deploy'
 require 'capistrano/puma'
+require 'capistrano/nvm'
 
 # Load the SCM plugin appropriate to your project:
 #
