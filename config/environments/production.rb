@@ -51,12 +51,8 @@ Rails.application.configure do
   config.active_support.report_deprecations = false
 
   # Replace the default in-process memory cache store with a durable alternative.
-  config.cache_store = :mem_cache_store
+  config.cache_store = :mem_cache_store, { serializer: JSON }
 
-  client = Dalli::Client.new('localhost:11211',
-                             socket_timeout: 1.5,
-                             socket_failure_delay: 0.2,
-                             value_max_bytes: 5_000_000) # max value size ~5M
   config.action_dispatch.rack_cache = {
     metastore: client,
     entitystore: client,
