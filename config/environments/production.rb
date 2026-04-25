@@ -53,6 +53,16 @@ Rails.application.configure do
   # Replace the default in-process memory cache store with a durable alternative.
   config.cache_store = :mem_cache_store
 
+  client = Dalli::Client.new('localhost:11211',
+                             socket_timeout: 1.5,
+                             socket_failure_delay: 0.2,
+                             value_max_bytes: 5_000_000) # max value size ~5M
+  config.action_dispatch.rack_cache = {
+    metastore: client,
+    entitystore: client,
+  }
+  config.static_cache_control = 'public, max-age=2592000'
+
   # Replace the default in-process and non-durable queuing backend for Active Job.
   # config.active_job.queue_adapter = :resque
 

@@ -312,6 +312,8 @@ GEM
     rack (3.2.6)
     rack-attack (6.8.0)
       rack (>= 1.0, < 4)
+    rack-cache (1.17.0)
+      rack (>= 0.4)
     rack-proxy (0.7.7)
       rack
     rack-session (2.1.2)
@@ -533,6 +535,7 @@ DEPENDENCIES
   pry-byebug
   puma
   rack-attack
+  rack-cache
   rails (~> 8.0.x)
   rails-controller-testing
   rdiscount
