@@ -5,7 +5,7 @@ ruby '4.0.5'
 
 gem 'acts-as-taggable-on'
 gem 'addressable'
-gem 'aws-sdk-cloudfront', '~> 1.118'
+gem 'aws-sdk-cloudfront', '~> 1.150'
 gem 'aws-sdk-s3', '~> 1'
 gem 'clearance'
 gem 'dalli'
